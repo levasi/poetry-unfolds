@@ -1,4 +1,4 @@
-# PoetryHub — Product Roadmap & Audit
+# Poetry Unfolds — Product Roadmap & Audit
 
 > Last updated: 2026-04-03
 
@@ -6,7 +6,7 @@
 
 ## Product Overview
 
-**PoetryHub** is a bilingual (Romanian/English) poetry reading platform with:
+**Poetry Unfolds** is a bilingual (Romanian/English) poetry reading platform with:
 - A curated library of classic and AI-generated poems
 - A distraction-free reader with 14 fonts and full typography control
 - An Instagram carousel generator (PNG/ZIP export)
@@ -100,7 +100,7 @@
 - `hreflang` for ro/en alternate pages
 - JSON-LD: `Poem` and `Person` schema on respective detail pages
 - `og:image` dynamic generation (server-rendered card with poem text)
-- Carousel export Instagram tag prompt: "Tag @poetryhub when you post"
+- Carousel export Instagram tag prompt: "Tag @poetryunfolds when you post"
 
 **Viral loops to build:**
 - Shareable favorites: `/favorites/[username]` public page
@@ -161,6 +161,6 @@
 
 ## Startup Ideas from This Codebase
 
-1. **PoetryHub for Schools** — White-label the reading platform for Romanian literature teachers. Add student accounts, reading assignments, annotation tools. B2B SaaS with annual contracts.
+1. **Poetry Unfolds for Schools** — White-label the reading platform for Romanian literature teachers. Add student accounts, reading assignments, annotation tools. B2B SaaS with annual contracts.
 2. **Versuri.ai** — Spin off the carousel generator + write tool for Romanian music/lyrics creators. The dictionary + rhyme finder + Instagram export is a complete product for an underserved niche.
 3. **PoemCast** — Daily poem audio subscription via ElevenLabs (Romanian voice model). Send as podcast episode or WhatsApp audio. €2/month. Content library and daily poem infra already built.

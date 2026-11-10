@@ -4,18 +4,18 @@ services:
     image: postgres:16-alpine
     restart: unless-stopped
     environment:
-      POSTGRES_USER: poetryhub
-      POSTGRES_PASSWORD: poetryhub_dev
-      POSTGRES_DB: poetryhub
+      POSTGRES_USER: poetry_unfolds
+      POSTGRES_PASSWORD: poetry_unfolds_dev
+      POSTGRES_DB: poetry_unfolds
     ports:
       - "5433:5432"
     volumes:
-      - poetryhub_pgdata:/var/lib/postgresql/data
+      - poetry_unfolds_pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U poetryhub -d poetryhub"]
+      test: ["CMD-SHELL", "pg_isready -U poetry_unfolds -d poetry_unfolds"]
       interval: 3s
       timeout: 5s
       retries: 10
 
 volumes:
-  poetryhub_pgdata:
+  poetry_unfolds_pgdata:

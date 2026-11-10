@@ -2,14 +2,14 @@
 definePageMeta({ layout: 'docs' })
 
 useHead({
-  title: 'Documentație — PoetryHub',
+  title: 'Documentație — Poetry Unfolds',
 })
 </script>
 
 <template>
   <div class="docs-page"><DocsProse>
     <span class="docs-eyebrow">Start</span>
-    <h1>Documentație PoetryHub</h1>
+    <h1>Documentație Poetry Unfolds</h1>
     <p class="lead">
       Ghid tehnic pentru stack-ul aplicației, rutele API, funcționalitățile produsului și instrumentele de dezvoltare.
       Folosește meniul vertical din sidebar — fiecare secțiune are submeniuri expandabile.
@@ -17,7 +17,7 @@ useHead({
 
     <h2>Arhitectură</h2>
     <p>
-      PoetryHub este o aplicație full-stack construită cu <strong>Nuxt 3</strong> (Vue 3 + Nitro).
+      Poetry Unfolds este o aplicație full-stack construită cu <strong>Nuxt 3</strong> (Vue 3 + Nitro).
       Frontend-ul și backend-ul trăiesc în același repo: paginile sunt în <code>pages/</code>, iar API-ul serverless
       în <code>server/api/</code>. Datele persistente sunt în <strong>PostgreSQL</strong> prin <strong>Prisma</strong>.
       Deploy-ul țintă este <strong>Vercel</strong> (preset Nitro <code>vercel</code>).

@@ -23,7 +23,7 @@ withDefaults(
       height="24"
     >
     <span class="app-logo__wordmark">
-      Poetry<span class="app-logo__hub">Hub</span>
+      Poetry <span class="app-logo__hub">Unfolds</span>
     </span>
   </span>
 </template>

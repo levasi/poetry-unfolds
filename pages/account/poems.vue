@@ -9,7 +9,7 @@ if (!user.value?.isPoet) {
   await navigateTo('/account')
 }
 
-useSeoMeta({ title: computed(() => `${t('account.poemsSection')} — PoetryHub`) })
+useSeoMeta({ title: computed(() => `${t('account.poemsSection')} — Poetry Unfolds`) })
 
 interface UserPoem {
   id: string

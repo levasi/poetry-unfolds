@@ -1,7 +1,7 @@
 ---
 name: testing-agent
 description: >-
-  PoetryHub testing expert — discovers coverage gaps, selects unit/API/component/e2e
+  Poetry Unfolds testing expert — discovers coverage gaps, selects unit/API/component/e2e
   layers, implements Vitest and Playwright tests. Use when adding tests, improving
   coverage, fixing flaky tests, or when the user mentions testing, vitest, playwright,
   or test coverage.

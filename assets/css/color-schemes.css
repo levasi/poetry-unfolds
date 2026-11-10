@@ -1,5 +1,5 @@
 /**
- * PoetryHub color schemes — semantic tokens as RGB triplets for Tailwind
+ * Poetry Unfolds color schemes — semantic tokens as RGB triplets for Tailwind
  * `rgb(var(--color-*) / <alpha-value>)`. Applied via `data-color-scheme` on <html>.
  */
 
@@ -143,7 +143,7 @@
 
 /**
  * Parchment / “Hartă” mockup — aged cream paper, coffee & sepia type, bronze accents.
- * Light variant inspired by the vintage map UI (PoetryHub.ro historic map concept).
+ * Light variant inspired by the vintage map UI (poetryunfolds.com historic map concept).
  */
 [data-color-scheme='parchment'] {
   color-scheme: light;
@@ -180,7 +180,7 @@
     0 14px 44px -8px rgb(50 38 28 / 0.18), 0 4px 20px -6px rgb(60 45 32 / 0.1);
 }
 
-/** Historic map variant — deep navy paper, antique gold accents (PoetryHub.ro “Hartă istorică”) */
+/** Historic map variant — deep navy paper, antique gold accents (poetryunfolds.com “Hartă istorică”) */
 [data-color-scheme='historic'] {
   color-scheme: dark;
   --color-surface-page: 10 14 20;

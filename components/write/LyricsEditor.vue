@@ -109,7 +109,7 @@ function toggleSavedWordInput() {
 type VerseBlock = { id: string; text: string; column: number }
 type ColumnCount = WriteColumnCount
 
-const COLUMNS_KEY = 'poetryhub-write-verse-columns-v1'
+const COLUMNS_KEY = 'poetry-unfolds-write-verse-columns-v1'
 const COLUMN_OPTIONS: ColumnCount[] = [1, 2, 3]
 
 function newBlockId(): string {

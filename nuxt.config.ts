@@ -88,7 +88,7 @@ let nitroInlineRuntimeConfig: Record<string, unknown> | null = null
 
 function injectNitropackRuntimeConfig(): import('vite').Plugin {
   return {
-    name: 'poetryhub:nitropack-runtime-config',
+    name: 'poetry-unfolds:nitropack-runtime-config',
     enforce: 'pre',
     transform(code, id) {
       const normalized = id.replace(/\\/g, '/')
@@ -112,8 +112,8 @@ function cacheNitroInlineRuntimeConfig(nuxt: { options: { runtimeConfig: Record<
 }
 
 /** Must run before Vite can transform nitropack SSR deps; `modules:done` refreshes late mutations. */
-const poetryhubNitroRuntimeCache = defineNuxtModule({
-  meta: { name: 'poetryhub-nitro-runtime-cache' },
+const poetryUnfoldsNitroRuntimeCache = defineNuxtModule({
+  meta: { name: 'poetry-unfolds-nitro-runtime-cache' },
   setup(_options, nuxt) {
     cacheNitroInlineRuntimeConfig(nuxt)
     nuxt.hooks.hook('modules:done', () => {
@@ -127,7 +127,7 @@ const poetryhubNitroRuntimeCache = defineNuxtModule({
  */
 function nitropackVirtualShimPlugin(): import('vite').Plugin {
   return {
-    name: 'poetryhub:nitropack-virtual-shims',
+    name: 'poetry-unfolds:nitropack-virtual-shims',
     enforce: 'pre',
     resolveId(id) {
       if (id === '#nitro-internal-virtual/error-handler') {
@@ -152,7 +152,7 @@ function nitropackVirtualShimPlugin(): import('vite').Plugin {
  */
 function nitropackSsrBundlePlugin(): import('vite').Plugin {
   return {
-    name: 'poetryhub:bundle-nitropack-ssr',
+    name: 'poetry-unfolds:bundle-nitropack-ssr',
     enforce: 'post',
     configEnvironment(name, config) {
       if (name !== 'ssr') return
@@ -236,7 +236,7 @@ export default defineNuxtConfig({
     viteEnvironmentApi: false,
   },
 
-  modules: [poetryhubNitroRuntimeCache, '@pinia/nuxt', '@nuxtjs/i18n', '@nuxtjs/storybook'],
+  modules: [poetryUnfoldsNitroRuntimeCache, '@pinia/nuxt', '@nuxtjs/i18n', '@nuxtjs/storybook'],
 
   storybook: {
     host: 'http://127.0.0.1',
@@ -264,7 +264,7 @@ export default defineNuxtConfig({
     // Private (server-only)
     databaseUrl: process.env.DATABASE_URL || '',
     jwtSecret: process.env.JWT_SECRET || 'change-me-in-production',
-    adminEmail: process.env.ADMIN_EMAIL || 'admin@poetryhub.com',
+    adminEmail: process.env.ADMIN_EMAIL || 'admin@poetryunfolds.com',
     adminPassword: process.env.ADMIN_PASSWORD || 'admin123',
     poetryDbUrl: process.env.POETRY_DB_URL || 'https://poetrydb.org',
     /** Optional: improves poem date enrichment when Wikipedia has no extract */
@@ -279,7 +279,7 @@ export default defineNuxtConfig({
     oauthGoogleClientSecret: process.env.NUXT_OAUTH_GOOGLE_CLIENT_SECRET || '',
     // Public (client + server)
     public: {
-      appName: 'PoetryHub',
+      appName: 'Poetry Unfolds',
       appUrl: process.env.NUXT_PUBLIC_APP_URL || 'http://localhost:3000',
       /** @deprecated Login/signup use GET /api/auth/google-config (runtime) so the button works when env is only set on the server at deploy time. */
       googleSignInEnabled: Boolean(
@@ -320,7 +320,7 @@ export default defineNuxtConfig({
   // App-level meta
   app: {
     head: {
-      title: 'PoetryHub — Citește, descoperă și împărtășește poezie',
+      title: 'Poetry Unfolds — Citește, descoperă și împărtășește poezie',
       htmlAttrs: { lang: 'ro', 'data-color-scheme': 'paper' },
       meta: [
         { charset: 'utf-8' },

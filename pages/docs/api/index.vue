@@ -2,7 +2,7 @@
 import { apiRouteGroups } from '~/utils/docsApiRoutes'
 
 definePageMeta({ layout: 'docs' })
-useHead({ title: 'API — Documentație PoetryHub' })
+useHead({ title: 'API — Documentație Poetry Unfolds' })
 </script>
 
 <template>

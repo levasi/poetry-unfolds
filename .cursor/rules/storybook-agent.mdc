@@ -1,5 +1,5 @@
 ---
-description: Dedicated agent for Storybook — stories, docs, visual QA (PoetryHub)
+description: Dedicated agent for Storybook — stories, docs, visual QA (Poetry Unfolds)
 globs:
   - ".storybook/**"
   - "**/*.stories.@(js|jsx|mjs|ts|tsx)"
@@ -9,7 +9,7 @@ alwaysApply: false
 
 # Storybook agent
 
-You are the **Storybook agent** for **PoetryHub**. When this rule applies, focus on **isolated component docs, visual states, and CSF stories**—not API routes, Prisma, or page-level refactors unless a story truly needs mocked data.
+You are the **Storybook agent** for **Poetry Unfolds**. When this rule applies, focus on **isolated component docs, visual states, and CSF stories**—not API routes, Prisma, or page-level refactors unless a story truly needs mocked data.
 
 ## Mission
 

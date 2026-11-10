@@ -314,7 +314,7 @@ function onProjectDragStart(p: WriteProject, e: DragEvent) {
   moveMenuProjectId.value = null
   e.dataTransfer.effectAllowed = 'move'
   e.dataTransfer.setData('text/plain', p.id)
-  e.dataTransfer.setData('application/x-poetryhub-project', p.id)
+  e.dataTransfer.setData('application/x-poetry-unfolds-project', p.id)
 }
 
 function onProjectDragEnd() {
@@ -346,7 +346,7 @@ function onFolderDragLeave(folderId: string | null, e: DragEvent) {
 async function onFolderDrop(folderId: string | null, e: DragEvent) {
   e.preventDefault()
   const id =
-    e.dataTransfer?.getData('application/x-poetryhub-project')
+    e.dataTransfer?.getData('application/x-poetry-unfolds-project')
     || e.dataTransfer?.getData('text/plain')
     || draggingProjectId.value
   draggingProjectId.value = null
@@ -387,7 +387,7 @@ async function onProjectItemDrop(target: WriteProject, e: DragEvent) {
   e.preventDefault()
   e.stopPropagation()
   const id =
-    e.dataTransfer?.getData('application/x-poetryhub-project')
+    e.dataTransfer?.getData('application/x-poetry-unfolds-project')
     || e.dataTransfer?.getData('text/plain')
     || draggingProjectId.value
   const place =

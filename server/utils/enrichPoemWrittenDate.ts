@@ -6,7 +6,7 @@ import Anthropic from '@anthropic-ai/sdk'
 import { z } from 'zod'
 import { prisma } from '~/server/utils/prisma'
 
-const WIKI_UA = 'PoetryHub/1.0 (poetry enrichment; open-source)'
+const WIKI_UA = 'Poetry Unfolds/1.0 (poetry enrichment; open-source)'
 
 const llmResultSchema = z.object({
   writtenYear: z.number().int().min(500).max(2100).nullable(),

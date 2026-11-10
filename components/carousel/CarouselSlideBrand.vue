@@ -15,6 +15,6 @@ withDefaults(
     class="carousel-slide-brand"
     :class="`carousel-slide-brand--${theme}`"
   >
-    poetryhub.ro
+    poetryunfolds.com
   </p>
 </template>

@@ -40,7 +40,7 @@ const WIKI_API = 'https://ro.wikisource.org/w/api.php'
 const AUTHOR_SLUG = 'vasile-alecsandri'
 
 const FETCH_HEADERS: Record<string, string> = {
-  'User-Agent': 'PoetryHub/1.0 (https://github.com; import script)',
+  'User-Agent': 'Poetry Unfolds/1.0 (https://github.com; import script)',
   Accept: 'application/json',
 }
 

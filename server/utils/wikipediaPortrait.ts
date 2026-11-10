@@ -6,7 +6,7 @@
 
 const WIKIS = ['en', 'ro'] as const
 
-const UA = 'PoetryHub/1.0 (author portraits; open-source)'
+const UA = 'Poetry Unfolds/1.0 (author portraits; open-source)'
 
 function normalizeHttps(url: string): string {
   if (url.startsWith('//')) return `https:${url}`

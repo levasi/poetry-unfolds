@@ -1,6 +1,6 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'docs' })
-useHead({ title: 'Frontend — Documentație PoetryHub' })
+useHead({ title: 'Frontend — Documentație Poetry Unfolds' })
 </script>
 
 <template>
@@ -8,7 +8,7 @@ useHead({ title: 'Frontend — Documentație PoetryHub' })
     <span class="docs-eyebrow">Stack</span>
     <h1>Frontend</h1>
     <p class="lead">
-      Interfața PoetryHub este o SPA/SSR hibridă Nuxt 3, optimizată pentru citire literară și fluxuri editoriale calme.
+      Interfața Poetry Unfolds este o SPA/SSR hibridă Nuxt 3, optimizată pentru citire literară și fluxuri editoriale calme.
     </p>
 
     <h2>Framework & runtime</h2>

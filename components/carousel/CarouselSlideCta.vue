@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /**
- * Last-slide CTA: extra line spacing, larger type; "poetry" accent + "hub.ro" contrast per theme.
+ * Last-slide CTA: extra line spacing, larger type; "poetry" accent + domain contrast per theme.
  */
 import type { CarouselTheme } from '~/composables/useCarouselGenerator'
 
@@ -9,9 +9,10 @@ const props = defineProps<{
   theme: CarouselTheme
 }>()
 
-function parsePoetryHub(line: string) {
+/** Split brand domains so "poetry" can be accented (poetryunfolds.com / legacy poetryhub.ro). */
+function parseBrandDomain(line: string) {
   const full = line.trim()
-  const m = full.match(/^(poetry)(hub\.ro)$/i)
+  const m = full.match(/^(poetry)(unfolds\.com|hub\.ro)$/i)
   if (!m) return null
   const i = full.toLowerCase().indexOf('poetry')
   if (i < 0) return null
@@ -31,7 +32,7 @@ const rows = computed((): Row[] => {
   for (const line of props.ctaText.split(/\r?\n/)) {
     const t = line.trim()
     if (!t) continue
-    const brand = parsePoetryHub(t)
+    const brand = parseBrandDomain(t)
     if (brand) out.push({ kind: 'brand', ...brand })
     else out.push({ kind: 'plain', text: t })
   }

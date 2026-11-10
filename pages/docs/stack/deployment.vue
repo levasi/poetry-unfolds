@@ -1,6 +1,6 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'docs' })
-useHead({ title: 'Deployment — Documentație PoetryHub' })
+useHead({ title: 'Deployment — Documentație Poetry Unfolds' })
 </script>
 
 <template>
@@ -8,7 +8,7 @@ useHead({ title: 'Deployment — Documentație PoetryHub' })
     <span class="docs-eyebrow">Stack</span>
     <h1>Deployment</h1>
     <p class="lead">
-      PoetryHub este configurat pentru deploy pe <strong>Vercel</strong> cu funcții serverless Nitro și PostgreSQL extern.
+      Poetry Unfolds este configurat pentru deploy pe <strong>Vercel</strong> cu funcții serverless Nitro și PostgreSQL extern.
     </p>
 
     <h2>Vercel</h2>

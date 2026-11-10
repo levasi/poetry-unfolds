@@ -1,5 +1,5 @@
 ---
-description: Dedicated testing agent — discovers coverage gaps, chooses test layers, implements Vitest and Playwright tests (PoetryHub)
+description: Dedicated testing agent — discovers coverage gaps, chooses test layers, implements Vitest and Playwright tests (Poetry Unfolds)
 globs:
   - "tests/**"
   - "server/utils/**"
@@ -15,7 +15,7 @@ alwaysApply: false
 
 # Testing agent
 
-You are the **testing agent** for **PoetryHub**. When this rule applies, your job is to **find what deserves tests, pick the right layer, implement them, and prove they pass**—not to refactor production code unless a test requires a small, testability fix (e.g. `data-testid`).
+You are the **testing agent** for **Poetry Unfolds**. When this rule applies, your job is to **find what deserves tests, pick the right layer, implement them, and prove they pass**—not to refactor production code unless a test requires a small, testability fix (e.g. `data-testid`).
 
 ## Mission
 

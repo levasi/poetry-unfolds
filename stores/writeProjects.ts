@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia'
 
 /** Remembers only which project/draft was active — not full project payloads. */
-const ACTIVE_KEY = 'poetryhub-write-active-v1'
-const FOLDER_COLLAPSE_KEY = 'poetryhub-write-folder-collapse-v1'
-const PROJECT_ORDER_KEY = 'poetryhub-write-project-order-v1'
+const ACTIVE_KEY = 'poetry-unfolds-write-active-v1'
+const FOLDER_COLLAPSE_KEY = 'poetry-unfolds-write-folder-collapse-v1'
+const PROJECT_ORDER_KEY = 'poetry-unfolds-write-project-order-v1'
 
 export interface WriteFolder {
   id: string
@@ -336,7 +336,7 @@ export const useWriteProjectsStore = defineStore('writeProjects', () => {
     initialized = true
     // Drop legacy full-project local cache from older builds.
     try {
-      localStorage.removeItem('poetryhub-write-projects-v1')
+      localStorage.removeItem('poetry-unfolds-write-projects-v1')
     } catch {
       /* ignore */
     }

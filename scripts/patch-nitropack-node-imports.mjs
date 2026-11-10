@@ -11,7 +11,7 @@ import { fileURLToPath } from 'node:url'
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const nitroRoot = join(root, 'node_modules', 'nitropack')
 const pkgPath = join(nitroRoot, 'package.json')
-const shimDir = join(nitroRoot, 'poetryhub-node-shims')
+const shimDir = join(nitroRoot, 'poetry-unfolds-node-shims')
 
 if (!existsSync(pkgPath)) {
   console.warn('[patch-nitropack-node-imports] nitropack not found; skip')
@@ -59,13 +59,13 @@ for (const [name, content] of Object.entries(files)) {
 const importsMap = Object.fromEntries(
   Object.keys(files).map((name) => {
     const key = name.replace(/\.mjs$/, '')
-    return [`#nitro-internal-virtual/${key}`, `./poetryhub-node-shims/${name}`]
+    return [`#nitro-internal-virtual/${key}`, `./poetry-unfolds-node-shims/${name}`]
   }),
 )
 
 const pkg = JSON.parse(readFileSync(pkgPath, 'utf8'))
 pkg.imports = { ...pkg.imports, ...importsMap }
-pkg.poetryhubNitroVirtualImports = '2'
+pkg.poetryUnfoldsNitroVirtualImports = '2'
 
 writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + '\n', 'utf8')
 console.log('[patch-nitropack-node-imports] nitropack package.json imports patched for Node ESM')

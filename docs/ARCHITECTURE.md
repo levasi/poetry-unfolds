@@ -1,4 +1,4 @@
-# PoetryHub — Architecture Reference
+# Poetry Unfolds — Architecture Reference
 
 > Last updated: 2026-04-03
 
@@ -28,7 +28,7 @@
 ## Folder Structure
 
 ```
-poetryhub/
+poetry-unfolds/
 ├── assets/scss/main.scss        # SCSS entry (preflight, DS, layout, components, pages)
 ├── assets/css/color-schemes.css # Semantic color tokens / themes
 ├── components/                  # Vue components (see below)
@@ -214,7 +214,7 @@ WriteCachedLookup    key, source, payload, createdAt
 |----------|---------|-------------|
 | `DATABASE_URL` | — | PostgreSQL connection string |
 | `JWT_SECRET` | `change-me-in-production` | JWT signing secret |
-| `ADMIN_EMAIL` | `admin@poetryhub.com` | Initial admin account email |
+| `ADMIN_EMAIL` | `admin@poetryunfolds.com` | Initial admin account email |
 | `ADMIN_PASSWORD` | `admin123` | Initial admin account password |
 | `POETRY_DB_URL` | `https://poetrydb.org` | PoetryDB API base URL |
 | `ANTHROPIC_API_KEY` | — | Claude API key (insight endpoint + poem enrichment) |

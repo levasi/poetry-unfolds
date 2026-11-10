@@ -20,10 +20,10 @@ describe('getAppBaseUrl', () => {
 
   it('prefers x-forwarded-host and proto on Vercel', () => {
     const event = eventWithHeaders('http://internal/', {
-      'x-forwarded-host': 'poetryhub.vercel.app',
+      'x-forwarded-host': 'poetry-unfolds.vercel.app',
       'x-forwarded-proto': 'https',
     })
-    expect(getAppBaseUrl(event)).toBe('https://poetryhub.vercel.app')
+    expect(getAppBaseUrl(event)).toBe('https://poetry-unfolds.vercel.app')
   })
 
   it('uses first host when multiple forwarded hosts', () => {

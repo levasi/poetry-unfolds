@@ -11,7 +11,7 @@ import {
 } from '~/utils/carouselDefaultsAdmin'
 
 /** Matches `scripts/seed.ts` placeholder poem (author slug + poem slug). */
-const PLACEHOLDER_AUTHOR_SLUG = 'poetryhub'
+const PLACEHOLDER_AUTHOR_SLUG = 'poetry-unfolds'
 const PLACEHOLDER_POEM_SLUG = 'titlu-exemplu-carousel'
 
 definePageMeta({ layout: 'admin', middleware: ['admin'] })

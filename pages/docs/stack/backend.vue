@@ -1,6 +1,6 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'docs' })
-useHead({ title: 'Backend — Documentație PoetryHub' })
+useHead({ title: 'Backend — Documentație Poetry Unfolds' })
 </script>
 
 <template>
@@ -8,7 +8,7 @@ useHead({ title: 'Backend — Documentație PoetryHub' })
     <span class="docs-eyebrow">Stack</span>
     <h1>Backend</h1>
     <p class="lead">
-      API-ul PoetryHub rulează pe Nitro — framework-ul server al Nuxt — cu handler-e file-based în <code>server/api/</code>.
+      API-ul Poetry Unfolds rulează pe Nitro — framework-ul server al Nuxt — cu handler-e file-based în <code>server/api/</code>.
     </p>
 
     <h2>Nitro & framework</h2>

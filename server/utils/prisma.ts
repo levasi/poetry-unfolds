@@ -1,9 +1,21 @@
 // Singleton Prisma client — prevents connection exhaustion in serverless (Vercel)
 import { config as loadEnv } from 'dotenv'
 import { resolve } from 'node:path'
+import dns from 'node:dns'
 import { PrismaClient } from '@prisma/client'
+import { PrismaPg } from '@prisma/adapter-pg'
+import { Pool } from 'pg'
 
-const globalForPrisma = globalThis as typeof globalThis & { __prisma?: PrismaClient }
+const globalForPrisma = globalThis as typeof globalThis & {
+  __prisma?: PrismaClient
+  __pgPool?: Pool
+}
+
+/**
+ * Prefer A records. Prisma's built-in engine often hangs on unreachable Neon AAAA
+ * addresses; node-postgres honors this and connects over IPv4.
+ */
+dns.setDefaultResultOrder('ipv4first')
 
 /** Ensure root `.env` / `.env.local` are applied before Prisma reads `DATABASE_URL` (ordering edge cases in dev). */
 function loadRootDotenv() {
@@ -22,20 +34,57 @@ function ensureDatabaseUrlEnv() {
   if (alt) process.env.DATABASE_URL = alt
 }
 
+/**
+ * Tune the URL for node-postgres:
+ * - channel_binding=require can stall SCRAM; prefer disable
+ * - uselibpqcompat avoids noisy sslmode warnings on pg 8.x
+ */
+function connectionStringForPg(raw: string): string {
+  try {
+    const u = new URL(raw)
+    if (u.searchParams.get('channel_binding') === 'require') {
+      u.searchParams.set('channel_binding', 'disable')
+    }
+    if (!u.searchParams.has('uselibpqcompat')) {
+      u.searchParams.set('uselibpqcompat', 'true')
+    }
+    return u.toString()
+  } catch {
+    return raw
+  }
+}
+
 function createPrismaClient() {
   loadRootDotenv()
   ensureDatabaseUrlEnv()
-  if (!process.env.DATABASE_URL?.trim()) {
+  const databaseUrl = process.env.DATABASE_URL?.trim()
+  if (!databaseUrl) {
     throw new Error(
       'DATABASE_URL is not set. Copy `.env.example` to `.env` in the project root and set DATABASE_URL to your PostgreSQL URL (Neon, Supabase, or local Postgres). See README.',
     )
   }
+
   /** Query logging floods the terminal; opt in with PRISMA_LOG_QUERIES=1 */
   const log =
     process.env.PRISMA_LOG_QUERIES === '1' || process.env.PRISMA_LOG_QUERIES === 'true'
       ? (['query', 'error', 'warn'] as const)
       : (['error'] as const)
+
+  const pool =
+    globalForPrisma.__pgPool
+    ?? new Pool({
+      connectionString: connectionStringForPg(databaseUrl),
+      // Serverless: keep the pool tiny; Nitro/Vercel reuses the module across warm invokes.
+      max: process.env.PRISMA_PG_POOL_MAX
+        ? Math.max(1, Number(process.env.PRISMA_PG_POOL_MAX) || 5)
+        : 5,
+      connectionTimeoutMillis: 15_000,
+    })
+  globalForPrisma.__pgPool = pool
+
+  const adapter = new PrismaPg(pool)
   return new PrismaClient({
+    adapter,
     log: [...log],
   })
 }

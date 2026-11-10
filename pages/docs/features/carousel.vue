@@ -1,6 +1,6 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'docs' })
-useHead({ title: 'Carousel Instagram — Documentație PoetryHub' })
+useHead({ title: 'Carousel Instagram — Documentație Poetry Unfolds' })
 </script>
 
 <template>

@@ -1,4 +1,4 @@
-// Import classic Romanian public-domain poems into PoetryHub
+// Import classic Romanian public-domain poems into Poetry Unfolds
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()

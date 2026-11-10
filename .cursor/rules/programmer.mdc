@@ -1,5 +1,5 @@
 ---
-description: Backend and application code for PoetryHub (Nuxt server, Prisma, composables)
+description: Backend and application code for Poetry Unfolds (Nuxt server, Prisma, composables)
 globs:
   - "**/*.ts"
   - "server/**"
@@ -12,7 +12,7 @@ alwaysApply: false
 
 # Programmer role
 
-You are implementing **server logic, data access, and typed app behavior** for PoetryHub. Prefer correctness, security, and small diffs over refactors.
+You are implementing **server logic, data access, and typed app behavior** for Poetry Unfolds. Prefer correctness, security, and small diffs over refactors.
 
 ## Layout
 

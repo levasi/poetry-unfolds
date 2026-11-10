@@ -49,7 +49,7 @@ const loading = ref(false)
 /** Always treat diacritics as distinct in dictionary search (strict matching). */
 const STRICT_DIACRITICS = true
 
-const SEARCH_STATE_KEY = 'poetryhub-write-search-v1'
+const SEARCH_STATE_KEY = 'poetry-unfolds-write-search-v1'
 const SEARCH_MODES = new Set<SearchMode>([
   'fuzzy',
   'starts',
@@ -412,7 +412,7 @@ const saveToastVisible = ref(false)
 let saveToastTimer: ReturnType<typeof setTimeout> | null = null
 /** Quiet autosave while editing — off by default; stored per user account. */
 const AUTOSAVE_MS = 1200
-const AUTOSAVE_PREF_KEY = 'poetryhub-write-autosave'
+const AUTOSAVE_PREF_KEY = 'poetry-unfolds-write-autosave'
 const autosaveEnabled = ref(false)
 let autosaveTimer: ReturnType<typeof setTimeout> | null = null
 let saveInFlight: Promise<void> | null = null
@@ -726,7 +726,7 @@ async function saveDraftInternal(): Promise<void> {
 // ── First-save poet switch modal ────────────────────────────────────────────
 const poetSwitchOpen = ref(false)
 const poetSwitchLoading = ref(false)
-const POET_SWITCH_SEEN_KEY = 'poetryhub-poet-switch-seen-v1'
+const POET_SWITCH_SEEN_KEY = 'poetry-unfolds-poet-switch-seen-v1'
 
 function hasSeenPoetSwitch(): boolean {
   if (!import.meta.client) return false
@@ -976,7 +976,7 @@ onMounted(async () => {
 })
 
 // ── Split panes (desktop) ───────────────────────────────────────────────────
-const WRITE_RIGHT_WIDTH_KEY = 'poetryhub-write-right-width'
+const WRITE_RIGHT_WIDTH_KEY = 'poetry-unfolds-write-right-width'
 const DEFAULT_RIGHT_WIDTH_PX = 280
 /** Coloana dreaptă poate merge între ¼ și ¾ din lățimea containerului (și stânga la fel). */
 const RIGHT_COL_MIN_FRAC = 0.25

@@ -45,7 +45,7 @@ export const LoggedIn: Story = {
   decorators: [
     withAuthUser({
       id: 'user-1',
-      email: 'poet@poetryhub.ro',
+      email: 'poet@poetryunfolds.com',
       name: 'Ana Poet',
       role: 'user',
     }),
@@ -68,7 +68,7 @@ export const Admin: Story = {
   decorators: [
     withAuthUser({
       id: 'admin-1',
-      email: 'admin@poetryhub.ro',
+      email: 'admin@poetryunfolds.com',
       name: 'Admin',
       role: 'admin',
     }),

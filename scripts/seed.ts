@@ -49,7 +49,7 @@ async function main() {
   console.log('🌱 Seeding database…\n')
 
   // ── Admin user ──────────────────────────────────────────────────────────────
-  const email    = process.env.ADMIN_EMAIL    ?? 'admin@poetryhub.com'
+  const email    = process.env.ADMIN_EMAIL    ?? 'admin@poetryunfolds.com'
   const password = process.env.ADMIN_PASSWORD ?? 'admin123'
 
   const existing = await prisma.adminUser.findUnique({ where: { email } })
@@ -94,7 +94,7 @@ async function main() {
   }
 
   // ── Placeholder poem (Romanian carousel demo text — same as generator sample) ─
-  const PLACEHOLDER_AUTHOR_SLUG = 'poetryhub'
+  const PLACEHOLDER_AUTHOR_SLUG = 'poetry-unfolds'
   const PLACEHOLDER_POEM_SLUG = 'titlu-exemplu-carousel'
   const PLACEHOLDER_TITLE = 'Titlu exemplu'
   const PLACEHOLDER_BODY =
@@ -102,8 +102,8 @@ async function main() {
 
   const placeholderAuthor = await prisma.author.upsert({
     where: { slug: PLACEHOLDER_AUTHOR_SLUG },
-    update: { name: 'PoetryHub' },
-    create: { name: 'PoetryHub', slug: PLACEHOLDER_AUTHOR_SLUG },
+    update: { name: 'Poetry Unfolds' },
+    create: { name: 'Poetry Unfolds', slug: PLACEHOLDER_AUTHOR_SLUG },
   })
 
   const snippet = extractExcerpt(PLACEHOLDER_BODY)

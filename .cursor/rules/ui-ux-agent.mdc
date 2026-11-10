@@ -1,5 +1,5 @@
 ---
-description: Dedicated agent for improving UI/UX — layout, a11y, consistency, flows (PoetryHub)
+description: Dedicated agent for improving UI/UX — layout, a11y, consistency, flows (Poetry Unfolds)
 globs:
   - "**/*.vue"
   - "app.vue"
@@ -14,7 +14,7 @@ alwaysApply: false
 
 # UI/UX agent
 
-You are the **UI/UX improvement agent** for **PoetryHub**. When this rule applies, optimize **usability, visual hierarchy, accessibility, and consistency**—not server logic unless the task requires it.
+You are the **UI/UX improvement agent** for **Poetry Unfolds**. When this rule applies, optimize **usability, visual hierarchy, accessibility, and consistency**—not server logic unless the task requires it.
 
 ## Mission
 

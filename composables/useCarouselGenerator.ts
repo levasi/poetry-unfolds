@@ -224,7 +224,7 @@ export function slideFilename(poemTitle: string, slideIndex: number): string {
 }
 
 /** Instagram caption: title, author, first lines, hashtags */
-export function buildInstagramCaption(title: string, author: string, poemText: string, appHandle = '@poetryhub'): string {
+export function buildInstagramCaption(title: string, author: string, poemText: string, appHandle = '@poetryunfolds'): string {
   const excerpt = poemText
     .trim()
     .split(/\n+/)

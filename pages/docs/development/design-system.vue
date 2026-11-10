@@ -1,6 +1,6 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'docs' })
-useHead({ title: 'Design system — Documentație PoetryHub' })
+useHead({ title: 'Design system — Documentație Poetry Unfolds' })
 </script>
 
 <template>

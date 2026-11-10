@@ -1,16 +1,16 @@
 /**
  * Copiază lexiconul din baza SQLite rhymescheme (`Word`, `CachedLookup`)
- * în PostgreSQL PoetryHub (`WriteLexiconWord`, `WriteCachedLookup`).
+ * în PostgreSQL Poetry Unfolds (`WriteLexiconWord`, `WriteCachedLookup`).
  *
  * Coloanele sunt aceleași; modelele diferă doar prin nume de tabel.
  *
  * Pregătire:
- *   - `npx prisma migrate dev` sau `db push` pe poetryhub (tabelele write trebuie să existe).
+ *   - `npx prisma migrate dev` sau `db push` pe poetry-unfolds (tabelele write trebuie să existe).
  *
  * Rulare (calea la dev.db din repo-ul rhymescheme):
  *   RHYMESCHEME_SQLITE_PATH=/Users/you/Documents/GitHub/rhymescheme/prisma/dev.db npx tsx scripts/import-lexicon-from-sqlite.ts
  *
- * Variabile: `DATABASE_URL` din `.env` (Postgres poetryhub).
+ * Variabile: `DATABASE_URL` din `.env` (Postgres poetry-unfolds).
  */
 import 'dotenv/config'
 import Database from 'better-sqlite3'

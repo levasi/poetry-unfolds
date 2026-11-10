@@ -3,7 +3,7 @@ definePageMeta({ layout: 'account' })
 
 const { t, locale } = useI18n()
 
-useSeoMeta({ title: computed(() => `${t('account.instaPostsSection')} — PoetryHub`) })
+useSeoMeta({ title: computed(() => `${t('account.instaPostsSection')} — Poetry Unfolds`) })
 
 interface SavedInstaPost {
   id: string

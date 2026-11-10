@@ -20,7 +20,7 @@ watch(() => route.path, () => {
         <div class="docs-layout__brand">
           <NuxtLink to="/docs" class="docs-layout__brand-link">
             <p class="docs-layout__brand-title">Documentație</p>
-            <p class="docs-layout__brand-subtitle">PoetryHub — stack, API, features</p>
+            <p class="docs-layout__brand-subtitle">Poetry Unfolds — stack, API, features</p>
           </NuxtLink>
         </div>
 

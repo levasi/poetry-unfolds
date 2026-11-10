@@ -1,6 +1,6 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'docs' })
-useHead({ title: 'Citire & descoperire — Documentație PoetryHub' })
+useHead({ title: 'Citire & descoperire — Documentație Poetry Unfolds' })
 </script>
 
 <template>
@@ -8,7 +8,7 @@ useHead({ title: 'Citire & descoperire — Documentație PoetryHub' })
     <span class="docs-eyebrow">Features</span>
     <h1>Citire & descoperire</h1>
     <p class="lead">
-      Experiența principală PoetryHub: citire confortabilă, descoperire editorială și personalizare a cititorului.
+      Experiența principală Poetry Unfolds: citire confortabilă, descoperire editorială și personalizare a cititorului.
     </p>
 
     <h2>Pagini</h2>

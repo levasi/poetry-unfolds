@@ -1,10 +1,12 @@
-// Prisma schema for PoetryHub
+// Prisma schema for Poetry Unfolds
 // Supports PostgreSQL (Neon, Supabase, or any PG provider)
 
 generator client {
-  provider      = "prisma-client-js"
+  provider        = "prisma-client-js"
   // Vercel / AWS Lambda (Amazon Linux) — required for Prisma engines in production
-  binaryTargets = ["native", "rhel-openssl-3.0.x"]
+  binaryTargets   = ["native", "rhel-openssl-3.0.x"]
+  // Route queries through node-postgres (fixes local Neon IPv6 timeouts from the Rust engine).
+  previewFeatures = ["driverAdapters"]
 }
 
 datasource db {

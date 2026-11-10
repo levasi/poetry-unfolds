@@ -1,6 +1,6 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'docs' })
-useHead({ title: 'Bază de date — Documentație PoetryHub' })
+useHead({ title: 'Bază de date — Documentație Poetry Unfolds' })
 </script>
 
 <template>
@@ -8,7 +8,7 @@ useHead({ title: 'Bază de date — Documentație PoetryHub' })
     <span class="docs-eyebrow">Stack</span>
     <h1>Bază de date</h1>
     <p class="lead">
-      PoetryHub folosește <strong>PostgreSQL</strong> cu <strong>Prisma ORM</strong>. Schema este în <code>prisma/schema.prisma</code>.
+      Poetry Unfolds folosește <strong>PostgreSQL</strong> cu <strong>Prisma ORM</strong>. Schema este în <code>prisma/schema.prisma</code>.
     </p>
 
     <h2>Provider & conexiune</h2>

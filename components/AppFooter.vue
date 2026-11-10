@@ -5,7 +5,7 @@ const { showLanguageSwitch } = useSiteSettings()
 
 const supportEmail = 'vasileeduardbogdan@gmail.com'
 const mailtoHref = computed(() => {
-  const subject = encodeURIComponent('PoetryHub — raportare eroare / inconsistență')
+  const subject = encodeURIComponent('Poetry Unfolds — raportare eroare / inconsistență')
   const body = encodeURIComponent(
     [
       'Salut!',

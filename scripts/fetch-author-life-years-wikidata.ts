@@ -31,7 +31,7 @@ function loadEnvFromDotenv() {
   }
 }
 
-const UA = 'PoetryHub/1.0 (author life-years import; https://github.com/)'
+const UA = 'Poetry Unfolds/1.0 (author life-years import; https://github.com/)'
 
 function yearFromWikidataTime(timeStr: string | undefined): number | null {
   if (!timeStr || typeof timeStr !== 'string') return null

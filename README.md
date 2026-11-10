@@ -1,4 +1,4 @@
-# PoetryHub
+# Poetry Unfolds
 
 A modern, typography-focused platform to **read**, **discover**, **write**, and **share** poetry — with a strong focus on Romanian literature and tools for poets.
 
@@ -92,8 +92,8 @@ For a deeper reference (routes, API, schema), see [`docs/ARCHITECTURE.md`](docs/
 ### 1. Clone & install
 
 ```bash
-git clone https://github.com/your-username/poetryhub.git
-cd poetryhub
+git clone https://github.com/levasi/poetry-unfolds.git
+cd poetry-unfolds
 npm install
 ```
 
@@ -171,7 +171,7 @@ npm run dev
 ## Project structure (overview)
 
 ```
-poetryhub/
+poetry-unfolds/
 ├── pages/              # Routes: poems, authors, write, carousel-generator, account, admin
 ├── components/         # PoetryCard, PoetryViewer, carousel, write editor, …
 ├── composables/        # useAuth, usePoems, useFavorites, useCarouselGenerator, …
