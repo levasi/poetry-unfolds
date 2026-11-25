@@ -970,10 +970,9 @@ function onTouchEnd(e: TouchEvent) {
     <div class="carousel-page__toolbar" aria-label="Instrumente post Instagram">
       <div class="carousel-page__toolbar-row">
         <div class="carousel-page__toolbar-left">
-          <span
-            class="carousel-page__toolbar-icon"
-            aria-hidden="true">
-            <Icon :icon="loadedPoemSlug ? 'heroicons:book-open' : 'heroicons:pencil-square'" class="carousel-page__icon" />
+          <span class="carousel-page__toolbar-icon" aria-hidden="true">
+            <Icon :icon="loadedPoemSlug ? 'heroicons:book-open' : 'heroicons:pencil-square'"
+              class="carousel-page__icon" />
           </span>
           <span class="carousel-page__toolbar-meta">
             <span class="carousel-page__toolbar-name">
@@ -983,7 +982,8 @@ function onTouchEnd(e: TouchEvent) {
               {{ loadedPoemSlug ? t('carousel.sourceLibrary') : t('carousel.sourceOwn') }}
             </span>
           </span>
-          <NuxtLink v-if="seePoemPageLocation" :to="seePoemPageLocation" class="ds-link ds-link--sm ds-link--inline carousel-page__toolbar-link">
+          <NuxtLink v-if="seePoemPageLocation" :to="seePoemPageLocation"
+            class="ds-link ds-link--sm ds-link--inline carousel-page__toolbar-link">
             {{ t('carousel.seePoem') }}
           </NuxtLink>
           <button v-if="loadedPoemSlug" type="button" class="ds-btn-secondary ds-btn--xs carousel-page__toolbar-link"
@@ -994,30 +994,25 @@ function onTouchEnd(e: TouchEvent) {
 
         <div class="carousel-page__toolbar-right">
           <Transition name="carousel-saved-flash">
-            <span v-if="showCurrentPoemCarouselThumbsUp"
-              class="carousel-page__saved" role="status" aria-live="polite">
+            <span v-if="showCurrentPoemCarouselThumbsUp" class="carousel-page__saved" role="status" aria-live="polite">
               <Icon icon="heroicons:check-circle" class="carousel-page__icon" aria-hidden="true" />
               {{ t('carousel.savedShort') }}
               <span class="sr-only">{{ t('carousel.instaPostSaved') }}</span>
             </span>
           </Transition>
-          <button type="button" class="ds-btn-secondary"
-            :disabled="savingCurrentPoemCarousel" :title="carouselSaveFabTitle" :aria-label="carouselSaveFabTitle"
-            @click="saveInstaPostToAccount">
-            <span v-if="savingCurrentPoemCarousel"
-              class="ph-spinner"
-              aria-hidden="true" />
+          <button type="button" class="ds-btn-secondary" :disabled="savingCurrentPoemCarousel"
+            :title="carouselSaveFabTitle" :aria-label="carouselSaveFabTitle" @click="saveInstaPostToAccount">
+            <span v-if="savingCurrentPoemCarousel" class="ph-spinner" aria-hidden="true" />
             <Icon v-else icon="heroicons:bookmark-square" class="carousel-page__icon" aria-hidden="true" />
             {{ t('carousel.toolbarSave') }}
           </button>
-          <button type="button" class="ds-btn-secondary carousel-page__desktop-only"
-            :disabled="exporting" :title="t('carousel.downloadCurrent')" @click="exportCurrentPng">
+          <button type="button" class="ds-btn-secondary carousel-page__desktop-only" :disabled="exporting"
+            :title="t('carousel.downloadCurrent')" @click="exportCurrentPng">
             <Icon icon="heroicons:photo" class="carousel-page__icon" aria-hidden="true" />
             {{ t('carousel.downloadCurrentShort') }}
           </button>
-          <button type="button" class="ds-btn-primary carousel-page__desktop-only"
-            :disabled="exporting" :title="t('carousel.exportHint', { size: carouselExportSizeLabel })"
-            @click="exportZip">
+          <button type="button" class="ds-btn-primary carousel-page__desktop-only" :disabled="exporting"
+            :title="t('carousel.exportHint', { size: carouselExportSizeLabel })" @click="exportZip">
             <Icon icon="heroicons:arrow-down-tray" class="carousel-page__icon" aria-hidden="true" />
             {{ exporting ? t('carousel.exporting') : t('carousel.downloadZipShort') }}
           </button>
@@ -1033,8 +1028,7 @@ function onTouchEnd(e: TouchEvent) {
           <p class="ds-eyebrow">
             {{ showManualPoemFields ? t('carousel.sectionManualPoem') : t('carousel.sectionCatalogPoemEdit') }}
           </p>
-          <p v-if="canEditCatalogTitleAndPoem && !showManualPoemFields"
-            class="carousel-page__hint">
+          <p v-if="canEditCatalogTitleAndPoem && !showManualPoemFields" class="carousel-page__hint">
             {{ t('carousel.catalogPoemEditHint') }}
           </p>
           <div class="carousel-page__stack">
@@ -1051,8 +1045,7 @@ function onTouchEnd(e: TouchEvent) {
             <div>
               <label class="field-label" for="carousel-manual-poem">{{ t('carousel.fieldPoem') }}</label>
               <textarea id="carousel-manual-poem" v-model="poemText" rows="12"
-                class="ds-input carousel-page__poem-textarea" :placeholder="t('carousel.phPoem')"
-                spellcheck="true" />
+                class="ds-input carousel-page__poem-textarea" :placeholder="t('carousel.phPoem')" spellcheck="true" />
             </div>
             <div>
               <label class="field-label" for="carousel-written-year">{{ t('carousel.fieldPoemWrittenYear') }}</label>
@@ -1064,9 +1057,7 @@ function onTouchEnd(e: TouchEvent) {
             <div v-if="canEditCatalogTitleAndPoem && loadedPoemSlug" class="carousel-page__inline-actions">
               <button type="button" class="ds-btn-secondary" :disabled="savingCatalogPoemContent"
                 @click="saveCatalogPoemContent">
-                <span v-if="savingCatalogPoemContent"
-                  class="ph-spinner"
-                  aria-hidden="true" />
+                <span v-if="savingCatalogPoemContent" class="ph-spinner" aria-hidden="true" />
                 {{ savingCatalogPoemContent ? t('carousel.savingCatalogPoemContent') :
                   t('carousel.saveCatalogPoemContent')
                 }}
@@ -1077,10 +1068,7 @@ function onTouchEnd(e: TouchEvent) {
           </div>
         </section>
 
-        <section
-          v-else-if="isLibraryPoemContext"
-          class="ds-card carousel-page__card"
-        >
+        <section v-else-if="isLibraryPoemContext" class="ds-card carousel-page__card">
           <p class="ds-eyebrow">
             {{ t('carousel.sectionCatalogPoemView') }}
           </p>
@@ -1091,10 +1079,7 @@ function onTouchEnd(e: TouchEvent) {
             <h2 class="carousel-page__poem-readonly-title">
               {{ title || t('carousel.untitled') }}
             </h2>
-            <p
-              v-if="poemWrittenYear.trim()"
-              class="carousel-page__poem-readonly-meta"
-            >
+            <p v-if="poemWrittenYear.trim()" class="carousel-page__poem-readonly-meta">
               {{ t('viewer.writtenInYear', { year: poemWrittenYear.trim() }) }}
             </p>
             <pre class="carousel-page__poem-readonly-body poem-text">{{ poemText }}</pre>
@@ -1112,13 +1097,13 @@ function onTouchEnd(e: TouchEvent) {
 
           <label class="field-label">{{ t('carousel.fieldFont') }}</label>
           <div class="carousel-page__font-row">
-            <button type="button" class="ds-icon-btn" :disabled="carouselFontKeys.length < 2"
-              aria-label="Font anterior" title="Font anterior" @click="prevCarouselFont">
+            <button type="button" class="ds-icon-btn" :disabled="carouselFontKeys.length < 2" aria-label="Font anterior"
+              title="Font anterior" @click="prevCarouselFont">
               <Icon icon="heroicons:chevron-left" class="carousel-page__icon" aria-hidden="true" />
             </button>
             <CarouselFontSelect v-model="carouselFontKey" class="carousel-page__font-select" />
-            <button type="button" class="ds-icon-btn" :disabled="carouselFontKeys.length < 2"
-              aria-label="Font următor" title="Font următor" @click="nextCarouselFont">
+            <button type="button" class="ds-icon-btn" :disabled="carouselFontKeys.length < 2" aria-label="Font următor"
+              title="Font următor" @click="nextCarouselFont">
               <Icon icon="heroicons:chevron-right" class="carousel-page__icon" aria-hidden="true" />
             </button>
           </div>
@@ -1128,33 +1113,31 @@ function onTouchEnd(e: TouchEvent) {
 
           <label class="field-label">{{ t('carousel.fieldTheme') }}</label>
           <div class="carousel-page__theme-row">
-            <button v-for="th in CAROUSEL_THEME_IDS" :key="th" type="button"
-              class="carousel-page__theme-btn" :class="theme === th
-                ? 'carousel-page__theme-btn--active'
-                : ''
-                " :aria-pressed="theme === th" @click="theme = th">
+            <button v-for="th in CAROUSEL_THEME_IDS" :key="th" type="button" class="carousel-page__theme-btn" :class="theme === th
+              ? 'carousel-page__theme-btn--active'
+              : ''
+              " :aria-pressed="theme === th" @click="theme = th">
               {{ t(`carousel.theme.${th}`) }}
             </button>
           </div>
 
           <div ref="keywordsHelpWrapRef" class="carousel-page__kw-wrap">
             <div class="carousel-page__kw-head">
-              <label class="field-label carousel-page__kw-label" for="carousel-keyword-input">{{ t('carousel.fieldKeywords')
-              }}</label>
-              <button id="carousel-keywords-help-trigger" type="button"
-                class="carousel-page__kw-help-btn"
+              <label class="field-label carousel-page__kw-label" for="carousel-keyword-input">{{
+                t('carousel.fieldKeywords')
+                }}</label>
+              <button id="carousel-keywords-help-trigger" type="button" class="carousel-page__kw-help-btn"
                 :aria-expanded="keywordsHelpOpen" aria-controls="carousel-keywords-help-panel"
                 :aria-label="t('carousel.keywordsHelpAriaLabel')" @click.stop="keywordsHelpOpen = !keywordsHelpOpen">
-                <svg class="carousel-page__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"
-                  aria-hidden="true">
+                <svg class="carousel-page__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                  stroke-width="1.75" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round"
                     d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
                 </svg>
               </button>
             </div>
             <Transition name="carousel-kw-help">
-              <div v-show="keywordsHelpOpen" id="carousel-keywords-help-panel"
-                class="carousel-page__kw-panel"
+              <div v-show="keywordsHelpOpen" id="carousel-keywords-help-panel" class="carousel-page__kw-panel"
                 role="region" @click.stop>
                 {{ t('carousel.keywordsHelp') }}
               </div>
@@ -1172,8 +1155,7 @@ function onTouchEnd(e: TouchEvent) {
 
           <label class="field-label">{{ t('carousel.fieldLinesPerSlide') }}</label>
           <div class="carousel-page__range-row">
-            <input v-model.number="linesPerSlide" type="range" min="4" max="16" step="1"
-              class="carousel-page__range" />
+            <input v-model.number="linesPerSlide" type="range" min="4" max="16" step="1" class="carousel-page__range" />
             <span class="carousel-page__range-val">{{ linesPerSlide }}</span>
           </div>
 
@@ -1183,7 +1165,7 @@ function onTouchEnd(e: TouchEvent) {
               class="carousel-page__range" />
             <span class="carousel-page__range-val carousel-page__range-val--wide">{{ Math.round(bodyFontSizeScale
               * 100)
-              }}%</span>
+            }}%</span>
           </div>
 
           <label class="field-label">{{ t('carousel.fieldLineHeight') }}</label>
@@ -1191,7 +1173,7 @@ function onTouchEnd(e: TouchEvent) {
             <input v-model.number="bodyLineHeight" type="range" min="1.15" max="2.25" step="0.05"
               class="carousel-page__range" />
             <span class="carousel-page__range-val carousel-page__range-val--wide">{{ bodyLineHeight.toFixed(2)
-              }}</span>
+            }}</span>
           </div>
 
           <div class="carousel-page__weight-grid">
@@ -1201,17 +1183,17 @@ function onTouchEnd(e: TouchEvent) {
                 @change="bodyFontWeight = ($event.target as HTMLSelectElement).value === '' ? null : Number(($event.target as HTMLSelectElement).value)">
                 <option value="">{{ t('carousel.fontWeightDefault') }}</option>
                 <option v-for="w in CAROUSEL_FONT_WEIGHT_PRESETS" :key="w" :value="w">{{ t(`carousel.fontWeight.${w}`)
-                  }}</option>
+                }}</option>
               </select>
             </div>
             <div>
               <label class="field-label" for="carousel-title-font-weight">{{ t('carousel.fieldTitleFontWeight')
-              }}</label>
+                }}</label>
               <select id="carousel-title-font-weight" class="ds-input" :value="titleFontWeight ?? ''"
                 @change="titleFontWeight = ($event.target as HTMLSelectElement).value === '' ? null : Number(($event.target as HTMLSelectElement).value)">
                 <option value="">{{ t('carousel.fontWeightDefault') }}</option>
                 <option v-for="w in CAROUSEL_FONT_WEIGHT_PRESETS" :key="w" :value="w">{{ t(`carousel.fontWeight.${w}`)
-                  }}</option>
+                }}</option>
               </select>
             </div>
           </div>
@@ -1223,16 +1205,13 @@ function onTouchEnd(e: TouchEvent) {
             <p class="ds-eyebrow mb-0">
               {{ t('carousel.sectionCaption') }}
             </p>
-            <button type="button"
-              class="carousel-page__caption-copy"
-              @click="copyCaption">
+            <button type="button" class="carousel-page__caption-copy" @click="copyCaption">
               <Icon icon="heroicons:clipboard-document" class="carousel-page__icon" aria-hidden="true" />
               {{ t('carousel.copyCaption') }}
             </button>
           </div>
-          <pre
-            class="carousel-page__caption-pre">{{
-              captionText }}</pre>
+          <pre class="carousel-page__caption-pre">{{
+            captionText }}</pre>
           <p class="carousel-page__hint carousel-page__hint--tight">
             {{ t('carousel.exportHint', { size: carouselExportSizeLabel }) }}
           </p>
@@ -1240,23 +1219,17 @@ function onTouchEnd(e: TouchEvent) {
       </div>
 
       <!-- Column 3: Preview -->
-      <div
-        class="carousel-page__col carousel-page__col--preview">
+      <div class="carousel-page__col carousel-page__col--preview">
         <div class="carousel-page__preview-stack">
           <div class="carousel-page__preview-row">
-            <aside
-              class="carousel-page__preview-toolbar"
-              :aria-label="t('carousel.previewToolbar')">
+            <aside class="carousel-page__preview-toolbar" :aria-label="t('carousel.previewToolbar')">
               <CarouselToolbarItem v-for="ratio in CAROUSEL_ASPECT_RATIOS" :key="ratio.id"
                 :label="t(`carousel.aspectRatio.${ratio.i18nKey}.label`)"
                 :hint="t(`carousel.aspectRatio.${ratio.i18nKey}.hint`, { size: `${ratio.width}×${ratio.height}` })"
                 placement="right">
-                <button type="button"
-                  class="carousel-page__aspect-btn"
-                  :class="aspectRatioId === ratio.id
-                    ? 'carousel-page__aspect-btn--active'
-                    : ''"
-                  :aria-pressed="aspectRatioId === ratio.id"
+                <button type="button" class="carousel-page__aspect-btn" :class="aspectRatioId === ratio.id
+                  ? 'carousel-page__aspect-btn--active'
+                  : ''" :aria-pressed="aspectRatioId === ratio.id"
                   :aria-label="t(`carousel.aspectRatio.${ratio.i18nKey}.label`)" @click="aspectRatioId = ratio.id">
                   {{ ratio.id }}
                 </button>
@@ -1264,9 +1237,8 @@ function onTouchEnd(e: TouchEvent) {
             </aside>
 
             <div ref="previewCenterRef" class="carousel-page__preview-center">
-              <div
-                class="carousel-page__preview-frame"
-                :style="previewInnerStyle" @touchstart.passive="onTouchStart" @touchend.passive="onTouchEnd">
+              <div class="carousel-page__preview-frame" :style="previewInnerStyle" @touchstart.passive="onTouchStart"
+                @touchend.passive="onTouchEnd">
                 <div v-if="currentSlideProps" class="carousel-page__preview-slide" :style="{
                   width: `${carouselWidth}px`,
                   height: `${carouselHeight}px`,
@@ -1283,15 +1255,13 @@ function onTouchEnd(e: TouchEvent) {
               </div>
             </div>
 
-            <aside
-              class="carousel-page__preview-toolbar"
-              :aria-label="t('carousel.previewExportToolbar')">
+            <aside class="carousel-page__preview-toolbar" :aria-label="t('carousel.previewExportToolbar')">
               <CarouselToolbarItem :label="t('carousel.enterFullScreen')" :hint="t('carousel.toolbarFullScreenHint')"
                 placement="left">
-                <button type="button" class="ds-icon-btn"
-                  :aria-label="t('carousel.enterFullScreen')" @click="openPreviewModal">
-                  <svg class="carousel-page__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
-                    aria-hidden="true">
+                <button type="button" class="ds-icon-btn" :aria-label="t('carousel.enterFullScreen')"
+                  @click="openPreviewModal">
+                  <svg class="carousel-page__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    stroke-width="2" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round"
                       d="M4 8V4m0 0h4M4 16v4m0 0h4m8-16h4m0 0v4m0 4v4m0 4h-4m-8 0H4" />
                   </svg>
@@ -1349,12 +1319,11 @@ function onTouchEnd(e: TouchEvent) {
     <!-- Enlarged preview modal -->
     <Teleport to="body">
       <div v-if="isPreviewModalOpen" class="carousel-page__modal">
-        <button type="button" class="carousel-page__modal-backdrop"
-          :aria-label="t('carousel.exitFullScreen')" @click="closePreviewModal" />
+        <button type="button" class="carousel-page__modal-backdrop" :aria-label="t('carousel.exitFullScreen')"
+          @click="closePreviewModal" />
 
         <div ref="previewModalRef" role="dialog" aria-modal="true" :aria-label="t('carousel.preview')" tabindex="-1"
-          class="carousel-page__modal-panel"
-          @keydown="onPreviewModalKeydown" @click.stop>
+          class="carousel-page__modal-panel" @keydown="onPreviewModalKeydown" @click.stop>
           <div class="carousel-page__modal-head">
             <h2 class="carousel-page__modal-title">
               {{ t('carousel.preview') }}
@@ -1363,19 +1332,14 @@ function onTouchEnd(e: TouchEvent) {
           </div>
 
           <div class="carousel-page__modal-body">
-            <aside
-              class="carousel-page__preview-toolbar"
-              :aria-label="t('carousel.previewToolbar')">
+            <aside class="carousel-page__preview-toolbar" :aria-label="t('carousel.previewToolbar')">
               <CarouselToolbarItem v-for="ratio in CAROUSEL_ASPECT_RATIOS" :key="`modal-ratio-${ratio.id}`"
                 :label="t(`carousel.aspectRatio.${ratio.i18nKey}.label`)"
                 :hint="t(`carousel.aspectRatio.${ratio.i18nKey}.hint`, { size: `${ratio.width}×${ratio.height}` })"
                 placement="right">
-                <button type="button"
-                  class="carousel-page__aspect-btn"
-                  :class="aspectRatioId === ratio.id
-                    ? 'carousel-page__aspect-btn--active'
-                    : ''"
-                  :aria-pressed="aspectRatioId === ratio.id"
+                <button type="button" class="carousel-page__aspect-btn" :class="aspectRatioId === ratio.id
+                  ? 'carousel-page__aspect-btn--active'
+                  : ''" :aria-pressed="aspectRatioId === ratio.id"
                   :aria-label="t(`carousel.aspectRatio.${ratio.i18nKey}.label`)" @click="aspectRatioId = ratio.id">
                   {{ ratio.id }}
                 </button>
@@ -1383,9 +1347,8 @@ function onTouchEnd(e: TouchEvent) {
             </aside>
 
             <div ref="previewModalCenterRef" class="carousel-page__modal-preview">
-              <div
-                class="carousel-page__preview-frame"
-                :style="previewModalInnerStyle" @touchstart.passive="onTouchStart" @touchend.passive="onTouchEnd">
+              <div class="carousel-page__preview-frame" :style="previewModalInnerStyle"
+                @touchstart.passive="onTouchStart" @touchend.passive="onTouchEnd">
                 <div v-if="currentSlideProps" class="carousel-page__preview-slide" :style="{
                   width: `${carouselWidth}px`,
                   height: `${carouselHeight}px`,
@@ -1402,15 +1365,13 @@ function onTouchEnd(e: TouchEvent) {
               </div>
             </div>
 
-            <aside
-              class="carousel-page__preview-toolbar"
-              :aria-label="t('carousel.previewExportToolbar')">
+            <aside class="carousel-page__preview-toolbar" :aria-label="t('carousel.previewExportToolbar')">
               <CarouselToolbarItem :label="t('carousel.exitFullScreen')" :hint="t('carousel.toolbarFullScreenExitHint')"
                 placement="left">
-                <button type="button" class="ds-icon-btn"
-                  :aria-label="t('carousel.exitFullScreen')" @click="closePreviewModal">
-                  <svg class="carousel-page__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
-                    aria-hidden="true">
+                <button type="button" class="ds-icon-btn" :aria-label="t('carousel.exitFullScreen')"
+                  @click="closePreviewModal">
+                  <svg class="carousel-page__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    stroke-width="2" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round"
                       d="M9 9V4.5M9 9H4.5M9 9L3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5l5.25 5.25" />
                   </svg>
@@ -1442,8 +1403,7 @@ function onTouchEnd(e: TouchEvent) {
                 </svg>
               </button>
               <div class="carousel-page__dots">
-                <button v-for="(_, i) in slideModels" :key="`modal-dot-${i}`" type="button"
-                  class="carousel-page__dot"
+                <button v-for="(_, i) in slideModels" :key="`modal-dot-${i}`" type="button" class="carousel-page__dot"
                   :class="i === currentIndex ? 'carousel-page__dot--active' : ''"
                   :aria-label="t('carousel.goSlide', { n: i + 1 })" @click="currentIndex = i" />
               </div>
@@ -1467,16 +1427,13 @@ function onTouchEnd(e: TouchEvent) {
     </Teleport>
 
     <!-- Mobile export bar (desktop actions live in the tools bar) -->
-    <div
-      class="carousel-page__mobile-bar">
+    <div class="carousel-page__mobile-bar">
       <div class="carousel-page__mobile-bar-inner">
-        <button type="button" class="ds-btn-secondary" :disabled="exporting"
-          @click="exportCurrentPng">
+        <button type="button" class="ds-btn-secondary" :disabled="exporting" @click="exportCurrentPng">
           <Icon icon="heroicons:photo" class="carousel-page__icon" aria-hidden="true" />
           {{ exporting ? t('carousel.exporting') : t('carousel.downloadCurrentShort') }}
         </button>
-        <button type="button" class="ds-btn-primary" :disabled="exporting"
-          @click="exportZip">
+        <button type="button" class="ds-btn-primary" :disabled="exporting" @click="exportZip">
           <Icon icon="heroicons:arrow-down-tray" class="carousel-page__icon" aria-hidden="true" />
           {{ exporting ? t('carousel.exporting') : t('carousel.downloadZipShort') }}
         </button>
@@ -1485,8 +1442,7 @@ function onTouchEnd(e: TouchEvent) {
 
     <!-- Hidden export mount -->
     <Teleport to="body">
-      <div v-if="exporting && slidePropsFor(exportIndex)"
-        class="carousel-page__export-mount"
+      <div v-if="exporting && slidePropsFor(exportIndex)" class="carousel-page__export-mount"
         :style="{ width: `${carouselWidth}px`, height: `${carouselHeight}px` }" aria-hidden="true">
         <CarouselSlide ref="captureRef" v-bind="slidePropsFor(exportIndex)!" />
       </div>
