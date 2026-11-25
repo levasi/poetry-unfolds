@@ -225,7 +225,7 @@ async function sharePoem() {
         <span class="poem-reel-slide__action-btn">
           <Icon
             icon="heroicons:share"
-            class="poem-reel-slide__action-icon poem-reel-slide__action-icon--sm"
+            class="poem-reel-slide__action-icon"
             aria-hidden="true"
           />
         </span>
@@ -240,7 +240,7 @@ async function sharePoem() {
         <span class="poem-reel-slide__action-btn">
           <Icon
             icon="heroicons:arrow-top-right-on-square"
-            class="poem-reel-slide__action-icon poem-reel-slide__action-icon--sm"
+            class="poem-reel-slide__action-icon"
             aria-hidden="true"
           />
         </span>

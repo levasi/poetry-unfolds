@@ -24,8 +24,7 @@
 }
 
 .admin-layout__menu-icon {
-  height: 1.25rem;
-  width: 1.25rem;
+  @include ph-icon;
 }
 
 .admin-layout__body {
@@ -99,9 +98,7 @@
 }
 
 .admin-layout__nav-icon {
-  height: 1rem;
-  width: 1rem;
-  flex-shrink: 0;
+  @include ph-icon;
 }
 
 .admin-layout__footer {

@@ -43,6 +43,5 @@
 }
 
 .mobile-tab-bar__icon {
-  width: 1.5rem;
-  height: 1.5rem;
+  @include ph-icon;
 }

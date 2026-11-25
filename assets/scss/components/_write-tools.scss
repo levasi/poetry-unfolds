@@ -64,19 +64,11 @@
 }
 
 .write-tools__icon {
-  width: 1rem;
-  height: 1rem;
-  flex-shrink: 0;
-
-  &--sm {
-    width: 0.75rem;
-    height: 0.75rem;
-  }
+  @include ph-icon;
 }
 
 .write-tools__spinner {
-  width: 1rem;
-  height: 1rem;
+  @include ph-icon;
 }
 
 .write-tools__trigger-text {
@@ -215,16 +207,12 @@
 }
 
 .write-tools__new-icon {
-  width: 1.25rem;
-  height: 1.25rem;
-  flex-shrink: 0;
+  @include ph-icon;
   color: ph-rgb(brand-foreground);
 }
 
 .write-tools__new-folder-icon {
-  width: 1.125rem;
-  height: 1.125rem;
-  flex-shrink: 0;
+  @include ph-icon;
   color: inherit;
 }
 
@@ -354,9 +342,7 @@
 
 .write-tools__folder-chevron,
 .write-tools__folder-icon {
-  width: 1rem;
-  height: 1rem;
-  flex-shrink: 0;
+  @include ph-icon;
 }
 
 .write-tools__folder-name {
@@ -721,8 +707,7 @@
 }
 
 .write-tools__autosave-bulb-icon {
-  width: 1.125rem;
-  height: 1.125rem;
+  @include ph-icon;
 }
 
 .write-tools__card-font {

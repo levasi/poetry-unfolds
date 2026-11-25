@@ -593,7 +593,7 @@ onUnmounted(() => {
                           :class="{ 'write-tools__item-btn--active': isActiveProject(p) }" role="option"
                           :aria-selected="isActiveProject(p)" @click="selectProject(p.id)">
                           <span v-if="isActiveProject(p)" class="write-tools__item-check" aria-hidden="true">
-                            <Icon :icon="icons.check" class="write-tools__icon write-tools__icon--sm" />
+                            <Icon :icon="icons.check" class="write-tools__icon" />
                           </span>
                           <span v-else class="write-tools__item-check-empty" aria-hidden="true" />
                           <span class="write-tools__item-name">{{ p.name }}</span>
@@ -674,7 +674,7 @@ onUnmounted(() => {
                     :class="{ 'write-tools__item-btn--active': isActiveProject(p) }" role="option"
                     :aria-selected="isActiveProject(p)" @click="selectProject(p.id)">
                     <span v-if="isActiveProject(p)" class="write-tools__item-check" aria-hidden="true">
-                      <Icon :icon="icons.check" class="write-tools__icon write-tools__icon--sm" />
+                      <Icon :icon="icons.check" class="write-tools__icon" />
                     </span>
                     <span v-else class="write-tools__item-check-empty" aria-hidden="true" />
                     <span class="write-tools__item-name">{{ p.name }}</span>
@@ -781,7 +781,7 @@ onUnmounted(() => {
                   :aria-label="`${t('viewer.fontSize')} -`"
                   @click="decSize"
                 >
-                  <Icon icon="heroicons:minus" class="write-tools__icon write-tools__icon--sm" aria-hidden="true" />
+                  <Icon icon="heroicons:minus" class="write-tools__icon" aria-hidden="true" />
                 </button>
                 <span class="write-tools__card-font-value">{{ fontSizePx }}</span>
                 <button
@@ -791,7 +791,7 @@ onUnmounted(() => {
                   :aria-label="`${t('viewer.fontSize')} +`"
                   @click="incSize"
                 >
-                  <Icon icon="heroicons:plus" class="write-tools__icon write-tools__icon--sm" aria-hidden="true" />
+                  <Icon icon="heroicons:plus" class="write-tools__icon" aria-hidden="true" />
                 </button>
               </div>
             </div>
@@ -805,7 +805,7 @@ onUnmounted(() => {
                   :aria-label="`${t('viewer.lineHeight')} -`"
                   @click="decLine"
                 >
-                  <Icon icon="heroicons:minus" class="write-tools__icon write-tools__icon--sm" aria-hidden="true" />
+                  <Icon icon="heroicons:minus" class="write-tools__icon" aria-hidden="true" />
                 </button>
                 <span class="write-tools__card-font-value">{{ lineHeight.toFixed(2) }}</span>
                 <button
@@ -815,7 +815,7 @@ onUnmounted(() => {
                   :aria-label="`${t('viewer.lineHeight')} +`"
                   @click="incLine"
                 >
-                  <Icon icon="heroicons:plus" class="write-tools__icon write-tools__icon--sm" aria-hidden="true" />
+                  <Icon icon="heroicons:plus" class="write-tools__icon" aria-hidden="true" />
                 </button>
               </div>
             </div>

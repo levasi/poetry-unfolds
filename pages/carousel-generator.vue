@@ -155,7 +155,7 @@ function applyPoemCarouselSettings(p: PoemCarouselSettingsPayload) {
 
 /** Slug of the poem loaded from the library (route or search); used to save per-poem carousel. */
 const loadedPoemSlug = ref<string | null>(null)
-/** Saved Insta post id in the signed-in user's account (`?saved=`). */
+/** Saved Instagram post id in the signed-in user's account (`?saved=`). */
 const savedInstaPostId = ref<string | null>(null)
 /** True when DB has saved carousel JSON for this poem — site defaults must not overwrite it. */
 const poemCarouselOverridesFromDb = ref(false)
@@ -199,7 +199,7 @@ watch(
 /** Set from GET /api/poems/:slug when a library poem is loaded; `null` = catalog poem with no submitter. */
 const loadedPoemSubmittedByUserId = ref<string | null | undefined>(undefined)
 
-/** Insta carousel staff save to catalog poem (administrators and moderators). */
+/** Instagram carousel staff save to catalog poem (administrators and moderators). */
 const showCarouselStaffSaveCard = computed(() => isStaffRole(user.value?.role))
 
 const carouselSaveFabTitle = computed(() => {
@@ -524,29 +524,39 @@ const currentSlideProps = computed(() => slidePropsFor(currentIndex.value))
 
 const bodySlideCount = computed(() => splitPoemIntoSlides(poemText.value, slideSplitOpts.value).length)
 
-const previewFrameRef = ref<HTMLElement | null>(null)
-const previewFrameWidth = ref(420)
+const previewCenterRef = ref<HTMLElement | null>(null)
+const previewAvailWidth = ref(420)
+/** Viewport budget for page preview height (`100dvh - 15rem`). */
+const previewMaxHeightPx = ref(640)
 
 let previewResizeRaf: number | null = null
 
-function updatePreviewFrameWidth() {
-  const w = previewFrameRef.value?.clientWidth ?? 0
-  const next = w > 0 ? w : 420
-  if (previewFrameWidth.value !== next) previewFrameWidth.value = next
+function updatePreviewMaxHeightPx() {
+  if (typeof window === 'undefined') return
+  const next = Math.max(200, window.innerHeight - 15 * 16)
+  if (previewMaxHeightPx.value !== next) previewMaxHeightPx.value = next
 }
 
-function schedulePreviewFrameWidthUpdate() {
+function updatePreviewAvailSize() {
+  const el = previewCenterRef.value
+  const w = el?.clientWidth ?? 0
+  const nextW = w > 0 ? w : 420
+  if (previewAvailWidth.value !== nextW) previewAvailWidth.value = nextW
+  updatePreviewMaxHeightPx()
+}
+
+function schedulePreviewAvailSizeUpdate() {
   if (previewResizeRaf != null) return
   previewResizeRaf = requestAnimationFrame(() => {
     previewResizeRaf = null
-    updatePreviewFrameWidth()
+    updatePreviewAvailSize()
   })
 }
 
 let previewResizeObserver: ResizeObserver | null = null
 
 watch(
-  () => previewFrameRef.value,
+  () => previewCenterRef.value,
   (el) => {
     previewResizeObserver?.disconnect()
     previewResizeObserver = null
@@ -555,8 +565,8 @@ watch(
       previewResizeRaf = null
     }
     if (!el) return
-    updatePreviewFrameWidth()
-    previewResizeObserver = new ResizeObserver(schedulePreviewFrameWidthUpdate)
+    updatePreviewAvailSize()
+    previewResizeObserver = new ResizeObserver(schedulePreviewAvailSizeUpdate)
     previewResizeObserver.observe(el)
   },
   { flush: 'post' },
@@ -564,23 +574,27 @@ watch(
 
 const isPreviewModalOpen = ref(false)
 const previewModalRef = ref<HTMLElement | null>(null)
-const previewModalFrameRef = ref<HTMLElement | null>(null)
-const previewModalFrameWidth = ref(420)
+const previewModalCenterRef = ref<HTMLElement | null>(null)
+const previewModalAvailWidth = ref(420)
+const previewModalAvailHeight = ref(0)
 
 let previewModalResizeRaf: number | null = null
 let previewModalResizeObserver: ResizeObserver | null = null
 
-function updatePreviewModalFrameWidth() {
-  const w = previewModalFrameRef.value?.clientWidth ?? 0
-  const next = w > 0 ? w : 420
-  if (previewModalFrameWidth.value !== next) previewModalFrameWidth.value = next
+function updatePreviewModalAvailSize() {
+  const el = previewModalCenterRef.value
+  const w = el?.clientWidth ?? 0
+  const h = el?.clientHeight ?? 0
+  const nextW = w > 0 ? w : 420
+  if (previewModalAvailWidth.value !== nextW) previewModalAvailWidth.value = nextW
+  if (h > 0 && previewModalAvailHeight.value !== h) previewModalAvailHeight.value = h
 }
 
-function schedulePreviewModalFrameWidthUpdate() {
+function schedulePreviewModalAvailSizeUpdate() {
   if (previewModalResizeRaf != null) return
   previewModalResizeRaf = requestAnimationFrame(() => {
     previewModalResizeRaf = null
-    updatePreviewModalFrameWidth()
+    updatePreviewModalAvailSize()
   })
 }
 
@@ -606,7 +620,7 @@ watch(isPreviewModalOpen, (open) => {
 })
 
 watch(
-  () => previewModalFrameRef.value,
+  () => previewModalCenterRef.value,
   (el) => {
     previewModalResizeObserver?.disconnect()
     previewModalResizeObserver = null
@@ -615,15 +629,23 @@ watch(
       previewModalResizeRaf = null
     }
     if (!el) return
-    updatePreviewModalFrameWidth()
-    previewModalResizeObserver = new ResizeObserver(schedulePreviewModalFrameWidthUpdate)
+    updatePreviewModalAvailSize()
+    previewModalResizeObserver = new ResizeObserver(schedulePreviewModalAvailSizeUpdate)
     previewModalResizeObserver.observe(el)
   },
   { flush: 'post' },
 )
 
+function onPreviewViewportResize() {
+  updatePreviewMaxHeightPx()
+  schedulePreviewAvailSizeUpdate()
+  schedulePreviewModalAvailSizeUpdate()
+}
+
 onMounted(() => {
   document.addEventListener('click', closeKeywordsHelpOnDocumentClick)
+  window.addEventListener('resize', onPreviewViewportResize)
+  updatePreviewMaxHeightPx()
   void fetchMe()
 })
 
@@ -635,40 +657,45 @@ onUnmounted(() => {
   if (catalogPoemContentSavedHideTimer) clearTimeout(catalogPoemContentSavedHideTimer)
   if (currentPoemCarouselThumbsHideTimer) clearTimeout(currentPoemCarouselThumbsHideTimer)
   document.removeEventListener('click', closeKeywordsHelpOnDocumentClick)
+  window.removeEventListener('resize', onPreviewViewportResize)
   if (import.meta.client) document.body.style.overflow = ''
 })
 
-const previewScale = computed(() => {
-  const w = previewFrameWidth.value
-  return (w > 0 ? w : 420) / carouselWidth.value
-})
+/** Fit canvas into available slot; frame size === scaled canvas size (no letterboxing). */
+function scaleToFit(availW: number, availH: number, canvasW: number, canvasH: number) {
+  const w = availW > 0 ? availW : 420
+  const byWidth = w / canvasW
+  if (!(availH > 0)) return Math.min(byWidth, 1)
+  return Math.min(byWidth, availH / canvasH, 1)
+}
 
-const previewModalScale = computed(() => {
-  const w = previewModalFrameWidth.value
-  return (w > 0 ? w : 420) / carouselWidth.value
-})
+const previewScale = computed(() =>
+  scaleToFit(
+    Math.min(previewAvailWidth.value, 420),
+    previewMaxHeightPx.value,
+    carouselWidth.value,
+    carouselHeight.value,
+  ),
+)
 
-const previewInnerStyle = computed(() => {
-  const r = selectedAspectRatio.value
-  const [wR, hR] = r.cssRatio.split('/').map((part) => parseFloat(part.trim()))
-  const maxHeight = 'calc(100dvh - 15rem)'
-  return {
-    aspectRatio: r.cssRatio,
-    width: `min(100%, 26.25rem, calc(${maxHeight} * ${wR} / ${hR}))`,
-    maxHeight,
-  }
-})
+const previewModalScale = computed(() =>
+  scaleToFit(
+    previewModalAvailWidth.value,
+    previewModalAvailHeight.value > 0 ? previewModalAvailHeight.value : previewModalAvailWidth.value,
+    carouselWidth.value,
+    carouselHeight.value,
+  ),
+)
 
-const previewModalInnerStyle = computed(() => {
-  const r = selectedAspectRatio.value
-  return {
-    aspectRatio: r.cssRatio,
-    height: '100%',
-    width: 'auto',
-    maxWidth: '100%',
-    maxHeight: '100%',
-  }
-})
+const previewInnerStyle = computed(() => ({
+  width: `${Math.round(carouselWidth.value * previewScale.value)}px`,
+  height: `${Math.round(carouselHeight.value * previewScale.value)}px`,
+}))
+
+const previewModalInnerStyle = computed(() => ({
+  width: `${Math.round(carouselWidth.value * previewModalScale.value)}px`,
+  height: `${Math.round(carouselHeight.value * previewModalScale.value)}px`,
+}))
 
 const exportCanvasSize = computed(() => ({
   width: carouselWidth.value,
@@ -940,13 +967,13 @@ function onTouchEnd(e: TouchEvent) {
     </header>
 
     <!-- Tools bar: poem source + save/export actions -->
-    <div class="carousel-page__toolbar" aria-label="Instrumente post Insta">
+    <div class="carousel-page__toolbar" aria-label="Instrumente post Instagram">
       <div class="carousel-page__toolbar-row">
         <div class="carousel-page__toolbar-left">
           <span
             class="carousel-page__toolbar-icon"
             aria-hidden="true">
-            <Icon :icon="loadedPoemSlug ? 'heroicons:book-open' : 'heroicons:pencil-square'" class="carousel-page__icon-sm" />
+            <Icon :icon="loadedPoemSlug ? 'heroicons:book-open' : 'heroicons:pencil-square'" class="carousel-page__icon" />
           </span>
           <span class="carousel-page__toolbar-meta">
             <span class="carousel-page__toolbar-name">
@@ -969,7 +996,7 @@ function onTouchEnd(e: TouchEvent) {
           <Transition name="carousel-saved-flash">
             <span v-if="showCurrentPoemCarouselThumbsUp"
               class="carousel-page__saved" role="status" aria-live="polite">
-              <Icon icon="heroicons:check-circle" class="carousel-page__icon-sm" aria-hidden="true" />
+              <Icon icon="heroicons:check-circle" class="carousel-page__icon" aria-hidden="true" />
               {{ t('carousel.savedShort') }}
               <span class="sr-only">{{ t('carousel.instaPostSaved') }}</span>
             </span>
@@ -980,18 +1007,18 @@ function onTouchEnd(e: TouchEvent) {
             <span v-if="savingCurrentPoemCarousel"
               class="ph-spinner"
               aria-hidden="true" />
-            <Icon v-else icon="heroicons:bookmark-square" class="carousel-page__icon-sm" aria-hidden="true" />
+            <Icon v-else icon="heroicons:bookmark-square" class="carousel-page__icon" aria-hidden="true" />
             {{ t('carousel.toolbarSave') }}
           </button>
           <button type="button" class="ds-btn-secondary carousel-page__desktop-only"
             :disabled="exporting" :title="t('carousel.downloadCurrent')" @click="exportCurrentPng">
-            <Icon icon="heroicons:photo" class="carousel-page__icon-sm" aria-hidden="true" />
+            <Icon icon="heroicons:photo" class="carousel-page__icon" aria-hidden="true" />
             {{ t('carousel.downloadCurrentShort') }}
           </button>
           <button type="button" class="ds-btn-primary carousel-page__desktop-only"
             :disabled="exporting" :title="t('carousel.exportHint', { size: carouselExportSizeLabel })"
             @click="exportZip">
-            <Icon icon="heroicons:arrow-down-tray" class="carousel-page__icon-sm" aria-hidden="true" />
+            <Icon icon="heroicons:arrow-down-tray" class="carousel-page__icon" aria-hidden="true" />
             {{ exporting ? t('carousel.exporting') : t('carousel.downloadZipShort') }}
           </button>
         </div>
@@ -1049,6 +1076,30 @@ function onTouchEnd(e: TouchEvent) {
             </div>
           </div>
         </section>
+
+        <section
+          v-else-if="isLibraryPoemContext"
+          class="ds-card carousel-page__card"
+        >
+          <p class="ds-eyebrow">
+            {{ t('carousel.sectionCatalogPoemView') }}
+          </p>
+          <div class="carousel-page__poem-readonly">
+            <p v-if="author.trim()" class="carousel-page__poem-readonly-author">
+              {{ author }}
+            </p>
+            <h2 class="carousel-page__poem-readonly-title">
+              {{ title || t('carousel.untitled') }}
+            </h2>
+            <p
+              v-if="poemWrittenYear.trim()"
+              class="carousel-page__poem-readonly-meta"
+            >
+              {{ t('viewer.writtenInYear', { year: poemWrittenYear.trim() }) }}
+            </p>
+            <pre class="carousel-page__poem-readonly-body poem-text">{{ poemText }}</pre>
+          </div>
+        </section>
       </div>
 
       <!-- Column 2: Style, typography, caption -->
@@ -1063,12 +1114,12 @@ function onTouchEnd(e: TouchEvent) {
           <div class="carousel-page__font-row">
             <button type="button" class="ds-icon-btn" :disabled="carouselFontKeys.length < 2"
               aria-label="Font anterior" title="Font anterior" @click="prevCarouselFont">
-              <Icon icon="heroicons:chevron-left" class="carousel-page__icon-md" aria-hidden="true" />
+              <Icon icon="heroicons:chevron-left" class="carousel-page__icon" aria-hidden="true" />
             </button>
             <CarouselFontSelect v-model="carouselFontKey" class="carousel-page__font-select" />
             <button type="button" class="ds-icon-btn" :disabled="carouselFontKeys.length < 2"
               aria-label="Font următor" title="Font următor" @click="nextCarouselFont">
-              <Icon icon="heroicons:chevron-right" class="carousel-page__icon-md" aria-hidden="true" />
+              <Icon icon="heroicons:chevron-right" class="carousel-page__icon" aria-hidden="true" />
             </button>
           </div>
           <p class="carousel-page__hint carousel-page__hint--section">
@@ -1094,7 +1145,7 @@ function onTouchEnd(e: TouchEvent) {
                 class="carousel-page__kw-help-btn"
                 :aria-expanded="keywordsHelpOpen" aria-controls="carousel-keywords-help-panel"
                 :aria-label="t('carousel.keywordsHelpAriaLabel')" @click.stop="keywordsHelpOpen = !keywordsHelpOpen">
-                <svg class="carousel-page__icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"
+                <svg class="carousel-page__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"
                   aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round"
                     d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
@@ -1175,7 +1226,7 @@ function onTouchEnd(e: TouchEvent) {
             <button type="button"
               class="carousel-page__caption-copy"
               @click="copyCaption">
-              <Icon icon="heroicons:clipboard-document" class="carousel-page__icon-sm" aria-hidden="true" />
+              <Icon icon="heroicons:clipboard-document" class="carousel-page__icon" aria-hidden="true" />
               {{ t('carousel.copyCaption') }}
             </button>
           </div>
@@ -1212,14 +1263,14 @@ function onTouchEnd(e: TouchEvent) {
               </CarouselToolbarItem>
             </aside>
 
-            <div class="carousel-page__preview-center">
-              <div ref="previewFrameRef"
+            <div ref="previewCenterRef" class="carousel-page__preview-center">
+              <div
                 class="carousel-page__preview-frame"
                 :style="previewInnerStyle" @touchstart.passive="onTouchStart" @touchend.passive="onTouchEnd">
                 <div v-if="currentSlideProps" class="carousel-page__preview-slide" :style="{
                   width: `${carouselWidth}px`,
                   height: `${carouselHeight}px`,
-                  transform: `translate(-50%, -50%) scale(${previewScale})`,
+                  transform: `scale(${previewScale})`,
                 }">
                   <Transition name="carousel-preview" mode="out-in">
                     <div
@@ -1239,7 +1290,7 @@ function onTouchEnd(e: TouchEvent) {
                 placement="left">
                 <button type="button" class="ds-icon-btn"
                   :aria-label="t('carousel.enterFullScreen')" @click="openPreviewModal">
-                  <svg class="carousel-page__icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                  <svg class="carousel-page__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
                     aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round"
                       d="M4 8V4m0 0h4M4 16v4m0 0h4m8-16h4m0 0v4m0 4v4m0 4h-4m-8 0H4" />
@@ -1250,14 +1301,14 @@ function onTouchEnd(e: TouchEvent) {
                 :hint="t('carousel.toolbarExportPngHint', { size: carouselExportSizeLabel })" placement="left">
                 <button type="button" class="ds-icon-btn" :disabled="exporting"
                   :aria-label="t('carousel.downloadCurrent')" @click="exportCurrentPng">
-                  <Icon icon="heroicons:photo" class="carousel-page__icon-sm" aria-hidden="true" />
+                  <Icon icon="heroicons:photo" class="carousel-page__icon" aria-hidden="true" />
                 </button>
               </CarouselToolbarItem>
               <CarouselToolbarItem :label="exporting ? t('carousel.exporting') : t('carousel.downloadZip')"
                 :hint="t('carousel.toolbarExportZipHint')" placement="left">
                 <button type="button" class="ds-icon-btn" :disabled="exporting"
                   :aria-label="exporting ? t('carousel.exporting') : t('carousel.downloadZipShort')" @click="exportZip">
-                  <Icon icon="heroicons:arrow-down-tray" class="carousel-page__icon-sm" aria-hidden="true" />
+                  <Icon icon="heroicons:arrow-down-tray" class="carousel-page__icon" aria-hidden="true" />
                 </button>
               </CarouselToolbarItem>
             </aside>
@@ -1267,7 +1318,7 @@ function onTouchEnd(e: TouchEvent) {
             <div class="carousel-page__nav-row">
               <button type="button" class="ds-icon-btn disabled:cursor-not-allowed disabled:opacity-40"
                 :disabled="currentIndex <= 0" :aria-label="t('carousel.prev')" @click="currentIndex--">
-                <svg class="carousel-page__icon-md" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <svg class="carousel-page__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
@@ -1278,7 +1329,7 @@ function onTouchEnd(e: TouchEvent) {
               </div>
               <button type="button" class="ds-icon-btn disabled:cursor-not-allowed disabled:opacity-40"
                 :disabled="currentIndex >= maxIndex" :aria-label="t('carousel.next')" @click="currentIndex++">
-                <svg class="carousel-page__icon-md" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <svg class="carousel-page__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
               </button>
@@ -1331,14 +1382,14 @@ function onTouchEnd(e: TouchEvent) {
               </CarouselToolbarItem>
             </aside>
 
-            <div class="carousel-page__modal-preview">
-              <div ref="previewModalFrameRef"
+            <div ref="previewModalCenterRef" class="carousel-page__modal-preview">
+              <div
                 class="carousel-page__preview-frame"
                 :style="previewModalInnerStyle" @touchstart.passive="onTouchStart" @touchend.passive="onTouchEnd">
                 <div v-if="currentSlideProps" class="carousel-page__preview-slide" :style="{
                   width: `${carouselWidth}px`,
                   height: `${carouselHeight}px`,
-                  transform: `translate(-50%, -50%) scale(${previewModalScale})`,
+                  transform: `scale(${previewModalScale})`,
                 }">
                   <Transition name="carousel-preview" mode="out-in">
                     <div
@@ -1358,7 +1409,7 @@ function onTouchEnd(e: TouchEvent) {
                 placement="left">
                 <button type="button" class="ds-icon-btn"
                   :aria-label="t('carousel.exitFullScreen')" @click="closePreviewModal">
-                  <svg class="carousel-page__icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                  <svg class="carousel-page__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
                     aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round"
                       d="M9 9V4.5M9 9H4.5M9 9L3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5l5.25 5.25" />
@@ -1369,14 +1420,14 @@ function onTouchEnd(e: TouchEvent) {
                 :hint="t('carousel.toolbarExportPngHint', { size: carouselExportSizeLabel })" placement="left">
                 <button type="button" class="ds-icon-btn" :disabled="exporting"
                   :aria-label="t('carousel.downloadCurrent')" @click="exportCurrentPng">
-                  <Icon icon="heroicons:photo" class="carousel-page__icon-sm" aria-hidden="true" />
+                  <Icon icon="heroicons:photo" class="carousel-page__icon" aria-hidden="true" />
                 </button>
               </CarouselToolbarItem>
               <CarouselToolbarItem :label="exporting ? t('carousel.exporting') : t('carousel.downloadZip')"
                 :hint="t('carousel.toolbarExportZipHint')" placement="left">
                 <button type="button" class="ds-icon-btn" :disabled="exporting"
                   :aria-label="exporting ? t('carousel.exporting') : t('carousel.downloadZipShort')" @click="exportZip">
-                  <Icon icon="heroicons:arrow-down-tray" class="carousel-page__icon-sm" aria-hidden="true" />
+                  <Icon icon="heroicons:arrow-down-tray" class="carousel-page__icon" aria-hidden="true" />
                 </button>
               </CarouselToolbarItem>
             </aside>
@@ -1386,7 +1437,7 @@ function onTouchEnd(e: TouchEvent) {
             <div class="carousel-page__nav-row">
               <button type="button" class="ds-icon-btn disabled:cursor-not-allowed disabled:opacity-40"
                 :disabled="currentIndex <= 0" :aria-label="t('carousel.prev')" @click="currentIndex--">
-                <svg class="carousel-page__icon-md" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <svg class="carousel-page__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
@@ -1398,7 +1449,7 @@ function onTouchEnd(e: TouchEvent) {
               </div>
               <button type="button" class="ds-icon-btn disabled:cursor-not-allowed disabled:opacity-40"
                 :disabled="currentIndex >= maxIndex" :aria-label="t('carousel.next')" @click="currentIndex++">
-                <svg class="carousel-page__icon-md" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <svg class="carousel-page__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
               </button>
@@ -1421,12 +1472,12 @@ function onTouchEnd(e: TouchEvent) {
       <div class="carousel-page__mobile-bar-inner">
         <button type="button" class="ds-btn-secondary" :disabled="exporting"
           @click="exportCurrentPng">
-          <Icon icon="heroicons:photo" class="carousel-page__icon-sm" aria-hidden="true" />
+          <Icon icon="heroicons:photo" class="carousel-page__icon" aria-hidden="true" />
           {{ exporting ? t('carousel.exporting') : t('carousel.downloadCurrentShort') }}
         </button>
         <button type="button" class="ds-btn-primary" :disabled="exporting"
           @click="exportZip">
-          <Icon icon="heroicons:arrow-down-tray" class="carousel-page__icon-sm" aria-hidden="true" />
+          <Icon icon="heroicons:arrow-down-tray" class="carousel-page__icon" aria-hidden="true" />
           {{ exporting ? t('carousel.exporting') : t('carousel.downloadZipShort') }}
         </button>
       </div>
@@ -1474,16 +1525,6 @@ function onTouchEnd(e: TouchEvent) {
 
 .carousel-saved-flash-leave-to {
   opacity: 0;
-}
-
-/* Preview frame sizing is driven inline from the selected Instagram aspect ratio. */
-.carousel-page__preview-frame {
-  box-sizing: border-box;
-}
-
-.carousel-page__preview-toolbar {
-  height: auto;
-  align-self: flex-start;
 }
 
 .carousel-kw-help-enter-active,

@@ -1,5 +1,11 @@
 @use 'tokens' as *;
 
+/** Standard inline icon glyph — prefer this over one-off width/height. */
+.ds-icon {
+  @include ph-icon;
+  display: block;
+}
+
 .poem-text {
   font-family: $ph-font-typewriter;
   font-size: 0.9rem;

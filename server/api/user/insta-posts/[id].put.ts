@@ -1,4 +1,4 @@
-// PUT /api/user/insta-posts/:id — update saved Insta post
+// PUT /api/user/insta-posts/:id — update saved Instagram post
 import { Prisma } from '@prisma/client'
 import { prisma } from '~/server/utils/prisma'
 import { requireUser } from '~/server/utils/auth'
@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
     where: { id, userId: tokenUser.id },
     select: { id: true },
   })
-  if (!existing) throw createError({ statusCode: 404, statusMessage: 'Insta post not found' })
+  if (!existing) throw createError({ statusCode: 404, statusMessage: 'Instagram post not found' })
 
   const body = await readBody(event)
   const parsed = userInstaPostBodySchema.safeParse(body)

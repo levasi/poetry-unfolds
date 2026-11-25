@@ -58,8 +58,7 @@
 }
 
 .account-page__card-icon-svg {
-  height: 1rem;
-  width: 1rem;
+  @include ph-icon;
 }
 
 .account-page__card-title {

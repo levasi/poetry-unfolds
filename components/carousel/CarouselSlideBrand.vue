@@ -15,6 +15,6 @@ withDefaults(
     class="carousel-slide-brand"
     :class="`carousel-slide-brand--${theme}`"
   >
-    poetryunfolds.com
+    poetryunfolds.vercel.app
   </p>
 </template>

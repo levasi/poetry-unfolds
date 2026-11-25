@@ -125,9 +125,7 @@
 }
 
 .auth-shell__back-icon {
-  height: 1rem;
-  width: 1rem;
-  flex-shrink: 0;
+  @include ph-icon;
 }
 
 .auth-shell__desktop-verse {
@@ -199,7 +197,5 @@
 }
 
 .auth-google-btn__icon {
-  height: 1.25rem;
-  width: 1.25rem;
-  flex-shrink: 0;
+  @include ph-icon;
 }

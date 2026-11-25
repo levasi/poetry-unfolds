@@ -167,9 +167,7 @@
 }
 
 .poetry-card__read-icon {
-  flex-shrink: 0;
-  height: 0.875rem;
-  width: 0.875rem;
+  @include ph-icon;
 
   &--md {
     height: 1rem;
@@ -194,6 +192,13 @@
   display: flex;
   align-items: center;
   gap: 0.125rem;
+
+  .poetry-card__icon-btn,
+  .poem-carousel-icon {
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+  }
 }
 
 .poetry-card__icon-btn {
@@ -202,37 +207,27 @@
   justify-content: center;
   border-radius: $ph-radius-md;
   color: ph-rgb(content-muted);
-  transition: color 0.15s ease, background-color 0.15s ease;
+  transition: color 0.15s ease;
 
   &:hover {
-    background-color: ph-rgb(surface-subtle);
     color: ph-rgb(brand);
   }
 
   &--fav {
-    padding: 0.5rem;
     color: ph-rgb(content-hint);
 
     &:hover {
-      background-color: ph-rgb(brand-tint);
       color: ph-rgb(brand);
     }
   }
 
   &--liked {
     color: ph-rgb(brand);
-    background-color: ph-rgb(brand-tint);
   }
 }
 
 .poetry-card__icon {
-  height: 1.25rem;
-  width: 1.25rem;
-
-  &--sm {
-    height: 1rem;
-    width: 1rem;
-  }
+  @include ph-icon;
 }
 
 .poetry-card__grid {
@@ -492,7 +487,5 @@
 }
 
 .quick-read__nav-icon {
-  height: 1rem;
-  width: 1rem;
-  flex-shrink: 0;
+  @include ph-icon;
 }

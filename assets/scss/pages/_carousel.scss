@@ -177,23 +177,32 @@
 
   &--poem {
     order: 2;
-    @media (min-width: $bp-lg) { order: 0; }
+
+    @media (min-width: $bp-lg) {
+      order: 0;
+    }
   }
 
   &--settings {
     order: 3;
-    @media (min-width: $bp-lg) { order: 0; }
+
+    @media (min-width: $bp-lg) {
+      order: 0;
+    }
   }
 
   &--preview {
     order: 1;
     width: 100%;
-    border-radius: $ph-radius-lg;
-    border: 1px solid ph-rgb(edge-subtle);
-    background-color: ph-rgb(surface-subtle);
-    padding: 1rem;
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+    padding: 0;
 
     @media (min-width: $bp-md) {
+      border-radius: $ph-radius-lg;
+      border: 1px solid ph-rgb(edge-subtle);
+      background-color: ph-rgb(surface-subtle);
       padding: 1.25rem;
     }
 
@@ -241,6 +250,45 @@
   resize: vertical;
   font-family: $ph-font-serif;
   line-height: 1.625;
+}
+
+.carousel-page__poem-readonly {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.carousel-page__poem-readonly-author {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: ph-rgb(content-muted);
+}
+
+.carousel-page__poem-readonly-title {
+  font-family: $ph-font-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: ph-rgb(content);
+}
+
+.carousel-page__poem-readonly-meta {
+  font-size: 0.8125rem;
+  color: ph-rgb(content-muted);
+}
+
+.carousel-page__poem-readonly-body {
+  margin: 0;
+  max-height: 28rem;
+  overflow: auto;
+  white-space: pre-wrap;
+  font-family: $ph-font-serif;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: ph-rgb(content-secondary);
 }
 
 .carousel-page__year-input {
@@ -418,9 +466,10 @@
 }
 
 .carousel-page__preview-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr) 2.75rem;
   min-width: 0;
-  align-items: flex-start;
+  align-items: start;
   gap: 0.5rem;
 
   @media (min-width: 640px) {
@@ -430,9 +479,9 @@
 
 .carousel-page__preview-toolbar {
   display: flex;
-  flex-shrink: 0;
+  width: 100%;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   gap: 0.25rem;
   overflow: visible;
   border-radius: $ph-radius-md;
@@ -440,25 +489,32 @@
   background-color: ph-rgb(surface-raised);
   padding: 0.25rem;
   box-shadow: var(--shadow-ds-card);
-  height: auto;
-  align-self: flex-start;
+  box-sizing: border-box;
+
+  .carousel-toolbar-item {
+    width: 100%;
+  }
 
   .ds-icon-btn {
-    flex-shrink: 0;
+    width: 100%;
+    min-width: 0;
+    min-height: 2.25rem;
+    height: 2.25rem;
     border-radius: $ph-radius-md;
   }
 }
 
 .carousel-page__aspect-btn {
   display: flex;
+  width: 100%;
   height: 2.25rem;
-  min-width: 2.25rem;
+  min-width: 0;
   cursor: pointer;
   align-items: center;
   justify-content: center;
   border-radius: $ph-radius-md;
   border: 1px solid transparent;
-  padding-inline: 0.375rem;
+  padding-inline: 0.125rem;
   font-size: 10px;
   font-weight: 500;
   line-height: 1;
@@ -484,6 +540,7 @@
   min-width: 0;
   flex: 1;
   justify-content: center;
+  max-height: calc(100dvh - 15rem);
 }
 
 .carousel-page__preview-frame {
@@ -491,16 +548,20 @@
   margin-inline: auto;
   overflow: hidden;
   border-radius: $ph-radius-xl;
-  border: 1px solid ph-rgb(edge-subtle);
-  background-color: #000;
-  box-shadow: 0 10px 25px rgb(0 0 0 / 0.15);
-  box-sizing: border-box;
+  border: 0;
+  /* Ring via shadow so width/height match the scaled canvas exactly (no border-box shrink). */
+  box-shadow:
+    0 0 0 1px ph-rgb(edge-subtle),
+    0 10px 25px rgb(0 0 0 / 0.15);
+  box-sizing: content-box;
+  flex-shrink: 0;
 }
 
 .carousel-page__preview-slide {
   position: absolute;
-  left: 50%;
-  top: 50%;
+  left: 0;
+  top: 0;
+  transform-origin: top left;
 }
 
 .carousel-page__preview-fill {
@@ -617,10 +678,11 @@
 }
 
 .carousel-page__modal-body {
-  display: flex;
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr) 2.75rem;
   min-height: 0;
   flex: 1;
-  align-items: flex-start;
+  align-items: start;
   gap: 0.5rem;
 
   @media (min-width: 640px) {
@@ -634,7 +696,7 @@
   min-width: 0;
   flex: 1;
   align-self: stretch;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
@@ -681,13 +743,6 @@
   overflow: hidden;
 }
 
-.carousel-page__icon-sm {
-  height: 1rem;
-  width: 1rem;
-  flex-shrink: 0;
-}
-
-.carousel-page__icon-md {
-  height: 1.25rem;
-  width: 1.25rem;
+.carousel-page__icon {
+  @include ph-icon;
 }

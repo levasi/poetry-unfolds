@@ -70,8 +70,7 @@
 }
 
 .reader-settings__close-icon {
-  height: 1.25rem;
-  width: 1.25rem;
+  @include ph-icon;
 }
 
 .reader-settings__theme {
@@ -157,8 +156,7 @@
 }
 
 .reader-settings__font-nav-icon {
-  height: 1.25rem;
-  width: 1.25rem;
+  @include ph-icon;
 }
 
 .reader-settings__font-select {
@@ -238,8 +236,7 @@
 }
 
 .reader-settings__step-icon {
-  height: 1rem;
-  width: 1rem;
+  @include ph-icon;
 }
 
 .reader-settings-slide-enter-active {

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Icon } from '@iconify/vue'
 import { authorAvatarUrl } from '~/utils/authorAvatar'
 import { useFavorites } from '~/composables/useFavorites'
 import type { Poem } from '~/composables/usePoems'
@@ -114,12 +115,19 @@ async function openRandomPoem() {
             </p>
             <div class="home-page__cta-row">
               <NuxtLink to="/descopera" class="ds-btn-primary home-page__cta">
+                <Icon icon="mdi:compass-outline" class="home-page__cta-icon" aria-hidden="true" />
                 {{ t('home.explorePoems') }}
               </NuxtLink>
               <button type="button" class="ds-btn-secondary home-page__cta" :disabled="randomLoading"
                 :aria-busy="randomLoading" @click="openRandomPoem">
                 <span v-if="randomLoading" class="home-page__spinner" aria-hidden="true" />
-                {{ randomLoading ? t('home.loadingMore') : t('home.randomPoem') }}
+                <Icon
+                  v-else
+                  icon="mdi:dice-5"
+                  class="home-page__cta-icon"
+                  aria-hidden="true"
+                />
+                {{ t('home.randomPoem') }}
               </button>
             </div>
           </div>
@@ -127,12 +135,19 @@ async function openRandomPoem() {
           <!-- Mobile: CTAs pinned to bottom of banner -->
           <div class="home-page__cta-mobile">
             <NuxtLink to="/descopera" class="ds-btn-primary home-page__cta-mobile-btn">
+              <Icon icon="mdi:compass-outline" class="home-page__cta-icon" aria-hidden="true" />
               {{ t('home.explorePoems') }}
             </NuxtLink>
             <button type="button" class="ds-btn-secondary home-page__cta-mobile-btn"
               :disabled="randomLoading" :aria-busy="randomLoading" @click="openRandomPoem">
               <span v-if="randomLoading" class="home-page__spinner" aria-hidden="true" />
-              {{ randomLoading ? t('home.loadingMore') : t('home.randomPoem') }}
+              <Icon
+                v-else
+                icon="mdi:dice-5"
+                class="home-page__cta-icon"
+                aria-hidden="true"
+              />
+              {{ t('home.randomPoem') }}
             </button>
           </div>
 

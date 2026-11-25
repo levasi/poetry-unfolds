@@ -171,8 +171,7 @@
 }
 
 .poetry-viewer__edit-icon {
-  height: 0.875rem;
-  width: 0.875rem;
+  @include ph-icon;
 
   @media (min-width: $bp-md) {
     height: 1rem;

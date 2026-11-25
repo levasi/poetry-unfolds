@@ -3,7 +3,7 @@ import { poemCarouselSettingsSchema, ensurePoemCarouselFontFamily } from '~/util
 
 export const USER_INSTA_POST_ASPECT_RATIO_IDS = ['3:4', '4:5', '1:1'] as const
 
-/** Body for create/update — full Insta post state saved to the user account. */
+/** Body for create/update — full Instagram post state saved to the user account. */
 export const userInstaPostBodySchema = poemCarouselSettingsSchema.extend({
   title: z.string().min(1).max(500).trim(),
   authorName: z.string().min(1).max(200).trim(),

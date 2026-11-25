@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
     where: { id, userId: tokenUser.id },
     select: { id: true },
   })
-  if (!existing) throw createError({ statusCode: 404, statusMessage: 'Insta post not found' })
+  if (!existing) throw createError({ statusCode: 404, statusMessage: 'Instagram post not found' })
 
   await prisma.userInstaPost.delete({ where: { id } })
   return { ok: true }

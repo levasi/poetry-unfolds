@@ -133,9 +133,7 @@
 }
 
 .write-search__remove-icon {
-  width: 0.875rem;
-  height: 0.875rem;
-  flex-shrink: 0;
+  @include ph-icon;
 }
 
 .write-search__add {
@@ -163,9 +161,7 @@
 }
 
 .write-search__add-icon {
-  width: 1.25rem;
-  height: 1.25rem;
-  flex-shrink: 0;
+  @include ph-icon;
 }
 
 // ── Search actions (diacritics + submit) ───────────────────────────────────
@@ -241,9 +237,7 @@
 }
 
 .write-search-actions__submit-icon {
-  width: 1.25rem;
-  height: 1.25rem;
-  flex-shrink: 0;
+  @include ph-icon;
 }
 
 // ── Results ────────────────────────────────────────────────────────────────
@@ -531,9 +525,7 @@
 }
 
 .write-split__toast-icon {
-  width: 1.25rem;
-  height: 1.25rem;
-  flex-shrink: 0;
+  @include ph-icon;
 
   &--ok {
     color: ph-rgb(success);
@@ -649,9 +641,7 @@
 }
 
 .write-split__handle-icon {
-  width: 0.875rem;
-  height: 0.875rem;
-  flex-shrink: 0;
+  @include ph-icon;
 }
 
 .write-split__right {
@@ -810,8 +800,7 @@
 }
 
 .write-publish__success-icon {
-  width: 1.5rem;
-  height: 1.5rem;
+  @include ph-icon;
   color: ph-rgb(brand);
 }
 

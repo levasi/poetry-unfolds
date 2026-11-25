@@ -43,10 +43,10 @@ describe('useCarouselGenerator (pure helpers)', () => {
   })
 
   describe('buildCarouselSlides', () => {
-    it('wraps body with cover and cta slides', () => {
+    it('wraps body with a cover slide (no CTA end slide)', () => {
       const slides = buildCarouselSlides('line one\nline two')
       expect(slides[0]).toEqual({ kind: 'cover' })
-      expect(slides[slides.length - 1]).toEqual({ kind: 'cta' })
+      expect(slides.every((s) => s.kind !== 'cta')).toBe(true)
       expect(slides.some((s) => s.kind === 'body')).toBe(true)
     })
   })

@@ -9,10 +9,10 @@ const props = defineProps<{
   theme: CarouselTheme
 }>()
 
-/** Split brand domains so "poetry" can be accented (poetryunfolds.com / legacy poetryhub.ro). */
+/** Split brand domains so "poetry" can be accented (poetryunfolds.vercel.app / legacy poetryhub.ro). */
 function parseBrandDomain(line: string) {
   const full = line.trim()
-  const m = full.match(/^(poetry)(unfolds\.com|hub\.ro)$/i)
+  const m = full.match(/^(poetry)(unfolds\.vercel\.app|unfolds\.com|hub\.ro)$/i)
   if (!m) return null
   const i = full.toLowerCase().indexOf('poetry')
   if (i < 0) return null

@@ -172,9 +172,7 @@
 
 .ds-banner__icon {
   margin-top: 0.125rem;
-  width: 1.25rem;
-  height: 1.25rem;
-  flex-shrink: 0;
+  @include ph-icon;
 
   &--danger {
     color: ph-rgb(danger);

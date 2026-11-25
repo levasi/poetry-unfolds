@@ -1,4 +1,4 @@
-// POST /api/user/insta-posts — save Insta post to account
+// POST /api/user/insta-posts — save Instagram post to account
 import { Prisma } from '@prisma/client'
 import { prisma } from '~/server/utils/prisma'
 import { requireUser } from '~/server/utils/auth'

@@ -16,5 +16,14 @@ $ph-radius-md: 0.75rem;
 $ph-radius-lg: 1rem;
 $ph-radius-xl: 1.25rem;
 
+/** Default UI glyph size (Iconify / SVG icons in buttons, nav, forms). */
+$ph-icon-size: 1rem;
+
+@mixin ph-icon($size: $ph-icon-size) {
+  width: $size;
+  height: $size;
+  flex-shrink: 0;
+}
+
 $bp-md: 768px;
 $bp-lg: 1024px;

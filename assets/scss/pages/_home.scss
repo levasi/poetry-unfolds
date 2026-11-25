@@ -155,8 +155,9 @@
 }
 
 .home-page__cta {
-  min-width: 12rem;
+  min-width: 11rem;
   justify-content: center;
+  padding: 0.4375rem 0.75rem;
 }
 
 .home-page__cta-mobile {
@@ -181,18 +182,22 @@
   min-width: 0;
   flex: 1;
   justify-content: center;
+  padding: 0.4375rem 0.75rem;
 
   @media (min-width: 640px) {
-    min-width: 10.5rem;
+    min-width: 10rem;
     flex: none;
   }
 }
 
+.home-page__cta-icon {
+  display: block;
+  @include ph-icon;
+}
+
 .home-page__spinner {
   display: inline-block;
-  height: 1rem;
-  width: 1rem;
-  flex-shrink: 0;
+  @include ph-icon;
   animation: ph-spin 1s linear infinite;
   border-radius: 9999px;
   border: 2px solid ph-rgb(edge-subtle);

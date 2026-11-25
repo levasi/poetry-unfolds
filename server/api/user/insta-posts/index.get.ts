@@ -1,4 +1,4 @@
-// GET /api/user/insta-posts — list saved Insta posts
+// GET /api/user/insta-posts — list saved Instagram posts
 import { z } from 'zod'
 import { prisma } from '~/server/utils/prisma'
 import { requireUser } from '~/server/utils/auth'

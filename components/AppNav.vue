@@ -205,7 +205,7 @@ const mobileIcons = {
         :aria-label="mobileOpen ? t('a11y.closeMenu') : t('a11y.openMenu')"
         @click="mobileOpen = true"
       >
-        <svg class="app-nav__icon app-nav__icon--lg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+        <svg class="app-nav__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"
           stroke-width="2" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
         </svg>

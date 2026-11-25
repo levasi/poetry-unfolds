@@ -51,7 +51,7 @@ test.describe('smoke', () => {
 
   test('main nav shows insta post link', async ({ page }) => {
     await page.goto('/')
-    await expect(page.getByRole('link', { name: /Post Insta|Insta post/i }).first()).toBeVisible()
+    await expect(page.getByRole('link', { name: /Post Instagram|Instagram post/i }).first()).toBeVisible()
   })
 
   test('discover page loads with feed tabs', async ({ page }) => {
@@ -63,7 +63,7 @@ test.describe('smoke', () => {
   test('landing page shows hero and explore CTA', async ({ page }) => {
     await page.goto('/')
     await expect(page.getByRole('heading', { name: /Cuvinte care|Words that/i })).toBeVisible()
-    await expect(page.getByRole('link', { name: /Explorează poezii|Explore poems/i })).toBeVisible()
+    await expect(page.getByRole('link', { name: /Explorează|Explore/i })).toBeVisible()
   })
 
   test('favorites empty state uses editorial empty', async ({ page }) => {

@@ -289,7 +289,7 @@ watchEffect((onCleanup) => {
           >
             <Icon
               :icon="liked ? 'heroicons:heart-solid' : 'heroicons:heart'"
-              class="poetry-card__icon poetry-card__icon--sm"
+              class="poetry-card__icon"
               aria-hidden="true"
             />
           </button>
@@ -411,7 +411,7 @@ watchEffect((onCleanup) => {
               >
                 <Icon
                   :icon="liked ? 'heroicons:heart-solid' : 'heroicons:heart'"
-                  class="poetry-card__icon poetry-card__icon--sm"
+                  class="poetry-card__icon"
                   aria-hidden="true"
                 />
               </button>

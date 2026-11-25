@@ -71,8 +71,8 @@ export function getDefaultCarouselSiteDefaults(): CarouselSiteDefaultsPayload {
 /** Old Romanian CTAs; DB may still store them — clear so clients use `carousel.defaultCta` from i18n. */
 const LEGACY_CTA_RO = [
   'Urmărește pentru mai multă poezie',
-  'Urmărește poetryunfolds.com pentru mai multă poezie',
-  'Urmărește\npoetryunfolds.com\npentru mai multe detalii',
+  'Urmărește poetryunfolds.vercel.app pentru mai multă poezie',
+  'Urmărește\npoetryunfolds.vercel.app\npentru mai multe detalii',
 ]
 
 function migrateLegacyCarouselCta(cta: string): string {

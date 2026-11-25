@@ -48,7 +48,6 @@
 }
 
 .write-editor__toolbar {
-  margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -207,9 +206,7 @@
 }
 
 .write-editor__remove-icon {
-  width: 1rem;
-  height: 1rem;
-  flex-shrink: 0;
+  @include ph-icon;
 }
 
 .write-editor__reorder {
@@ -251,9 +248,7 @@
 }
 
 .write-editor__reorder-icon {
-  width: 1.125rem;
-  height: 1.125rem;
-  flex-shrink: 0;
+  @include ph-icon;
 }
 
 .write-editor__drag-handle {
@@ -390,15 +385,11 @@
 }
 
 .write-editor__insert-icon {
-  width: 0.75rem;
-  height: 0.75rem;
-  flex-shrink: 0;
+  @include ph-icon;
 }
 
 .write-editor__drag-icon {
-  width: 1rem;
-  height: 1rem;
-  flex-shrink: 0;
+  @include ph-icon;
   pointer-events: none;
 }
 
@@ -537,8 +528,7 @@
 }
 
 .write-editor__saved-add-icon {
-  height: 0.875rem;
-  width: 0.875rem;
+  @include ph-icon;
 }
 
 .write-editor__saved-form {

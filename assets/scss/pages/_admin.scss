@@ -348,8 +348,7 @@
 }
 
 .admin-page__link-icon-svg {
-  height: 1.25rem;
-  width: 1.25rem;
+  @include ph-icon;
 }
 
 .admin-page__link-title {

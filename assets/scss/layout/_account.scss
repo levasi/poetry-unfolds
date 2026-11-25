@@ -128,9 +128,7 @@
 }
 
 .account-layout__nav-icon {
-  height: 1rem;
-  width: 1rem;
-  flex-shrink: 0;
+  @include ph-icon;
   opacity: 0.8;
 }
 
@@ -157,9 +155,7 @@
 }
 
 .account-layout__logout-icon {
-  height: 1rem;
-  width: 1rem;
-  flex-shrink: 0;
+  @include ph-icon;
 }
 
 .account-layout__mobile-tabs {
@@ -217,8 +213,7 @@
 }
 
 .account-layout__mobile-tab-icon {
-  height: 1.25rem;
-  width: 1.25rem;
+  @include ph-icon;
 }
 
 .account-layout__mobile-tab-label {

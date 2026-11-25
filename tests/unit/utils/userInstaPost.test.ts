@@ -13,7 +13,7 @@ describe('userInstaPost', () => {
     bodyLineHeight: 1.65,
     theme: 'dark' as const,
     keywordInput: 'stea, noapte',
-    ctaText: 'Visit poetryunfolds.com',
+    ctaText: 'Visit poetryunfolds.vercel.app',
   }
 
   it('parses a valid payload', () => {

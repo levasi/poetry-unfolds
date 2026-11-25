@@ -76,8 +76,7 @@
 }
 
 .poem-reels__more-icon {
-  height: 1.5rem;
-  width: 1.5rem;
+  @include ph-icon;
 }
 
 .poem-reel-slide {
@@ -202,13 +201,7 @@
 }
 
 .poem-reel-slide__action-icon {
-  height: 1.5rem;
-  width: 1.5rem;
-
-  &--sm {
-    height: 1.25rem;
-    width: 1.25rem;
-  }
+  @include ph-icon;
 }
 
 @keyframes poem-reels-spin {

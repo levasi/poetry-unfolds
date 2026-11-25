@@ -1,4 +1,4 @@
-// GET /api/user/insta-posts/:id — load one saved Insta post
+// GET /api/user/insta-posts/:id — load one saved Instagram post
 import { prisma } from '~/server/utils/prisma'
 import { requireUser } from '~/server/utils/auth'
 import { parseUserInstaPostPayload } from '~/utils/userInstaPost'
@@ -20,10 +20,10 @@ export default defineEventHandler(async (event) => {
       createdAt: true,
     },
   })
-  if (!row) throw createError({ statusCode: 404, statusMessage: 'Insta post not found' })
+  if (!row) throw createError({ statusCode: 404, statusMessage: 'Instagram post not found' })
 
   const payload = parseUserInstaPostPayload(row.payload)
-  if (!payload) throw createError({ statusCode: 500, statusMessage: 'Invalid saved Insta post data' })
+  if (!payload) throw createError({ statusCode: 500, statusMessage: 'Invalid saved Instagram post data' })
 
   return {
     id: row.id,

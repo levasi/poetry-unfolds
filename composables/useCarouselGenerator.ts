@@ -187,7 +187,6 @@ export function buildCarouselSlides(poemText: string, opts?: SplitPoemOptions): 
   for (const lines of body) {
     slides.push({ kind: 'body', lines })
   }
-  slides.push({ kind: 'cta' })
   return slides
 }
 
