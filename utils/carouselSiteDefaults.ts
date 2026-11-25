@@ -61,7 +61,7 @@ export function getDefaultCarouselSiteDefaults(): CarouselSiteDefaultsPayload {
     linesPerSlide: 8,
     bodyFontSizeScale: 1.5,
     bodyLineHeight: 1.65,
-    bodyFontWeight: null,
+    bodyFontWeight: 400,
     titleFontWeight: null,
     ctaText: '',
     keywordInput: '',

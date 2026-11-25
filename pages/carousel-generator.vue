@@ -128,7 +128,7 @@ const linesPerSlide = ref(CAROUSEL_LINES_PER_BODY_SLIDE)
 const bodyFontSizeScale = ref(1.5)
 const bodyLineHeight = ref(1.65)
 /** null = use theme Tailwind weights */
-const bodyFontWeight = ref<number | null>(null)
+const bodyFontWeight = ref<number>(400)
 const titleFontWeight = ref<number | null>(null)
 /** Font stack for all carousel slide text (same catalog as poem reader). */
 const carouselFontKey = ref<ReaderFontKey>('literata')
@@ -177,7 +177,7 @@ function applyCarouselTypographyFromSiteDefaults(d: CarouselSiteDefaultsPayload)
   linesPerSlide.value = d.linesPerSlide
   bodyFontSizeScale.value = d.bodyFontSizeScale
   bodyLineHeight.value = d.bodyLineHeight
-  bodyFontWeight.value = d.bodyFontWeight ?? null
+  bodyFontWeight.value = d.bodyFontWeight ?? 400
   titleFontWeight.value = d.titleFontWeight ?? null
 }
 
@@ -198,7 +198,7 @@ function applyPoemCarouselSettings(p: PoemCarouselSettingsPayload) {
   linesPerSlide.value = p.linesPerSlide
   bodyFontSizeScale.value = p.bodyFontSizeScale
   bodyLineHeight.value = p.bodyLineHeight
-  bodyFontWeight.value = p.bodyFontWeight ?? null
+  bodyFontWeight.value = p.bodyFontWeight ?? 400
   titleFontWeight.value = p.titleFontWeight ?? null
   if (p.keywordInput !== undefined) keywordInput.value = p.keywordInput
 }
@@ -1085,7 +1085,8 @@ function onTouchEnd(e: TouchEvent) {
                   :placeholder="t('carousel.phAuthor')" autocomplete="off" />
               </div>
               <div>
-                <label class="field-label" for="carousel-manual-nationality">{{ t('carousel.fieldNationality') }}</label>
+                <label class="field-label" for="carousel-manual-nationality">{{ t('carousel.fieldNationality')
+                  }}</label>
                 <input id="carousel-manual-nationality" v-model="authorNationality" type="text" class="ds-input"
                   :placeholder="t('carousel.phNationality')" autocomplete="off" />
               </div>
@@ -1093,14 +1094,14 @@ function onTouchEnd(e: TouchEvent) {
                 <div>
                   <label class="field-label" for="carousel-manual-birth-year">{{ t('carousel.fieldBirthYear') }}</label>
                   <input id="carousel-manual-birth-year" v-model="authorBirthYear" type="text" inputmode="numeric"
-                    maxlength="12" class="ds-input carousel-page__year-input"
-                    :placeholder="t('carousel.phBirthYear')" autocomplete="off" />
+                    maxlength="12" class="ds-input carousel-page__year-input" :placeholder="t('carousel.phBirthYear')"
+                    autocomplete="off" />
                 </div>
                 <div>
                   <label class="field-label" for="carousel-manual-death-year">{{ t('carousel.fieldDeathYear') }}</label>
                   <input id="carousel-manual-death-year" v-model="authorDeathYear" type="text" inputmode="numeric"
-                    maxlength="12" class="ds-input carousel-page__year-input"
-                    :placeholder="t('carousel.phDeathYear')" autocomplete="off" />
+                    maxlength="12" class="ds-input carousel-page__year-input" :placeholder="t('carousel.phDeathYear')"
+                    autocomplete="off" />
                 </div>
               </div>
             </div>
@@ -1137,10 +1138,8 @@ function onTouchEnd(e: TouchEvent) {
             <p v-if="author.trim()" class="carousel-page__poem-readonly-author">
               {{ author }}
             </p>
-            <p
-              v-if="authorNationality.trim() || authorBirthYear.trim() || authorDeathYear.trim()"
-              class="carousel-page__poem-readonly-meta"
-            >
+            <p v-if="authorNationality.trim() || authorBirthYear.trim() || authorDeathYear.trim()"
+              class="carousel-page__poem-readonly-meta">
               <template v-if="authorNationality.trim()">{{ authorNationality.trim() }}</template>
               <template v-if="authorNationality.trim() && (authorBirthYear.trim() || authorDeathYear.trim())">
                 ·
@@ -1172,25 +1171,13 @@ function onTouchEnd(e: TouchEvent) {
             <div>
               <label class="field-label">{{ t('carousel.fieldTheme') }}</label>
               <div class="carousel-page__font-row">
-                <button
-                  type="button"
-                  class="ds-icon-btn"
-                  :disabled="CAROUSEL_THEME_IDS.length < 2"
-                  :aria-label="t('carousel.prevTheme')"
-                  :title="t('carousel.prevTheme')"
-                  @click="prevCarouselTheme"
-                >
+                <button type="button" class="ds-icon-btn" :disabled="CAROUSEL_THEME_IDS.length < 2"
+                  :aria-label="t('carousel.prevTheme')" :title="t('carousel.prevTheme')" @click="prevCarouselTheme">
                   <Icon icon="heroicons:chevron-left" class="carousel-page__icon" aria-hidden="true" />
                 </button>
                 <CarouselThemeSelect v-model="theme" class="carousel-page__font-select" />
-                <button
-                  type="button"
-                  class="ds-icon-btn"
-                  :disabled="CAROUSEL_THEME_IDS.length < 2"
-                  :aria-label="t('carousel.nextTheme')"
-                  :title="t('carousel.nextTheme')"
-                  @click="nextCarouselTheme"
-                >
+                <button type="button" class="ds-icon-btn" :disabled="CAROUSEL_THEME_IDS.length < 2"
+                  :aria-label="t('carousel.nextTheme')" :title="t('carousel.nextTheme')" @click="nextCarouselTheme">
                   <Icon icon="heroicons:chevron-right" class="carousel-page__icon" aria-hidden="true" />
                 </button>
               </div>
@@ -1214,14 +1201,8 @@ function onTouchEnd(e: TouchEvent) {
             <div>
               <label class="field-label">{{ t('carousel.fieldLinesPerSlide') }}</label>
               <div class="carousel-page__range-row">
-                <input
-                  v-model.number="linesPerSlide"
-                  type="range"
-                  min="4"
-                  max="16"
-                  step="1"
-                  class="carousel-page__range"
-                />
+                <input v-model.number="linesPerSlide" type="range" min="4" max="16" step="1"
+                  class="carousel-page__range" />
                 <span class="carousel-page__range-val">{{ linesPerSlide }}</span>
               </div>
             </div>
@@ -1229,63 +1210,41 @@ function onTouchEnd(e: TouchEvent) {
             <div>
               <label class="field-label">{{ t('carousel.fieldBodyFontSize') }}</label>
               <div class="carousel-page__range-row">
-                <input
-                  v-model.number="bodyFontSizeScale"
-                  type="range"
-                  min="0.7"
-                  max="2"
-                  step="0.05"
-                  class="carousel-page__range"
-                />
+                <input v-model.number="bodyFontSizeScale" type="range" min="0.7" max="2" step="0.05"
+                  class="carousel-page__range" />
                 <span class="carousel-page__range-val carousel-page__range-val--wide">{{
                   Math.round(bodyFontSizeScale * 100)
-                }}%</span>
+                  }}%</span>
               </div>
             </div>
 
             <div>
               <label class="field-label">{{ t('carousel.fieldLineHeight') }}</label>
               <div class="carousel-page__range-row">
-                <input
-                  v-model.number="bodyLineHeight"
-                  type="range"
-                  min="1.15"
-                  max="2.25"
-                  step="0.05"
-                  class="carousel-page__range"
-                />
+                <input v-model.number="bodyLineHeight" type="range" min="1.15" max="2.25" step="0.05"
+                  class="carousel-page__range" />
                 <span class="carousel-page__range-val carousel-page__range-val--wide">{{
                   bodyLineHeight.toFixed(2)
-                }}</span>
+                  }}</span>
               </div>
             </div>
 
             <div>
-              <label class="field-label" for="carousel-body-font-weight">{{
-                t('carousel.fieldBodyFontWeight')
-              }}</label>
-              <select
-                id="carousel-body-font-weight"
-                class="ds-input"
-                :value="bodyFontWeight ?? ''"
-                @change="bodyFontWeight = ($event.target as HTMLSelectElement).value === '' ? null : Number(($event.target as HTMLSelectElement).value)"
-              >
-                <option value="">{{ t('carousel.fontWeightDefault') }}</option>
-                <option v-for="w in CAROUSEL_FONT_WEIGHT_PRESETS" :key="w" :value="w">{{
-                  t(`carousel.fontWeight.${w}`)
-                }}</option>
-              </select>
+              <div class="carousel-page__font-weight-pills" role="group"
+                :aria-label="t('carousel.fieldBodyFontWeight')">
+                <button v-for="w in CAROUSEL_FONT_WEIGHT_PRESETS" :key="w" type="button"
+                  class="carousel-page__font-weight-pill"
+                  :class="{ 'carousel-page__font-weight-pill--active': bodyFontWeight === w }"
+                  :aria-pressed="bodyFontWeight === w" @click="bodyFontWeight = w">
+                  {{ w }}
+                </button>
+              </div>
             </div>
 
             <div>
               <label class="field-label" for="carousel-keyword-input">{{ t('carousel.fieldKeywords') }}</label>
-              <input
-                id="carousel-keyword-input"
-                v-model="keywordInput"
-                type="text"
-                class="ds-input"
-                :placeholder="t('carousel.phKeywords')"
-              />
+              <input id="carousel-keyword-input" v-model="keywordInput" type="text" class="ds-input"
+                :placeholder="t('carousel.phKeywords')" />
             </div>
 
             <div>
@@ -1304,240 +1263,161 @@ function onTouchEnd(e: TouchEvent) {
       <!-- Column 3: Preview -->
       <div class="carousel-page__col carousel-page__col--preview">
         <div class="carousel-page__preview-stack">
-          <div class="carousel-page__preview-toolbar" role="toolbar" :aria-label="t('carousel.previewToolbar')">
-            <div class="carousel-page__preview-toolbar-group" role="group" :aria-label="t('carousel.previewToolbar')">
-              <CarouselToolbarItem v-for="ratio in CAROUSEL_ASPECT_RATIOS" :key="ratio.id"
-                :label="t(`carousel.aspectRatio.${ratio.i18nKey}.label`)"
-                :hint="t(`carousel.aspectRatio.${ratio.i18nKey}.hint`, { size: `${ratio.width}×${ratio.height}` })"
-                placement="bottom">
-                <button type="button" class="carousel-page__aspect-btn"
-                  :class="{ 'carousel-page__aspect-btn--active': aspectRatioId === ratio.id }"
-                  :aria-pressed="aspectRatioId === ratio.id"
-                  :aria-label="t(`carousel.aspectRatio.${ratio.i18nKey}.label`)" @click="aspectRatioId = ratio.id">
-                  {{ ratio.id }}
-                </button>
-              </CarouselToolbarItem>
+          <div class="carousel-page__preview-controls">
+            <div class="carousel-page__preview-toolbar" role="toolbar" :aria-label="t('carousel.previewToolbar')">
+              <div class="carousel-page__preview-toolbar-group" role="group" :aria-label="t('carousel.previewToolbar')">
+                <CarouselToolbarItem v-for="ratio in CAROUSEL_ASPECT_RATIOS" :key="ratio.id"
+                  :label="t(`carousel.aspectRatio.${ratio.i18nKey}.label`)"
+                  :hint="t(`carousel.aspectRatio.${ratio.i18nKey}.hint`, { size: `${ratio.width}×${ratio.height}` })"
+                  placement="bottom">
+                  <button type="button" class="carousel-page__aspect-btn"
+                    :class="{ 'carousel-page__aspect-btn--active': aspectRatioId === ratio.id }"
+                    :aria-pressed="aspectRatioId === ratio.id"
+                    :aria-label="t(`carousel.aspectRatio.${ratio.i18nKey}.label`)" @click="aspectRatioId = ratio.id">
+                    {{ ratio.id }}
+                  </button>
+                </CarouselToolbarItem>
+              </div>
+
+              <div class="carousel-page__preview-toolbar-group" role="group"
+                :aria-label="t('carousel.previewExportToolbar')">
+                <CarouselToolbarItem :label="t('carousel.enterFullScreen')" :hint="t('carousel.toolbarFullScreenHint')"
+                  placement="bottom">
+                  <button type="button" class="ds-icon-btn" :aria-label="t('carousel.enterFullScreen')"
+                    @click="openPreviewModal">
+                    <svg class="carousel-page__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                      stroke-width="2" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M4 8V4m0 0h4M4 16v4m0 0h4m8-16h4m0 0v4m0 4v4m0 4h-4m-8 0H4" />
+                    </svg>
+                  </button>
+                </CarouselToolbarItem>
+                <CarouselToolbarItem :label="t('carousel.downloadCurrent')"
+                  :hint="t('carousel.toolbarExportPngHint', { size: carouselExportSizeLabel })" placement="bottom">
+                  <button type="button" class="ds-icon-btn" :disabled="exporting"
+                    :aria-label="t('carousel.downloadCurrent')" @click="exportCurrentPng">
+                    <Icon icon="heroicons:photo" class="carousel-page__icon" aria-hidden="true" />
+                  </button>
+                </CarouselToolbarItem>
+                <CarouselToolbarItem :label="exporting ? t('carousel.exporting') : t('carousel.downloadZip')"
+                  :hint="t('carousel.toolbarExportZipHint')" placement="bottom">
+                  <button type="button" class="ds-icon-btn" :disabled="exporting"
+                    :aria-label="exporting ? t('carousel.exporting') : t('carousel.downloadZipShort')"
+                    @click="exportZip">
+                    <Icon icon="heroicons:arrow-down-tray" class="carousel-page__icon" aria-hidden="true" />
+                  </button>
+                </CarouselToolbarItem>
+              </div>
+            </div>
+            <div v-if="compactCarouselSettings" ref="settingsRailRef"
+              class="carousel-page__preview-toolbar carousel-page__preview-toolbar--settings" role="toolbar"
+              :aria-label="t('carousel.settingsRailAria')">
+              <div class="carousel-page__preview-toolbar-group" role="group"
+                :aria-label="t('carousel.settingsRailAria')">
+                <CarouselSettingPopover id="theme" icon="heroicons:swatch" :label="t('carousel.fieldTheme')"
+                  :open="openSettingsPanel === 'theme'" @toggle="toggleSettingsPanel">
+                  <div class="carousel-page__font-row">
+                    <button type="button" class="ds-icon-btn" :disabled="CAROUSEL_THEME_IDS.length < 2"
+                      :aria-label="t('carousel.prevTheme')" :title="t('carousel.prevTheme')" @click="prevCarouselTheme">
+                      <Icon icon="heroicons:chevron-left" class="carousel-page__icon" aria-hidden="true" />
+                    </button>
+                    <CarouselThemeSelect v-model="theme" class="carousel-page__font-select" />
+                    <button type="button" class="ds-icon-btn" :disabled="CAROUSEL_THEME_IDS.length < 2"
+                      :aria-label="t('carousel.nextTheme')" :title="t('carousel.nextTheme')" @click="nextCarouselTheme">
+                      <Icon icon="heroicons:chevron-right" class="carousel-page__icon" aria-hidden="true" />
+                    </button>
+                  </div>
+                </CarouselSettingPopover>
+
+                <CarouselSettingPopover id="font" icon="heroicons:language" :label="t('carousel.fieldFont')"
+                  :open="openSettingsPanel === 'font'" @toggle="toggleSettingsPanel">
+                  <div class="carousel-page__font-row">
+                    <button type="button" class="ds-icon-btn" :disabled="carouselFontKeys.length < 2"
+                      aria-label="Font anterior" title="Font anterior" @click="prevCarouselFont">
+                      <Icon icon="heroicons:chevron-left" class="carousel-page__icon" aria-hidden="true" />
+                    </button>
+                    <CarouselFontSelect v-model="carouselFontKey" class="carousel-page__font-select" />
+                    <button type="button" class="ds-icon-btn" :disabled="carouselFontKeys.length < 2"
+                      aria-label="Font următor" title="Font următor" @click="nextCarouselFont">
+                      <Icon icon="heroicons:chevron-right" class="carousel-page__icon" aria-hidden="true" />
+                    </button>
+                  </div>
+                </CarouselSettingPopover>
+
+                <CarouselSettingPopover id="lines" icon="heroicons:queue-list" :label="t('carousel.fieldLinesPerSlide')"
+                  :open="openSettingsPanel === 'lines'" @toggle="toggleSettingsPanel">
+                  <div class="carousel-page__range-row">
+                    <input v-model.number="linesPerSlide" type="range" min="4" max="16" step="1"
+                      class="carousel-page__range" :aria-label="t('carousel.fieldLinesPerSlide')" />
+                    <span class="carousel-page__range-val">{{ linesPerSlide }}</span>
+                  </div>
+                </CarouselSettingPopover>
+
+                <CarouselSettingPopover id="size" icon="material-symbols:format-size"
+                  :label="t('carousel.fieldBodyFontSize')" :open="openSettingsPanel === 'size'"
+                  @toggle="toggleSettingsPanel">
+                  <div class="carousel-page__range-row">
+                    <input v-model.number="bodyFontSizeScale" type="range" min="0.7" max="2" step="0.05"
+                      class="carousel-page__range" :aria-label="t('carousel.fieldBodyFontSize')" />
+                    <span class="carousel-page__range-val carousel-page__range-val--wide">{{
+                      Math.round(bodyFontSizeScale * 100)
+                      }}%</span>
+                  </div>
+                </CarouselSettingPopover>
+
+                <CarouselSettingPopover id="lineHeight" icon="heroicons:bars-3" :label="t('carousel.fieldLineHeight')"
+                  :open="openSettingsPanel === 'lineHeight'" @toggle="toggleSettingsPanel">
+                  <div class="carousel-page__range-row">
+                    <input v-model.number="bodyLineHeight" type="range" min="1.15" max="2.25" step="0.05"
+                      class="carousel-page__range" :aria-label="t('carousel.fieldLineHeight')" />
+                    <span class="carousel-page__range-val carousel-page__range-val--wide">{{
+                      bodyLineHeight.toFixed(2)
+                      }}</span>
+                  </div>
+                </CarouselSettingPopover>
+
+                <CarouselSettingPopover id="weights" icon="heroicons:adjustments-horizontal"
+                  :label="t('carousel.settingsWeights')" :open="openSettingsPanel === 'weights'"
+                  @toggle="toggleSettingsPanel">
+                  <div>
+                    <div class="carousel-page__font-weight-pills" role="group"
+                      :aria-label="t('carousel.fieldBodyFontWeight')">
+                      <button v-for="w in CAROUSEL_FONT_WEIGHT_PRESETS" :key="w" type="button"
+                        class="carousel-page__font-weight-pill"
+                        :class="{ 'carousel-page__font-weight-pill--active': bodyFontWeight === w }"
+                        :aria-pressed="bodyFontWeight === w" @click="bodyFontWeight = w">
+                        {{ w }}
+                      </button>
+                    </div>
+                  </div>
+                </CarouselSettingPopover>
+
+                <CarouselSettingPopover id="keywords" icon="heroicons:hashtag" :label="t('carousel.settingsKeywords')"
+                  :open="openSettingsPanel === 'keywords'" @toggle="toggleSettingsPanel">
+                  <label class="field-label" for="carousel-keyword-input-mobile">{{
+                    t('carousel.fieldKeywords')
+                    }}</label>
+                  <input id="carousel-keyword-input-mobile" v-model="keywordInput" type="text" class="ds-input"
+                    :placeholder="t('carousel.phKeywords')" />
+                </CarouselSettingPopover>
+
+                <CarouselSettingPopover id="caption" icon="heroicons:chat-bubble-bottom-center-text"
+                  :label="t('carousel.settingsCaption')" :open="openSettingsPanel === 'caption'"
+                  @toggle="toggleSettingsPanel">
+                  <div class="carousel-page__caption-head">
+                    <button type="button" class="carousel-page__caption-copy" @click="copyCaption">
+                      <Icon icon="heroicons:clipboard-document" class="carousel-page__icon" aria-hidden="true" />
+                      {{ t('carousel.copyCaption') }}
+                    </button>
+                  </div>
+                  <pre class="carousel-page__caption-pre">{{ captionText }}</pre>
+                </CarouselSettingPopover>
+              </div>
             </div>
 
-            <div class="carousel-page__preview-toolbar-group" role="group"
-              :aria-label="t('carousel.previewExportToolbar')">
-              <CarouselToolbarItem :label="t('carousel.enterFullScreen')" :hint="t('carousel.toolbarFullScreenHint')"
-                placement="bottom">
-                <button type="button" class="ds-icon-btn" :aria-label="t('carousel.enterFullScreen')"
-                  @click="openPreviewModal">
-                  <svg class="carousel-page__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                    stroke-width="2" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M4 8V4m0 0h4M4 16v4m0 0h4m8-16h4m0 0v4m0 4v4m0 4h-4m-8 0H4" />
-                  </svg>
-                </button>
-              </CarouselToolbarItem>
-              <CarouselToolbarItem :label="t('carousel.downloadCurrent')"
-                :hint="t('carousel.toolbarExportPngHint', { size: carouselExportSizeLabel })" placement="bottom">
-                <button type="button" class="ds-icon-btn" :disabled="exporting"
-                  :aria-label="t('carousel.downloadCurrent')" @click="exportCurrentPng">
-                  <Icon icon="heroicons:photo" class="carousel-page__icon" aria-hidden="true" />
-                </button>
-              </CarouselToolbarItem>
-              <CarouselToolbarItem :label="exporting ? t('carousel.exporting') : t('carousel.downloadZip')"
-                :hint="t('carousel.toolbarExportZipHint')" placement="bottom">
-                <button type="button" class="ds-icon-btn" :disabled="exporting"
-                  :aria-label="exporting ? t('carousel.exporting') : t('carousel.downloadZipShort')" @click="exportZip">
-                  <Icon icon="heroicons:arrow-down-tray" class="carousel-page__icon" aria-hidden="true" />
-                </button>
-              </CarouselToolbarItem>
-            </div>
+            <div v-if="compactCarouselSettings" id="carousel-settings-disclosure"
+              class="carousel-page__settings-disclosure" />
           </div>
-
-          <div
-            v-if="compactCarouselSettings"
-            ref="settingsRailRef"
-            class="carousel-page__preview-toolbar carousel-page__preview-toolbar--settings"
-            role="toolbar"
-            :aria-label="t('carousel.settingsRailAria')"
-          >
-            <div class="carousel-page__preview-toolbar-group" role="group" :aria-label="t('carousel.settingsRailAria')">
-          <CarouselSettingPopover
-            id="theme"
-            icon="heroicons:swatch"
-            :label="t('carousel.fieldTheme')"
-            :open="openSettingsPanel === 'theme'"
-            @toggle="toggleSettingsPanel"
-          >
-            <div class="carousel-page__font-row">
-              <button
-                type="button"
-                class="ds-icon-btn"
-                :disabled="CAROUSEL_THEME_IDS.length < 2"
-                :aria-label="t('carousel.prevTheme')"
-                :title="t('carousel.prevTheme')"
-                @click="prevCarouselTheme"
-              >
-                <Icon icon="heroicons:chevron-left" class="carousel-page__icon" aria-hidden="true" />
-              </button>
-              <CarouselThemeSelect v-model="theme" class="carousel-page__font-select" />
-              <button
-                type="button"
-                class="ds-icon-btn"
-                :disabled="CAROUSEL_THEME_IDS.length < 2"
-                :aria-label="t('carousel.nextTheme')"
-                :title="t('carousel.nextTheme')"
-                @click="nextCarouselTheme"
-              >
-                <Icon icon="heroicons:chevron-right" class="carousel-page__icon" aria-hidden="true" />
-              </button>
-            </div>
-          </CarouselSettingPopover>
-
-          <CarouselSettingPopover
-            id="font"
-            icon="heroicons:language"
-            :label="t('carousel.fieldFont')"
-            :open="openSettingsPanel === 'font'"
-            @toggle="toggleSettingsPanel"
-          >
-            <div class="carousel-page__font-row">
-              <button type="button" class="ds-icon-btn" :disabled="carouselFontKeys.length < 2"
-                aria-label="Font anterior" title="Font anterior" @click="prevCarouselFont">
-                <Icon icon="heroicons:chevron-left" class="carousel-page__icon" aria-hidden="true" />
-              </button>
-              <CarouselFontSelect v-model="carouselFontKey" class="carousel-page__font-select" />
-              <button type="button" class="ds-icon-btn" :disabled="carouselFontKeys.length < 2"
-                aria-label="Font următor" title="Font următor" @click="nextCarouselFont">
-                <Icon icon="heroicons:chevron-right" class="carousel-page__icon" aria-hidden="true" />
-              </button>
-            </div>
-          </CarouselSettingPopover>
-
-          <CarouselSettingPopover
-            id="lines"
-            icon="heroicons:queue-list"
-            :label="t('carousel.fieldLinesPerSlide')"
-            :open="openSettingsPanel === 'lines'"
-            @toggle="toggleSettingsPanel"
-          >
-            <div class="carousel-page__range-row">
-              <input
-                v-model.number="linesPerSlide"
-                type="range"
-                min="4"
-                max="16"
-                step="1"
-                class="carousel-page__range"
-                :aria-label="t('carousel.fieldLinesPerSlide')"
-              />
-              <span class="carousel-page__range-val">{{ linesPerSlide }}</span>
-            </div>
-          </CarouselSettingPopover>
-
-          <CarouselSettingPopover
-            id="size"
-            icon="heroicons:arrows-pointing-out"
-            :label="t('carousel.fieldBodyFontSize')"
-            :open="openSettingsPanel === 'size'"
-            @toggle="toggleSettingsPanel"
-          >
-            <div class="carousel-page__range-row">
-              <input
-                v-model.number="bodyFontSizeScale"
-                type="range"
-                min="0.7"
-                max="2"
-                step="0.05"
-                class="carousel-page__range"
-                :aria-label="t('carousel.fieldBodyFontSize')"
-              />
-              <span class="carousel-page__range-val carousel-page__range-val--wide">{{
-                Math.round(bodyFontSizeScale * 100)
-              }}%</span>
-            </div>
-          </CarouselSettingPopover>
-
-          <CarouselSettingPopover
-            id="lineHeight"
-            icon="heroicons:bars-3"
-            :label="t('carousel.fieldLineHeight')"
-            :open="openSettingsPanel === 'lineHeight'"
-            @toggle="toggleSettingsPanel"
-          >
-            <div class="carousel-page__range-row">
-              <input
-                v-model.number="bodyLineHeight"
-                type="range"
-                min="1.15"
-                max="2.25"
-                step="0.05"
-                class="carousel-page__range"
-                :aria-label="t('carousel.fieldLineHeight')"
-              />
-              <span class="carousel-page__range-val carousel-page__range-val--wide">{{
-                bodyLineHeight.toFixed(2)
-              }}</span>
-            </div>
-          </CarouselSettingPopover>
-
-          <CarouselSettingPopover
-            id="weights"
-            icon="heroicons:adjustments-horizontal"
-            :label="t('carousel.settingsWeights')"
-            :open="openSettingsPanel === 'weights'"
-            @toggle="toggleSettingsPanel"
-          >
-            <div>
-              <label class="field-label" for="carousel-body-font-weight-mobile">{{
-                t('carousel.fieldBodyFontWeight')
-              }}</label>
-              <select
-                id="carousel-body-font-weight-mobile"
-                class="ds-input"
-                :value="bodyFontWeight ?? ''"
-                @change="bodyFontWeight = ($event.target as HTMLSelectElement).value === '' ? null : Number(($event.target as HTMLSelectElement).value)"
-              >
-                <option value="">{{ t('carousel.fontWeightDefault') }}</option>
-                <option v-for="w in CAROUSEL_FONT_WEIGHT_PRESETS" :key="w" :value="w">{{
-                  t(`carousel.fontWeight.${w}`)
-                }}</option>
-              </select>
-            </div>
-          </CarouselSettingPopover>
-
-          <CarouselSettingPopover
-            id="keywords"
-            icon="heroicons:hashtag"
-            :label="t('carousel.settingsKeywords')"
-            :open="openSettingsPanel === 'keywords'"
-            @toggle="toggleSettingsPanel"
-          >
-            <label class="field-label" for="carousel-keyword-input-mobile">{{
-              t('carousel.fieldKeywords')
-            }}</label>
-            <input
-              id="carousel-keyword-input-mobile"
-              v-model="keywordInput"
-              type="text"
-              class="ds-input"
-              :placeholder="t('carousel.phKeywords')"
-            />
-          </CarouselSettingPopover>
-
-          <CarouselSettingPopover
-            id="caption"
-            icon="heroicons:chat-bubble-bottom-center-text"
-            :label="t('carousel.settingsCaption')"
-            :open="openSettingsPanel === 'caption'"
-            @toggle="toggleSettingsPanel"
-          >
-            <div class="carousel-page__caption-head">
-              <button type="button" class="carousel-page__caption-copy" @click="copyCaption">
-                <Icon icon="heroicons:clipboard-document" class="carousel-page__icon" aria-hidden="true" />
-                {{ t('carousel.copyCaption') }}
-              </button>
-            </div>
-            <pre class="carousel-page__caption-pre">{{ captionText }}</pre>
-          </CarouselSettingPopover>
-            </div>
-          </div>
-
           <div ref="previewCenterRef" class="carousel-page__preview-center">
             <div class="carousel-page__preview-frame" :style="previewInnerStyle" @touchstart.passive="onTouchStart"
               @touchend.passive="onTouchEnd">
@@ -1559,13 +1439,9 @@ function onTouchEnd(e: TouchEvent) {
 
           <div class="carousel-page__nav">
             <div class="carousel-page__nav-row">
-              <button
-                type="button"
+              <button type="button"
                 class="ds-icon-btn carousel-page__desktop-only disabled:cursor-not-allowed disabled:opacity-40"
-                :disabled="currentIndex <= 0"
-                :aria-label="t('carousel.prev')"
-                @click="goToSlide(currentIndex - 1)"
-              >
+                :disabled="currentIndex <= 0" :aria-label="t('carousel.prev')" @click="goToSlide(currentIndex - 1)">
                 <svg class="carousel-page__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                 </svg>
@@ -1575,13 +1451,10 @@ function onTouchEnd(e: TouchEvent) {
                   :class="{ 'carousel-page__dot--active': i === currentIndex }" :aria-selected="i === currentIndex"
                   :aria-label="t('carousel.goSlide', { n: i + 1 })" @click="goToSlide(i)" />
               </div>
-              <button
-                type="button"
+              <button type="button"
                 class="ds-icon-btn carousel-page__desktop-only disabled:cursor-not-allowed disabled:opacity-40"
-                :disabled="currentIndex >= maxIndex"
-                :aria-label="t('carousel.next')"
-                @click="goToSlide(currentIndex + 1)"
-              >
+                :disabled="currentIndex >= maxIndex" :aria-label="t('carousel.next')"
+                @click="goToSlide(currentIndex + 1)">
                 <svg class="carousel-page__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
@@ -1630,13 +1503,9 @@ function onTouchEnd(e: TouchEvent) {
 
           <div class="carousel-page__nav">
             <div class="carousel-page__nav-row">
-              <button
-                type="button"
+              <button type="button"
                 class="ds-icon-btn carousel-page__desktop-only disabled:cursor-not-allowed disabled:opacity-40"
-                :disabled="currentIndex <= 0"
-                :aria-label="t('carousel.prev')"
-                @click="goToSlide(currentIndex - 1)"
-              >
+                :disabled="currentIndex <= 0" :aria-label="t('carousel.prev')" @click="goToSlide(currentIndex - 1)">
                 <svg class="carousel-page__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                 </svg>
@@ -1647,13 +1516,10 @@ function onTouchEnd(e: TouchEvent) {
                   :aria-selected="i === currentIndex" :aria-label="t('carousel.goSlide', { n: i + 1 })"
                   @click="goToSlide(i)" />
               </div>
-              <button
-                type="button"
+              <button type="button"
                 class="ds-icon-btn carousel-page__desktop-only disabled:cursor-not-allowed disabled:opacity-40"
-                :disabled="currentIndex >= maxIndex"
-                :aria-label="t('carousel.next')"
-                @click="goToSlide(currentIndex + 1)"
-              >
+                :disabled="currentIndex >= maxIndex" :aria-label="t('carousel.next')"
+                @click="goToSlide(currentIndex + 1)">
                 <svg class="carousel-page__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
@@ -1666,20 +1532,6 @@ function onTouchEnd(e: TouchEvent) {
         </div>
       </div>
     </Teleport>
-
-    <!-- Mobile export bar (desktop actions live in the tools bar) -->
-    <div class="carousel-page__mobile-bar">
-      <div class="carousel-page__mobile-bar-inner">
-        <button type="button" class="ds-btn-secondary" :disabled="exporting" @click="exportCurrentPng">
-          <Icon icon="heroicons:photo" class="carousel-page__icon" aria-hidden="true" />
-          {{ exporting ? t('carousel.exporting') : t('carousel.downloadCurrentShort') }}
-        </button>
-        <button type="button" class="ds-btn-primary" :disabled="exporting" @click="exportZip">
-          <Icon icon="heroicons:arrow-down-tray" class="carousel-page__icon" aria-hidden="true" />
-          {{ exporting ? t('carousel.exporting') : t('carousel.downloadZipShort') }}
-        </button>
-      </div>
-    </div>
 
     <!-- Hidden export mount -->
     <Teleport to="body">
@@ -1734,5 +1586,4 @@ function onTouchEnd(e: TouchEvent) {
 .carousel-saved-flash-leave-to {
   opacity: 0;
 }
-
 </style>

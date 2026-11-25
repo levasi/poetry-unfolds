@@ -295,6 +295,39 @@
   }
 }
 
+.carousel-page__font-weight-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.carousel-page__font-weight-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2rem;
+  border: 1px solid ph-rgb(edge-subtle);
+  border-radius: 9999px;
+  background-color: ph-rgb(surface-raised);
+  padding: 0.375rem 0.75rem;
+  color: ph-rgb(content-secondary);
+  font-size: 0.75rem;
+  line-height: 1.25;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    border-color: ph-rgb(brand);
+    color: ph-rgb(content);
+  }
+
+  &--active {
+    border-color: ph-rgb(brand);
+    background-color: ph-rgb(brand, 0.12);
+    color: ph-rgb(brand);
+  }
+}
+
 .carousel-page__weight-grid {
   display: grid;
   gap: 1rem;
@@ -352,6 +385,12 @@
   gap: 1rem;
 }
 
+.carousel-page__preview-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
 .carousel-page__preview-toolbar {
   display: flex;
   width: 100%;
@@ -385,7 +424,13 @@
     position: relative;
     z-index: 25;
     justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
   }
+}
+
+.carousel-page__settings-disclosure {
+  width: 100%;
 }
 
 .carousel-page__preview-toolbar-group {
@@ -393,6 +438,10 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 0.25rem;
+
+  .carousel-page__preview-toolbar--settings & {
+    flex-wrap: nowrap;
+  }
 }
 
 .carousel-page__aspect-btn {
@@ -594,40 +643,6 @@
 
 .carousel-page__modal .carousel-page__nav {
   flex-shrink: 0;
-}
-
-.carousel-page__mobile-bar {
-  position: fixed;
-  inset-inline: 0;
-  bottom: 0;
-  z-index: 40;
-  border-top: 1px solid ph-rgb(edge-subtle);
-  background-color: ph-rgb(surface-raised, 0.95);
-  padding-inline: 1rem;
-  padding-bottom: max(env(safe-area-inset-bottom), 0.75rem);
-  padding-top: 0.75rem;
-  box-shadow: var(--shadow-ds-popover);
-  backdrop-filter: blur(12px);
-
-  @media (min-width: $bp-md) {
-    display: none;
-  }
-}
-
-.carousel-page__mobile-bar-inner {
-  margin-inline: auto;
-  display: flex;
-  width: 100%;
-  max-width: 28rem;
-  align-items: center;
-  gap: 0.5rem;
-
-  .ds-btn-primary,
-  .ds-btn-secondary {
-    flex: 1 1 0%;
-    padding: 0.625rem 0.75rem;
-    font-size: 0.875rem;
-  }
 }
 
 .carousel-page__export-mount {
