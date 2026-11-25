@@ -87,13 +87,8 @@ const mobileIcons = {
       </nav>
 
       <div class="app-nav__actions">
-        <NuxtLink
-          v-if="isLoggedIn"
-          to="/favorites"
-          class="ds-icon-btn ds-icon-btn--muted"
-          :class="{ 'is-active': isActive('/favorites') }"
-          :aria-label="t('nav.favorites')"
-        >
+        <NuxtLink v-if="isLoggedIn" to="/favorites" class="ds-icon-btn ds-icon-btn--muted"
+          :class="{ 'is-active': isActive('/favorites') }" :aria-label="t('nav.favorites')">
           <svg class="app-nav__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
             aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -101,16 +96,11 @@ const mobileIcons = {
           </svg>
         </NuxtLink>
 
-        <button
-          type="button"
-          data-reading-settings-toggle
-          class="ds-icon-btn ds-icon-btn--muted"
+        <button type="button" data-reading-settings-toggle class="ds-icon-btn ds-icon-btn--muted"
           :class="{ 'is-active': readingSettingsOpen }"
           :aria-label="readingSettingsOpen ? t('viewer.closeReadingSettings') : t('viewer.openReadingSettings')"
-          :aria-pressed="readingSettingsOpen"
-          :aria-expanded="readingSettingsOpen"
-          @click="readingSettingsOpen = !readingSettingsOpen"
-        >
+          :aria-pressed="readingSettingsOpen" :aria-expanded="readingSettingsOpen"
+          @click="readingSettingsOpen = !readingSettingsOpen">
           <svg class="app-nav__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
             aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -129,68 +119,34 @@ const mobileIcons = {
         </div>
 
         <div v-else ref="userMenuRef" class="app-nav__user">
-          <button
-            type="button"
-            class="app-nav__user-trigger"
-            :aria-expanded="userMenuOpen"
-            aria-haspopup="menu"
-            @click="userMenuOpen = !userMenuOpen"
-          >
-            <img
-              v-if="user?.imageUrl"
-              :src="user.imageUrl"
-              :alt="displayName"
-              referrerpolicy="no-referrer"
-              class="app-nav__avatar"
-            >
+          <button type="button" class="app-nav__user-trigger" :aria-expanded="userMenuOpen" aria-haspopup="menu"
+            :aria-label="displayName" @click="userMenuOpen = !userMenuOpen">
+            <img v-if="user?.imageUrl" :src="user.imageUrl" :alt="displayName" referrerpolicy="no-referrer"
+              class="app-nav__avatar">
             <span v-else class="app-nav__avatar-fallback">
               {{ initials }}
             </span>
-            <span class="app-nav__user-name">{{ displayName }}</span>
-            <svg class="app-nav__chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-              stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
           </button>
 
           <Transition name="fade-down">
             <div v-if="userMenuOpen" role="menu" class="app-nav__dropdown">
-              <NuxtLink
-                v-if="isStaff"
-                to="/admin"
-                role="menuitem"
-                class="app-nav__menu-item app-nav__menu-item--admin"
-                @click="userMenuOpen = false"
-              >
+              <NuxtLink v-if="isStaff" to="/admin" role="menuitem" class="app-nav__menu-item app-nav__menu-item--admin"
+                @click="userMenuOpen = false">
                 {{ t('nav.admin') }}
               </NuxtLink>
-              <NuxtLink
-                to="/account"
-                role="menuitem"
-                class="app-nav__menu-item"
-                @click="userMenuOpen = false"
-              >
+              <NuxtLink to="/account" role="menuitem" class="app-nav__menu-item" @click="userMenuOpen = false">
                 {{ t('nav.account') }}
               </NuxtLink>
-              <NuxtLink
-                v-if="isPoet"
-                to="/account/poems"
-                role="menuitem"
-                class="app-nav__menu-item"
-                @click="userMenuOpen = false"
-              >
+              <NuxtLink v-if="isPoet" to="/account/poems" role="menuitem" class="app-nav__menu-item"
+                @click="userMenuOpen = false">
                 {{ t('nav.myPoems') }}
               </NuxtLink>
               <div v-if="showLanguageSwitch" class="app-nav__menu-lang">
                 <LanguageSwitch />
               </div>
               <hr class="app-nav__menu-divider">
-              <button
-                type="button"
-                role="menuitem"
-                class="app-nav__menu-item app-nav__menu-item--danger"
-                @click="logout"
-              >
+              <button type="button" role="menuitem" class="app-nav__menu-item app-nav__menu-item--danger"
+                @click="logout">
                 {{ t('nav.signOut') }}
               </button>
             </div>
@@ -198,15 +154,10 @@ const mobileIcons = {
         </div>
       </div>
 
-      <button
-        type="button"
-        class="ds-icon-btn app-nav__menu-toggle"
-        :aria-expanded="mobileOpen"
-        :aria-label="mobileOpen ? t('a11y.closeMenu') : t('a11y.openMenu')"
-        @click="mobileOpen = true"
-      >
-        <svg class="app-nav__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-          stroke-width="2" aria-hidden="true">
+      <button type="button" class="ds-icon-btn app-nav__menu-toggle" :aria-expanded="mobileOpen"
+        :aria-label="mobileOpen ? t('a11y.closeMenu') : t('a11y.openMenu')" @click="mobileOpen = true">
+        <svg class="app-nav__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+          aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
@@ -231,12 +182,8 @@ const mobileIcons = {
               </span>
               <span>{{ t('nav.discover') }}</span>
             </NuxtLink>
-            <NuxtLink
-              v-if="isLoggedIn"
-              to="/favorites"
-              :class="mobileLinkClass('/favorites')"
-              @click="mobileOpen = false"
-            >
+            <NuxtLink v-if="isLoggedIn" to="/favorites" :class="mobileLinkClass('/favorites')"
+              @click="mobileOpen = false">
               <span class="app-nav__mobile-link-icon-wrap" aria-hidden="true">
                 <Icon :icon="mobileIcons.favorites" class="app-nav__mobile-link-icon" />
               </span>
@@ -297,12 +244,8 @@ const mobileIcons = {
                 </span>
                 <span>{{ t('nav.account') }}</span>
               </NuxtLink>
-              <NuxtLink
-                v-if="isPoet"
-                to="/account/poems"
-                :class="mobileLinkClass('/account/poems')"
-                @click="mobileOpen = false"
-              >
+              <NuxtLink v-if="isPoet" to="/account/poems" :class="mobileLinkClass('/account/poems')"
+                @click="mobileOpen = false">
                 <span class="app-nav__mobile-link-icon-wrap" aria-hidden="true">
                   <Icon :icon="mobileIcons.myPoems" class="app-nav__mobile-link-icon" />
                 </span>
@@ -314,11 +257,7 @@ const mobileIcons = {
                 </span>
                 <span>{{ t('nav.admin') }}</span>
               </NuxtLink>
-              <button
-                type="button"
-                class="app-nav__sign-out"
-                @click="logout(); mobileOpen = false"
-              >
+              <button type="button" class="app-nav__sign-out" @click="logout(); mobileOpen = false">
                 <span class="app-nav__mobile-link-icon-wrap" aria-hidden="true">
                   <Icon :icon="mobileIcons.signOut" class="app-nav__mobile-link-icon" />
                 </span>

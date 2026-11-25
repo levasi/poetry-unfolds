@@ -39,6 +39,13 @@
     margin-right: 0.5rem;
     transform: translateY(-50%);
   }
+
+  &--bottom {
+    top: 100%;
+    left: 50%;
+    margin-top: 0.5rem;
+    transform: translateX(-50%);
+  }
 }
 
 .carousel-toolbar-item__label {
@@ -163,4 +170,66 @@
 
 .carousel-insta__verse {
   white-space: pre-wrap;
+}
+
+.carousel-setting {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.carousel-setting__trigger {
+  border-radius: $ph-radius-md;
+
+  &--active {
+    border-color: ph-rgb(brand);
+    background-color: ph-rgb(brand, 0.12);
+    color: ph-rgb(brand);
+  }
+}
+
+.carousel-setting__panel {
+  position: absolute;
+  z-index: 40;
+  box-sizing: border-box;
+  width: min(18rem, calc(100vw - 1rem));
+  max-width: calc(100vw - 1rem);
+  border-radius: $ph-radius-md;
+  border: 1px solid ph-rgb(edge-subtle);
+  background-color: ph-rgb(surface-raised);
+  padding: 0.875rem;
+  box-shadow: var(--shadow-ds-popover);
+
+  // Mobile rail is horizontal — open below the trigger (left clamped in JS).
+  top: calc(100% + 0.5rem);
+  left: 0;
+
+  @media (min-width: $bp-lg) {
+    top: 0;
+    width: min(18rem, calc(100vw - 2.5rem));
+
+    &--right {
+      left: calc(100% + 0.5rem);
+    }
+
+    &--left {
+      left: auto;
+      right: calc(100% + 0.5rem);
+    }
+  }
+}
+
+.carousel-setting__title {
+  margin: 0 0 0.625rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: ph-rgb(content-muted);
+}
+
+.carousel-setting__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 0;
 }

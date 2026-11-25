@@ -7,6 +7,7 @@ import {
   coverAvatarDiameterPxFromTitle,
   coverGoldenSpacingPx,
   goldenSecondaryPxFromTitle,
+  goldenTertiaryPxFromSecondary,
 } from '~/composables/useCarouselGenerator'
 import { READER_FONT_STACKS } from '~/composables/useReaderPreferences'
 
@@ -409,7 +410,7 @@ const coverAuthorPx = computed(() => goldenSecondaryPxFromTitle(coverTitlePx.val
 const coverAvatarPx = computed(() => coverAvatarDiameterPxFromTitle(coverTitlePx.value))
 const coverGap1 = computed(() => coverGoldenSpacingPx(props.titleScale, 1))
 const coverDividerW = computed(() => Math.round(tok.value.coverDividerMult * PHI))
-const coverMetaPx = computed(() => Math.max(13, goldenSecondaryPxFromTitle(coverAuthorPx.value)))
+const coverMetaPx = computed(() => goldenTertiaryPxFromSecondary(coverAuthorPx.value))
 const coverMetaGap = computed(() => coverGoldenSpacingPx(props.titleScale, 0))
 const coverMetaBetween = computed(() => Math.round(coverMetaGap.value * 0.45))
 const hasAuthorMeta = computed(

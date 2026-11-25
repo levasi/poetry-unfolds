@@ -4,9 +4,9 @@ withDefaults(
     label: string
     hint?: string
     /** Where the tooltip appears relative to the control. */
-    placement?: 'left' | 'right'
+    placement?: 'left' | 'right' | 'bottom'
   }>(),
-  { placement: 'right' },
+  { placement: 'bottom' },
 )
 </script>
 
@@ -16,7 +16,7 @@ withDefaults(
     <div
       role="tooltip"
       class="carousel-toolbar-item__tooltip"
-      :class="placement === 'right' ? 'carousel-toolbar-item__tooltip--right' : 'carousel-toolbar-item__tooltip--left'"
+      :class="`carousel-toolbar-item__tooltip--${placement}`"
     >
       <p class="carousel-toolbar-item__label">
         {{ label }}

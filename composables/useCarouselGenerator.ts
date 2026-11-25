@@ -86,9 +86,14 @@ export function coverGoldenSpacingPx(titleScale: number, step: 0 | 1 | 2): numbe
   return Math.round(base * PHI ** step)
 }
 
-/** Secondary line (author) size from primary title size using golden ratio. */
+/** Secondary line (author) size from primary title — one √φ step (closer than a full φ drop). */
 export function goldenSecondaryPxFromTitle(titlePx: number): number {
-  return Math.round(titlePx / PHI)
+  return Math.round(titlePx / Math.sqrt(PHI))
+}
+
+/** Tertiary cover meta (nationality / lifespan) from author size — another √φ step. */
+export function goldenTertiaryPxFromSecondary(secondaryPx: number): number {
+  return Math.max(18, Math.round(secondaryPx / Math.sqrt(PHI)))
 }
 
 /** Compact lifespan for cover slide (en dash between years). */

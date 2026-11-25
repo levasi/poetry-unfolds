@@ -166,18 +166,6 @@
   color: ph-rgb(brand-foreground);
 }
 
-.app-nav__user-name {
-  max-width: 120px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.app-nav__chevron {
-  @include ph-icon;
-  color: ph-rgb(content-soft);
-}
-
 .app-nav__dropdown {
   position: absolute;
   right: 0;
