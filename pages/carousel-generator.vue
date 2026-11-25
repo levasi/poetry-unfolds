@@ -1069,9 +1069,6 @@ function onTouchEnd(e: TouchEvent) {
         </section>
 
         <section v-else-if="isLibraryPoemContext" class="ds-card carousel-page__card">
-          <p class="ds-eyebrow">
-            {{ t('carousel.sectionCatalogPoemView') }}
-          </p>
           <div class="carousel-page__poem-readonly">
             <p v-if="author.trim()" class="carousel-page__poem-readonly-author">
               {{ author }}
