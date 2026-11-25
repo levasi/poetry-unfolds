@@ -480,8 +480,10 @@
 .carousel-page__preview-toolbar {
   display: flex;
   width: 100%;
+  height: fit-content;
   flex-direction: column;
   align-items: stretch;
+  align-self: start;
   gap: 0.25rem;
   overflow: visible;
   border-radius: $ph-radius-md;
@@ -550,9 +552,6 @@
   border-radius: $ph-radius-xl;
   border: 0;
   /* Ring via shadow so width/height match the scaled canvas exactly (no border-box shrink). */
-  box-shadow:
-    0 0 0 1px ph-rgb(edge-subtle),
-    0 10px 25px rgb(0 0 0 / 0.15);
   box-sizing: content-box;
   flex-shrink: 0;
 }
@@ -717,7 +716,7 @@
   min-width: 0;
   flex: 1;
   align-self: stretch;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   overflow: hidden;
 }
