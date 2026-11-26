@@ -738,7 +738,7 @@ function scaleToFit(availW: number, availH: number, canvasW: number, canvasH: nu
 const previewScale = computed(() =>
   scaleToFit(
     Math.min(previewAvailWidth.value, 420),
-    previewMaxHeightPx.value,
+    compactCarouselSettings.value ? 0 : previewMaxHeightPx.value,
     carouselWidth.value,
     carouselHeight.value,
   ),

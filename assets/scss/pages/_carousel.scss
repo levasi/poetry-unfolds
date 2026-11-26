@@ -476,7 +476,10 @@
   min-width: 0;
   flex: 1;
   justify-content: center;
-  max-height: calc(100dvh - 15rem);
+
+  @media (min-width: $bp-lg) {
+    max-height: calc(100dvh - 15rem);
+  }
 }
 
 .carousel-page__preview-frame {
