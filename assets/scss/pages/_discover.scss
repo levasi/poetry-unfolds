@@ -1,4 +1,4 @@
-@use '../tokens' as *;
+@use '../design-system/tokens' as *;
 
 .discover-page {
   min-width: 0;
@@ -8,10 +8,10 @@
 .discover-page__desktop {
   width: 100%;
   min-width: 0;
-  padding-top: 0.5rem;
+  padding-top: $ph-space-2;
 
   @media (min-width: $bp-md) {
-    padding-top: 1rem;
+    padding-top: $ph-space-4;
   }
 
   &--default-feed {
@@ -110,7 +110,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  padding-block: 2rem;
+  padding-block: $ph-space-8;
 }
 
 .discover-page__loading {
@@ -118,11 +118,11 @@
   min-height: 16rem;
   align-items: center;
   justify-content: center;
-  padding-block: 4rem;
+  padding-block: $ph-space-16;
 }
 
 .discover-page__error {
-  padding-block: 4rem;
+  padding-block: $ph-space-16;
   text-align: center;
   color: ph-rgb(content-muted);
 }
@@ -175,7 +175,7 @@
   height: 5rem;
   width: 5rem;
   flex-shrink: 0;
-  border-radius: 9999px;
+  border-radius: $ph-radius-full;
   object-fit: cover;
   box-shadow: 0 0 0 2px ph-rgb(brand, 0.35);
 }
@@ -232,7 +232,7 @@
   gap: 1rem;
   border-bottom: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-page, 0.9);
-  padding: 0.25rem 0.25rem 0;
+  padding: $ph-space-1 $ph-space-1 $ph-space-0;
   backdrop-filter: blur(12px);
 
   @media (min-width: $bp-md) {
@@ -252,7 +252,7 @@
 
 .discover-page__tab {
   position: relative;
-  padding-bottom: 0.75rem;
+  padding-bottom: $ph-space-3;
   font-size: 0.875rem;
   color: ph-rgb(content-muted);
   transition: color 0.15s ease;
@@ -287,7 +287,7 @@
 }
 
 .discover-page__bio {
-  padding-top: 0.5rem;
+  padding-top: $ph-space-2;
 }
 
 .discover-page__bio-text {
@@ -305,7 +305,7 @@
 }
 
 .discover-page__empty-poems {
-  padding-block: 3rem;
+  padding-block: $ph-space-12;
   text-align: center;
   color: ph-rgb(content-muted);
 }
@@ -326,10 +326,10 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border-radius: 9999px;
+  border-radius: $ph-radius-full;
   border: 1px solid ph-rgb(edge);
   background-color: ph-rgb(surface-raised);
-  padding: 0.625rem 1.5rem;
+  padding: $ph-space-2-5 $ph-space-6;
   font-size: 0.875rem;
   font-weight: 500;
   color: ph-rgb(content-secondary);
@@ -357,7 +357,7 @@
 .discover-page__empty-hint {
   margin-inline: auto;
   max-width: 72rem;
-  padding-block: 2.5rem;
+  padding-block: $ph-space-10;
   text-align: center;
   font-size: 0.875rem;
   color: ph-rgb(content-soft);

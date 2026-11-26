@@ -1,7 +1,7 @@
 // Hand-written overrides / new utilities.
 // Prefer semantic classes in `layout/` and `pages/` partials.
 
-@use 'tokens' as *;
+@use 'design-system/tokens' as *;
 
 @keyframes ph-fade-in {
   from {
@@ -24,7 +24,7 @@
   display: inline-block;
   @include ph-icon;
   animation: ph-spin 1s linear infinite;
-  border-radius: 9999px;
+  border-radius: $ph-radius-full;
   border: 2px solid rgb(var(--color-edge-subtle));
   border-top-color: rgb(var(--color-brand));
 

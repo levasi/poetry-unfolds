@@ -1,4 +1,4 @@
-@use '../tokens' as *;
+@use '../design-system/tokens' as *;
 
 .search-bar {
   position: relative;
@@ -17,10 +17,10 @@
 
 .search-bar__input {
   width: 100%;
-  border-radius: 9999px;
+  border-radius: $ph-radius-full;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-raised);
-  padding: 0.75rem 2.5rem 0.75rem 2.75rem;
+  padding: $ph-space-3 $ph-space-10 $ph-space-3 2.75rem;
   font-size: 0.875rem;
   color: ph-rgb(content);
   box-shadow: var(--shadow-ds-card);

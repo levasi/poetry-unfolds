@@ -1,4 +1,4 @@
-@use '../tokens' as *;
+@use '../design-system/tokens' as *;
 
 .poem-title {
   &--pdp {
@@ -61,7 +61,7 @@
 
 .poem-title__action {
   border-radius: $ph-radius-md;
-  padding: 0.5rem;
+  padding: $ph-space-2;
   color: ph-rgb(content-hint);
   transition: color 0.15s ease, background-color 0.15s ease;
 

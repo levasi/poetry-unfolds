@@ -1,8 +1,10 @@
+@use 'tokens' as *;
+
 .sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
-  padding: 0;
+  padding: $ph-space-0;
   margin: -1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
@@ -62,19 +64,19 @@
 }
 
 .rounded-ds-sm {
-  border-radius: 0.5rem;
+  border-radius: $ph-radius-sm;
 }
 
 .rounded-ds-md {
-  border-radius: 0.75rem;
+  border-radius: $ph-radius-md;
 }
 
 .rounded-ds-lg {
-  border-radius: 1rem;
+  border-radius: $ph-radius-lg;
 }
 
 .rounded-ds-xl {
-  border-radius: 1.25rem;
+  border-radius: $ph-radius-xl;
 }
 
 .text-ui-xs {

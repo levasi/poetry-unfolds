@@ -1,4 +1,4 @@
-@use '../tokens' as *;
+@use '../design-system/tokens' as *;
 
 .admin-layout {
   min-height: 100vh;
@@ -15,7 +15,7 @@
   justify-content: space-between;
   border-bottom: 1px solid ph-rgb(edge-subtle);
   background-color: rgb(var(--color-surface-raised) / 0.95);
-  padding: 0.75rem 1rem;
+  padding: $ph-space-3 $ph-space-4;
   backdrop-filter: blur(12px);
 
   @media (min-width: $bp-md) {
@@ -51,7 +51,7 @@
 
 .admin-layout__brand {
   border-bottom: 1px solid ph-rgb(edge-subtle);
-  padding: 1.25rem;
+  padding: $ph-space-5;
 }
 
 .admin-layout__brand-link {
@@ -68,7 +68,7 @@
 
 .admin-layout__nav {
   flex: 1 1 auto;
-  padding: 1rem 0.75rem;
+  padding: $ph-space-4 $ph-space-3;
 }
 
 .admin-layout__nav-link {
@@ -76,7 +76,7 @@
   align-items: center;
   gap: 0.75rem;
   border-radius: $ph-radius-md;
-  padding: 0.5rem 0.75rem;
+  padding: $ph-space-2 $ph-space-3;
   font-size: 0.875rem;
   color: ph-rgb(content-muted);
   transition: color 0.15s ease, background-color 0.15s ease;
@@ -103,7 +103,7 @@
 
 .admin-layout__footer {
   border-top: 1px solid ph-rgb(edge-subtle);
-  padding: 1rem;
+  padding: $ph-space-4;
 }
 
 .admin-layout__user-email {
@@ -122,7 +122,7 @@
   border-radius: $ph-radius-md;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-raised);
-  padding: 0.375rem 0.75rem;
+  padding: $ph-space-1-5 $ph-space-3;
   font-size: 0.8125rem;
   line-height: 1.25rem;
   letter-spacing: 0.01em;
@@ -140,14 +140,14 @@
   min-width: 0;
   flex: 1 1 auto;
   overflow: auto;
-  padding: 1.5rem 1rem;
+  padding: $ph-space-6 $ph-space-4;
 
   @media (min-width: $bp-md) {
-    padding: 2rem;
+    padding: $ph-space-8;
   }
 
   @media (min-width: $bp-lg) {
-    padding-inline: 2.5rem;
+    padding-inline: $ph-space-10;
   }
 }
 
@@ -156,7 +156,7 @@
   align-items: center;
   gap: 0.75rem;
   border-radius: $ph-radius-md;
-  padding: 0.75rem;
+  padding: $ph-space-3;
   font-size: 0.875rem;
   color: ph-rgb(content-secondary);
   transition: color 0.15s ease, background-color 0.15s ease;
@@ -179,7 +179,7 @@
 .admin-layout__sheet-footer {
   margin-top: 1.5rem;
   border-top: 1px solid ph-rgb(edge-subtle);
-  padding-top: 1rem;
+  padding-top: $ph-space-4;
 }
 
 .admin-layout__sheet-logout {

@@ -1,4 +1,4 @@
-@use '../tokens' as *;
+@use '../design-system/tokens' as *;
 
 .mobile-tab-bar {
   position: fixed;
@@ -7,8 +7,8 @@
   z-index: 70;
   border-top: 1px solid ph-rgb(edge-subtle);
   background-color: rgb(var(--color-surface-raised) / 0.95);
-  padding-top: 0.25rem;
-  padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+  padding-top: $ph-space-1;
+  padding-bottom: max($ph-space-2, env(safe-area-inset-bottom));
   box-shadow: 0 -2px 16px -8px rgb(0 0 0 / 0.08);
   backdrop-filter: blur(12px);
 
@@ -33,7 +33,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-inline: 0.25rem;
+  padding-inline: $ph-space-1;
   color: ph-rgb(content-muted);
   transition: color 0.15s ease;
 

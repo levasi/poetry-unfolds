@@ -1,4 +1,4 @@
-@use '../tokens' as *;
+@use '../design-system/tokens' as *;
 
 .color-scheme {
   &--labels {
@@ -10,7 +10,7 @@
     border-radius: $ph-radius-md;
     border: 1px solid ph-rgb(edge-subtle);
     background-color: ph-rgb(surface-raised);
-    padding: 0.5rem;
+    padding: $ph-space-2;
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   }
 
@@ -36,13 +36,13 @@
 
   .color-scheme--labels & {
     border-radius: $ph-radius-sm;
-    padding: 0.375rem 0.625rem;
+    padding: $ph-space-1-5 $ph-space-2-5;
     font-size: 0.75rem;
     font-weight: 500;
     color: ph-rgb(content-muted);
 
     @media (min-width: $bp-md) {
-      padding-inline: 0.75rem;
+      padding-inline: $ph-space-3;
     }
 
     &:hover {
@@ -61,7 +61,7 @@
   .color-scheme--compact & {
     width: 2.25rem;
     height: 2.25rem;
-    border-radius: 9999px;
+    border-radius: $ph-radius-full;
     border: 2px solid ph-rgb(edge-subtle);
 
     &:hover {
@@ -82,7 +82,7 @@
     border-radius: $ph-radius-md;
     border: 1px solid ph-rgb(edge-subtle);
     background-color: ph-rgb(surface-raised);
-    padding: 0.5rem;
+    padding: $ph-space-2;
     text-align: center;
 
     &:hover {
@@ -125,5 +125,5 @@
   margin-inline: auto;
   width: 100%;
   height: 100%;
-  border-radius: 9999px;
+  border-radius: $ph-radius-full;
 }

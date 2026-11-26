@@ -1,4 +1,4 @@
-@use 'tokens' as *;
+@use 'design-system/tokens' as *;
 
 html {
   background-color: ph-rgb(surface-page);
@@ -25,7 +25,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 9999px;
+  border-radius: $ph-radius-full;
   background-color: ph-rgb(edge-strong);
 
   &:hover {
@@ -75,7 +75,7 @@ button {
 }
 
 .pb-mobile-tab {
-  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+  padding-bottom: calc($ph-space-22 + env(safe-area-inset-bottom, 0px));
 }
 
 .pb-reader-mobile {
@@ -83,5 +83,5 @@ button {
 }
 
 .pb-carousel-mobile {
-  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+  padding-bottom: calc($ph-space-22 + env(safe-area-inset-bottom, 0px));
 }

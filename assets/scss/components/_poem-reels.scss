@@ -1,4 +1,4 @@
-@use '../tokens' as *;
+@use '../design-system/tokens' as *;
 
 .poem-reels {
   position: fixed;
@@ -23,7 +23,7 @@
 .poem-reels__spinner {
   height: 2.25rem;
   width: 2.25rem;
-  border-radius: 9999px;
+  border-radius: $ph-radius-full;
   border: 2px solid ph-rgb(edge-subtle);
   border-top-color: ph-rgb(brand);
   animation: poem-reels-spin 0.75s linear infinite;
@@ -34,7 +34,7 @@
   height: 100%;
   align-items: center;
   justify-content: center;
-  padding-inline: 1.5rem;
+  padding-inline: $ph-space-6;
 }
 
 .poem-reels-track {
@@ -66,7 +66,7 @@
   width: 2.75rem;
   align-items: center;
   justify-content: center;
-  border-radius: 9999px;
+  border-radius: $ph-radius-full;
   color: ph-rgb(content);
   transition: color 0.15s ease;
 
@@ -94,7 +94,7 @@
   flex: 1 1 0%;
   overflow-y: auto;
   overscroll-behavior-y: contain;
-  padding: 1.25rem 1.25rem 2rem;
+  padding: $ph-space-5 $ph-space-5 $ph-space-8;
   scrollbar-width: thin;
   -webkit-overflow-scrolling: touch;
 }
@@ -113,7 +113,7 @@
 .poem-reel-slide__avatar {
   height: 2.5rem;
   width: 2.5rem;
-  border-radius: 9999px;
+  border-radius: $ph-radius-full;
   object-fit: cover;
   box-shadow: 0 0 0 2px ph-rgb(edge-subtle);
 }
@@ -170,8 +170,8 @@
   align-items: center;
   justify-content: flex-end;
   gap: 1rem;
-  padding-bottom: 4rem;
-  padding-right: 0.5rem;
+  padding-bottom: $ph-space-16;
+  padding-right: $ph-space-2;
 }
 
 .poem-reel-slide__action {
@@ -189,7 +189,7 @@
   width: 2.75rem;
   align-items: center;
   justify-content: center;
-  border-radius: 9999px;
+  border-radius: $ph-radius-full;
   background-color: rgb(var(--color-surface-raised) / 0.9);
   color: ph-rgb(content-secondary);
   box-shadow: var(--shadow-ds-card);

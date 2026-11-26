@@ -1,8 +1,8 @@
-@use '../tokens' as *;
+@use '../design-system/tokens' as *;
 
 .search-page {
   min-width: 0;
-  padding-top: 1.25rem;
+  padding-top: $ph-space-5;
   animation: ph-fade-in 0.6s ease-out;
 }
 
@@ -37,7 +37,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  padding-block: 1rem;
+  padding-block: $ph-space-4;
 }
 
 .search-page__meta {

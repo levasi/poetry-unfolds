@@ -22,7 +22,7 @@ useHead({ title: 'Frontend — Documentație Poetry Unfolds' })
     <h2>Styling & design system</h2>
     <ul>
       <li><strong>SCSS</strong> — <code>assets/scss/main.scss</code> (preflight, tokeni, design system, partials BEM)</li>
-      <li><strong>Tokeni</strong> — <code>assets/css/color-schemes.css</code> + <code>assets/scss/_tokens.scss</code></li>
+      <li><strong>Tokeni</strong> — <code>assets/css/color-schemes.css</code> + <code>assets/scss/design-system/_tokens.scss</code></li>
       <li><strong>Color schemes</strong> — teme cititor (<code>assets/css/color-schemes.css</code>, <code>utils/colorScheme.ts</code>)</li>
       <li><strong>Fonturi</strong> — Playfair (titluri/poezii), Inter (UI), JetBrains Mono (cod)</li>
       <li><strong>Iconuri</strong> — <code>@iconify/vue</code> + Heroicons</li>

@@ -1,13 +1,13 @@
-@use '../tokens' as *;
+@use '../design-system/tokens' as *;
 
 .author-card {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  border-radius: 0.75rem;
+  border-radius: $ph-radius-md;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-raised);
-  padding: 1.25rem;
+  padding: $ph-space-5;
   box-shadow: var(--shadow-ds-card);
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 
@@ -24,7 +24,7 @@
 .author-card__avatar {
   height: 3.5rem;
   width: 3.5rem;
-  border-radius: 9999px;
+  border-radius: $ph-radius-full;
   object-fit: cover;
   box-shadow: 0 0 0 2px ph-rgb(edge-subtle);
   transition: box-shadow 0.15s ease;

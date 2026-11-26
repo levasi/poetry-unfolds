@@ -1,4 +1,4 @@
-@use '../tokens' as *;
+@use '../design-system/tokens' as *;
 
 .alert {
   position: relative;
@@ -8,7 +8,7 @@
   row-gap: 0.125rem;
   border-radius: $ph-radius-lg;
   border: 1px solid;
-  padding: 0.75rem 1rem;
+  padding: $ph-space-3 $ph-space-4;
   font-size: 0.875rem;
   color: ph-rgb(content);
 
@@ -108,7 +108,7 @@
 .alert__icon {
   grid-column-start: 1;
   grid-row-start: 1;
-  padding-top: 0.125rem;
+  padding-top: $ph-space-0-5;
 
   svg {
     @include ph-icon;

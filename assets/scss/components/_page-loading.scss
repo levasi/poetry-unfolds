@@ -1,4 +1,4 @@
-@use '../tokens' as *;
+@use '../design-system/tokens' as *;
 
 .page-loading {
   position: fixed;
@@ -16,14 +16,14 @@
   flex-direction: column;
   align-items: center;
   gap: 1.25rem;
-  padding-inline: 1.5rem;
+  padding-inline: $ph-space-6;
   text-align: center;
 }
 
 .page-loading__spinner {
   height: 2rem;
   width: 2rem;
-  border-radius: 9999px;
+  border-radius: $ph-radius-full;
   border: 2px solid ph-rgb(edge-subtle);
   border-top-color: ph-rgb(brand);
   animation: page-loading-spin 0.75s linear infinite;

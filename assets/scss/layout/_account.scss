@@ -1,4 +1,4 @@
-@use '../tokens' as *;
+@use '../design-system/tokens' as *;
 
 .account-layout {
   display: flex;
@@ -47,7 +47,7 @@
 
 .account-layout__profile {
   border-bottom: 1px solid ph-rgb(edge-subtle);
-  padding: 1.5rem 1.25rem;
+  padding: $ph-space-6 $ph-space-5;
 }
 
 .account-layout__profile-row {
@@ -63,7 +63,7 @@
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  border-radius: 9999px;
+  border-radius: $ph-radius-full;
   background-color: ph-rgb(brand);
   font-size: 0.875rem;
   font-weight: 700;
@@ -97,7 +97,7 @@
 
 .account-layout__nav {
   flex: 1 1 auto;
-  padding: 1rem 0.75rem;
+  padding: $ph-space-4 $ph-space-3;
 }
 
 .account-layout__nav-link {
@@ -105,7 +105,7 @@
   align-items: center;
   gap: 0.75rem;
   border-radius: $ph-radius-lg;
-  padding: 0.625rem 0.75rem;
+  padding: $ph-space-2-5 $ph-space-3;
   font-size: 0.875rem;
   color: ph-rgb(content-muted);
   transition: color 0.15s ease, background-color 0.15s ease;
@@ -134,7 +134,7 @@
 
 .account-layout__footer {
   border-top: 1px solid ph-rgb(edge-subtle);
-  padding: 1rem 0.75rem;
+  padding: $ph-space-4 $ph-space-3;
 }
 
 .account-layout__logout {
@@ -143,7 +143,7 @@
   align-items: center;
   gap: 0.5rem;
   border-radius: $ph-radius-lg;
-  padding: 0.625rem 0.75rem;
+  padding: $ph-space-2-5 $ph-space-3;
   font-size: 0.875rem;
   color: ph-rgb(content-muted);
   transition: color 0.15s ease, background-color 0.15s ease;
@@ -166,8 +166,8 @@
   display: flex;
   border-top: 1px solid ph-rgb(edge-subtle);
   background-color: rgb(var(--color-surface-raised) / 0.95);
-  padding-top: 0.5rem;
-  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  padding-top: $ph-space-2;
+  padding-bottom: max($ph-space-3, env(safe-area-inset-bottom));
   box-shadow: 0 -4px 24px -8px rgb(0 0 0 / 0.08);
   backdrop-filter: blur(12px);
 
@@ -182,7 +182,7 @@
   flex-direction: column;
   align-items: center;
   gap: 0.25rem;
-  padding-block: 0.5rem;
+  padding-block: $ph-space-2;
   font-size: 10px;
   font-weight: 500;
   color: ph-rgb(content-muted);
@@ -203,7 +203,7 @@
   width: 2.25rem;
   align-items: center;
   justify-content: center;
-  border-radius: 9999px;
+  border-radius: $ph-radius-full;
   transition: background-color 0.15s ease, color 0.15s ease;
 
   .account-layout__mobile-tab--active & {
@@ -228,13 +228,13 @@
   min-height: 60vh;
   min-width: 0;
   flex: 1 1 auto;
-  padding: 2rem 1rem 0;
+  padding: $ph-space-8 $ph-space-4 $ph-space-0;
 
   @media (min-width: $bp-md) {
-    padding: 2.5rem 2rem 0;
+    padding: $ph-space-10 $ph-space-8 $ph-space-0;
   }
 
   @media (min-width: $bp-lg) {
-    padding-inline: 2.5rem;
+    padding-inline: $ph-space-10;
   }
 }

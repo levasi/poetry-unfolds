@@ -1,4 +1,4 @@
-@use '../tokens' as *;
+@use '../design-system/tokens' as *;
 
 // ── Page shell (layouts) ───────────────────────────────────────────────────
 .page-shell {
@@ -17,10 +17,10 @@
 }
 
 .page-shell__main--keyboard-open {
-  padding-bottom: 0.5rem;
+  padding-bottom: $ph-space-2;
 
   @media (min-width: $bp-md) {
-    padding-bottom: 3.5rem;
+    padding-bottom: $ph-space-14;
   }
 }
 
@@ -30,7 +30,7 @@
 
 .page-shell__main--desktop-pad {
   @media (min-width: $bp-md) {
-    padding-bottom: 3.5rem;
+    padding-bottom: $ph-space-14;
   }
 }
 
@@ -39,14 +39,14 @@
   width: 100%;
   max-width: none;
   min-width: 0;
-  padding-inline: 1rem;
+  padding-inline: $ph-space-4;
 
   @media (min-width: $bp-md) {
-    padding-inline: 2rem;
+    padding-inline: $ph-space-8;
   }
 
   @media (min-width: $bp-lg) {
-    padding-inline: 2.5rem;
+    padding-inline: $ph-space-10;
   }
 }
 
@@ -59,31 +59,31 @@
 }
 
 .page-shell__tab-clearance {
-  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+  padding-bottom: calc($ph-space-22 + env(safe-area-inset-bottom, 0px));
 
   @media (min-width: $bp-md) {
-    padding-bottom: 3.5rem;
+    padding-bottom: $ph-space-14;
   }
 }
 
 // Used alone (e.g. sheets) — mobile tab clearance without desktop override
 .pb-mobile-tab {
-  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+  padding-bottom: calc($ph-space-22 + env(safe-area-inset-bottom, 0px));
 }
 
 .pb-reader-mobile {
   padding-bottom: calc(10.75rem + env(safe-area-inset-bottom, 0px));
 
   @media (min-width: $bp-md) {
-    padding-bottom: 0;
+    padding-bottom: $ph-space-0;
   }
 }
 
 .pb-carousel-mobile {
-  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+  padding-bottom: calc($ph-space-22 + env(safe-area-inset-bottom, 0px));
 
   @media (min-width: $bp-md) {
-    padding-bottom: 4rem;
+    padding-bottom: $ph-space-16;
   }
 }
 

@@ -11,10 +11,31 @@ $ph-font-sans: Inter, system-ui, sans-serif;
 $ph-font-mono: 'JetBrains Mono', monospace;
 $ph-font-typewriter: 'Courier Prime', Courier, monospace;
 
+$ph-radius-2xs: 0.25rem;
+$ph-radius-xs: 0.375rem;
 $ph-radius-sm: 0.5rem;
 $ph-radius-md: 0.75rem;
 $ph-radius-lg: 1rem;
 $ph-radius-xl: 1.25rem;
+$ph-radius-full: 9999px;
+
+$ph-space-0: 0;
+$ph-space-0-5: 0.125rem;
+$ph-space-1: 0.25rem;
+$ph-space-1-5: 0.375rem;
+$ph-space-2: 0.5rem;
+$ph-space-2-5: 0.625rem;
+$ph-space-3: 0.75rem;
+$ph-space-4: 1rem;
+$ph-space-5: 1.25rem;
+$ph-space-6: 1.5rem;
+$ph-space-8: 2rem;
+$ph-space-9: 2.25rem;
+$ph-space-10: 2.5rem;
+$ph-space-12: 3rem;
+$ph-space-14: 3.5rem;
+$ph-space-16: 4rem;
+$ph-space-22: 5.5rem;
 
 /** Default UI glyph size (Iconify / SVG icons in buttons, nav, forms). */
 $ph-icon-size: 1rem;

@@ -1,4 +1,4 @@
-@use '../tokens' as *;
+@use '../design-system/tokens' as *;
 
 .app-nav {
   position: sticky;
@@ -24,15 +24,15 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-  padding-inline: 1rem;
+  padding-inline: $ph-space-4;
 
   @media (min-width: $bp-md) {
     height: 4rem;
-    padding-inline: 2rem;
+    padding-inline: $ph-space-8;
   }
 
   @media (min-width: $bp-lg) {
-    padding-inline: 2.5rem;
+    padding-inline: $ph-space-10;
   }
 }
 
@@ -65,7 +65,7 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  padding: 0.5rem 0.75rem;
+  padding: $ph-space-2 $ph-space-3;
   font-size: 0.8125rem;
   line-height: 1.25rem;
   letter-spacing: 0.01em;
@@ -87,7 +87,7 @@
       left: 0.75rem;
       right: 0.75rem;
       height: 0.125rem;
-      border-radius: 9999px;
+      border-radius: $ph-radius-full;
       background-color: ph-rgb(brand);
     }
   }
@@ -133,10 +133,10 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  border-radius: 9999px;
+  border-radius: $ph-radius-full;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-raised);
-  padding: 0.25rem;
+  padding: $ph-space-1;
   font-size: 0.875rem;
   color: ph-rgb(content-secondary);
   transition: border-color 0.15s ease;
@@ -149,7 +149,7 @@
 .app-nav__avatar {
   width: 1.75rem;
   height: 1.75rem;
-  border-radius: 9999px;
+  border-radius: $ph-radius-full;
   object-fit: cover;
 }
 
@@ -159,7 +159,7 @@
   height: 1.75rem;
   align-items: center;
   justify-content: center;
-  border-radius: 9999px;
+  border-radius: $ph-radius-full;
   background-color: ph-rgb(brand);
   font-size: 0.75rem;
   font-weight: 700;
@@ -174,7 +174,7 @@
   border-radius: $ph-radius-xl;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-overlay);
-  padding-block: 0.25rem;
+  padding-block: $ph-space-1;
   box-shadow: var(--shadow-ds-popover);
 }
 
@@ -183,7 +183,7 @@
   width: 100%;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.625rem 1rem;
+  padding: $ph-space-2-5 $ph-space-4;
   font-size: 0.875rem;
   color: ph-rgb(content-muted);
   text-align: left;
@@ -211,7 +211,7 @@
 
 .app-nav__menu-lang {
   border-top: 1px solid ph-rgb(edge-subtle);
-  padding: 0.5rem 1rem;
+  padding: $ph-space-2 $ph-space-4;
 }
 
 .app-nav__menu-divider {
@@ -229,7 +229,7 @@
   min-height: 2.75rem;
   align-items: center;
   border-radius: $ph-radius-md;
-  padding: 0.5rem 0.5rem;
+  padding: $ph-space-2 $ph-space-2;
   font-size: 0.9375rem;
   font-weight: 500;
   color: ph-rgb(content-secondary);
@@ -303,7 +303,7 @@
   min-height: 2.75rem;
   align-items: center;
   border-radius: $ph-radius-md;
-  padding: 0.5rem 0.75rem;
+  padding: $ph-space-2 $ph-space-3;
   text-align: left;
   font-size: 0.9375rem;
   font-weight: 500;
@@ -321,5 +321,5 @@
 
 .app-nav__mobile-lang {
   border-top: 1px solid ph-rgb(edge-subtle);
-  padding-top: 0.75rem;
+  padding-top: $ph-space-3;
 }

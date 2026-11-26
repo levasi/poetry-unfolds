@@ -1,4 +1,4 @@
-@use '../tokens' as *;
+@use '../design-system/tokens' as *;
 
 .filter-panel {
   display: flex;
@@ -23,10 +23,10 @@
 
 .filter-panel__clear {
   width: 100%;
-  border-radius: 0.5rem;
+  border-radius: $ph-radius-sm;
   border: 1px solid ph-rgb(edge);
   background-color: ph-rgb(surface-raised);
-  padding-block: 0.5rem;
+  padding-block: $ph-space-2;
   font-size: 0.75rem;
   color: ph-rgb(content-secondary);
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);

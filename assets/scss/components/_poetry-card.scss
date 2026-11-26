@@ -1,4 +1,4 @@
-@use '../tokens' as *;
+@use '../design-system/tokens' as *;
 
 .poetry-card {
   &--featured {
@@ -20,7 +20,7 @@
   align-items: flex-start;
   gap: 1.25rem;
   border-bottom: 1px solid ph-rgb(edge-subtle);
-  padding-block: 1.5rem;
+  padding-block: $ph-space-6;
   transition: background-color 0.15s ease;
 
   &:last-child {
@@ -37,7 +37,7 @@
   height: 3.5rem;
   width: 0.125rem;
   flex-shrink: 0;
-  border-radius: 9999px;
+  border-radius: $ph-radius-full;
   opacity: 0.8;
   transition: opacity 0.15s ease;
   background-color: ph-rgb(edge-strong);
@@ -120,7 +120,7 @@
 
 .poetry-card__author-avatar {
   flex-shrink: 0;
-  border-radius: 9999px;
+  border-radius: $ph-radius-full;
   object-fit: cover;
   box-shadow: 0 0 0 1px ph-rgb(edge-subtle);
 
@@ -197,7 +197,7 @@
   .poem-carousel-icon {
     width: 2rem;
     height: 2rem;
-    padding: 0;
+    padding: $ph-space-0;
   }
 }
 
@@ -258,7 +258,7 @@
 .poetry-card__grid-inner {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: $ph-space-4;
 }
 
 .poetry-card__author-grid {
@@ -307,7 +307,7 @@
   justify-content: flex-end;
   gap: 0.75rem;
   border-top: 1px solid ph-rgb(edge-subtle);
-  padding-top: 1rem;
+  padding-top: $ph-space-4;
 }
 
 .poetry-card__footer-row {
@@ -349,10 +349,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: $ph-space-4;
 
   @media (min-width: 640px) {
-    padding: 1.5rem;
+    padding: $ph-space-6;
   }
 }
 
@@ -381,10 +381,10 @@
   justify-content: space-between;
   gap: 0.75rem;
   background-color: rgb(var(--color-surface-page) / 0.5);
-  padding: 0.5rem;
+  padding: $ph-space-2;
 
   @media (min-width: 640px) {
-    padding: 1rem;
+    padding: $ph-space-4;
   }
 }
 
@@ -441,17 +441,17 @@
   flex: 1 1 0%;
   overflow-y: auto;
   background-color: ph-rgb(surface-raised);
-  padding: 0.5rem;
+  padding: $ph-space-2;
 
   @media (min-width: 640px) {
-    padding: 1rem;
+    padding: $ph-space-4;
   }
 }
 
 .quick-read__footer {
   flex-shrink: 0;
   background-color: rgb(var(--color-surface-page) / 0.5);
-  padding: 1rem;
+  padding: $ph-space-4;
 }
 
 .quick-read__nav {
@@ -469,7 +469,7 @@
   border-radius: $ph-radius-md;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-page);
-  padding: 0.5rem 0.75rem;
+  padding: $ph-space-2 $ph-space-3;
   font-size: 0.875rem;
   font-weight: 500;
   color: ph-rgb(content);

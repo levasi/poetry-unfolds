@@ -1,10 +1,10 @@
 // Poetry Unfolds styles — SCSS entry (no Tailwind).
 
-@use 'preflight';
+@use 'design-system/preflight';
 @use 'base';
-@use 'helpers';
-@use 'design-system';
-@use 'carousel-export';
+@use 'design-system/helpers';
+@use 'design-system/design-system';
+@use 'design-system/carousel-export';
 
 @use 'layout/shell';
 @use 'layout/mobile-tab-bar';

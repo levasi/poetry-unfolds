@@ -14,9 +14,9 @@ useHead({ title: 'Design system — Documentație Poetry Unfolds' })
     <h2>Surse de adevăr</h2>
     <ul>
       <li><code>assets/scss/main.scss</code> — entry SCSS (runtime)</li>
-      <li><code>assets/scss/_design-system.scss</code> — clase <code>.ds-*</code>, masonry, poem body</li>
-      <li><code>assets/scss/_tokens.scss</code> + <code>assets/css/color-schemes.css</code> — variabile teme</li>
-      <li><code>assets/scss/_carousel-export.scss</code> — utilitare statice doar pentru export canvas carousel</li>
+      <li><code>assets/scss/design-system/_design-system.scss</code> — clase <code>.ds-*</code>, masonry, poem body</li>
+      <li><code>assets/scss/design-system/_tokens.scss</code> + <code>assets/css/color-schemes.css</code> — variabile teme</li>
+      <li><code>assets/scss/design-system/_carousel-export.scss</code> — utilitare statice doar pentru export canvas carousel</li>
       <li><code>components/ds/</code> — primitive Vue reutilizabile</li>
     </ul>
 

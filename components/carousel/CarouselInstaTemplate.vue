@@ -85,7 +85,7 @@ function themeTokens(t: CarouselTheme): Tok {
         overlays: [],
         coverTitleMult: 68,
         coverDividerMult: 132,
-        avatarClass: 'rounded-full object-cover shadow-lg ring-4 ring-[#d0d0c4]/90',
+        avatarClass: 'rounded-full shadow-lg ring-4 ring-[#d0d0c4]/90',
         coverTitleClass: 'font-semibold leading-[1.12] text-[#0f0f0a]',
         coverWrittenClass: 'tabular-nums text-[#666658]',
         coverDividerClass: 'h-px bg-[#b0b0a0]',
@@ -116,7 +116,7 @@ function themeTokens(t: CarouselTheme): Tok {
         ],
         coverTitleMult: 72,
         coverDividerMult: 136,
-        avatarClass: 'rounded-full object-cover shadow-xl ring-4 ring-[#e8a800]/35',
+        avatarClass: 'rounded-full shadow-xl ring-4 ring-[#e8a800]/35',
         coverTitleClass: 'font-semibold leading-[1.12] text-[#f5f5f0]',
         coverWrittenClass: 'tabular-nums text-[#888878]',
         coverDividerClass: 'h-px bg-gradient-to-r from-transparent via-[#e8a800]/80 to-transparent',
@@ -152,7 +152,7 @@ function themeTokens(t: CarouselTheme): Tok {
         ],
         coverTitleMult: 68,
         coverDividerMult: 140,
-        avatarClass: 'rounded-full object-cover shadow-xl ring-4 ring-white/40',
+        avatarClass: 'rounded-full shadow-xl ring-4 ring-white/40',
         coverTitleClass: 'font-bold leading-[1.1] drop-shadow-md',
         coverWrittenClass: 'tabular-nums text-white/70',
         coverDividerClass: 'h-1 rounded-full bg-white/35',
@@ -182,7 +182,7 @@ function themeTokens(t: CarouselTheme): Tok {
         coverTitleMult: 66,
         coverDividerMult: 128,
         avatarClass:
-          'rounded-full object-cover ring-4 ring-emerald-400/50 shadow-[0_0_40px_rgba(52,211,153,0.35)]',
+          'rounded-full ring-4 ring-emerald-400/50 shadow-[0_0_40px_rgba(52,211,153,0.35)]',
         coverTitleClass: 'font-black uppercase tracking-tight text-emerald-300',
         coverWrittenClass: 'tabular-nums text-emerald-200/75',
         coverDividerClass: 'h-px bg-gradient-to-r from-transparent via-emerald-400/50 to-transparent',
@@ -215,7 +215,7 @@ function themeTokens(t: CarouselTheme): Tok {
         ],
         coverTitleMult: 68,
         coverDividerMult: 132,
-        avatarClass: 'rounded-full object-cover shadow-lg ring-4 ring-amber-800/25',
+        avatarClass: 'rounded-full shadow-lg ring-4 ring-amber-800/25',
         coverTitleClass: 'font-semibold leading-[1.12] text-amber-950',
         coverWrittenClass: 'tabular-nums text-amber-800/80',
         coverDividerClass: 'h-px bg-gradient-to-r from-transparent via-amber-700/50 to-transparent',
@@ -246,7 +246,7 @@ function themeTokens(t: CarouselTheme): Tok {
         ],
         coverTitleMult: 70,
         coverDividerMult: 134,
-        avatarClass: 'rounded-full object-cover shadow-xl ring-4 ring-cyan-300/40',
+        avatarClass: 'rounded-full shadow-xl ring-4 ring-cyan-300/40',
         coverTitleClass: 'font-semibold leading-[1.12] text-cyan-50',
         coverWrittenClass: 'tabular-nums text-cyan-200/80',
         coverDividerClass: 'h-px bg-gradient-to-r from-transparent via-cyan-300/70 to-transparent',
@@ -282,7 +282,7 @@ function themeTokens(t: CarouselTheme): Tok {
         ],
         coverTitleMult: 68,
         coverDividerMult: 138,
-        avatarClass: 'rounded-full object-cover shadow-xl ring-4 ring-white/45',
+        avatarClass: 'rounded-full shadow-xl ring-4 ring-white/45',
         coverTitleClass: 'font-bold leading-[1.1] text-white drop-shadow-lg',
         coverWrittenClass: 'tabular-nums text-white/80',
         coverDividerClass: 'h-1 rounded-full bg-white/40',
@@ -316,7 +316,7 @@ function themeTokens(t: CarouselTheme): Tok {
         ],
         coverTitleMult: 70,
         coverDividerMult: 130,
-        avatarClass: 'rounded-full object-cover shadow-md ring-4 ring-zinc-300/90',
+        avatarClass: 'rounded-full shadow-md ring-4 ring-zinc-300/90',
         coverTitleClass: 'font-bold leading-[1.08] tracking-tight text-zinc-950',
         coverWrittenClass: 'tabular-nums text-zinc-500',
         coverDividerClass: 'h-[2px] w-full max-w-[min(92%,520px)] bg-zinc-900',
@@ -347,7 +347,7 @@ function themeTokens(t: CarouselTheme): Tok {
         ],
         coverTitleMult: 69,
         coverDividerMult: 134,
-        avatarClass: 'rounded-full object-cover shadow-xl ring-4 ring-amber-500/40',
+        avatarClass: 'rounded-full shadow-xl ring-4 ring-amber-500/40',
         coverTitleClass: 'font-semibold leading-[1.12] text-amber-50',
         coverWrittenClass: 'tabular-nums text-emerald-300/85',
         coverDividerClass: 'h-px bg-gradient-to-r from-transparent via-amber-400/60 to-transparent',
@@ -384,7 +384,7 @@ function themeTokens(t: CarouselTheme): Tok {
         coverTitleMult: 66,
         coverDividerMult: 130,
         avatarClass:
-          'rounded-full object-cover ring-4 ring-violet-400/45 shadow-[0_0_48px_rgba(139,92,246,0.35)]',
+          'rounded-full ring-4 ring-violet-400/45 shadow-[0_0_48px_rgba(139,92,246,0.35)]',
         coverTitleClass: 'font-bold leading-[1.1] tracking-tight text-violet-100',
         coverWrittenClass: 'tabular-nums text-violet-300/80',
         coverDividerClass: 'h-px bg-gradient-to-r from-transparent via-fuchsia-400/60 to-transparent',
@@ -409,6 +409,15 @@ const coverTitlePx = computed(() => Math.round(tok.value.coverTitleMult * props.
 const coverAuthorPx = computed(() => goldenSecondaryPxFromTitle(coverTitlePx.value))
 const coverAvatarPx = computed(() => coverAvatarDiameterPxFromTitle(coverTitlePx.value))
 const coverGap1 = computed(() => coverGoldenSpacingPx(props.titleScale, 1))
+const coverAvatarStyle = computed(() => ({
+  width: `${coverAvatarPx.value}px`,
+  height: `${coverAvatarPx.value}px`,
+  marginBottom: `${coverGap1.value}px`,
+  backgroundImage: props.avatarUrl ? `url(${JSON.stringify(props.avatarUrl)})` : 'none',
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'cover',
+}))
 const coverDividerW = computed(() => Math.round(tok.value.coverDividerMult * PHI))
 const coverMetaPx = computed(() => goldenTertiaryPxFromSecondary(coverAuthorPx.value))
 const coverMetaGap = computed(() => coverGoldenSpacingPx(props.titleScale, 0))
@@ -507,11 +516,7 @@ const canvasStyle = computed(() => ({
         class="carousel-insta__cover"
         :class="{ 'carousel-insta__cover--relative': coverShellRelative }"
       >
-        <img v-if="avatarUrl" :src="avatarUrl" alt="" :class="tok.avatarClass" width="236" height="236" :style="{
-          width: `${coverAvatarPx}px`,
-          height: `${coverAvatarPx}px`,
-          marginBottom: `${coverGap1}px`,
-        }" />
+        <div v-if="avatarUrl" aria-hidden="true" :class="tok.avatarClass" :style="coverAvatarStyle" />
         <p :class="tok.coverTitleClass" :style="coverTitleStyle">
           {{ title }}
         </p>

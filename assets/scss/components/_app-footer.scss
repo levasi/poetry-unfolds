@@ -1,14 +1,14 @@
-@use '../tokens' as *;
+@use '../design-system/tokens' as *;
 
 .app-footer {
   margin-top: auto;
   width: 100%;
   border-top: 1px solid ph-rgb(edge-subtle);
   background-color: rgb(var(--color-surface-subtle) / 0.4);
-  padding-block: 3rem;
+  padding-block: $ph-space-12;
 
   @media (min-width: $bp-md) {
-    padding-block: 4rem;
+    padding-block: $ph-space-16;
   }
 }
 
@@ -16,14 +16,14 @@
   margin-inline: auto;
   width: 100%;
   max-width: none;
-  padding-inline: 1rem;
+  padding-inline: $ph-space-4;
 
   @media (min-width: $bp-md) {
-    padding-inline: 2rem;
+    padding-inline: $ph-space-8;
   }
 
   @media (min-width: $bp-lg) {
-    padding-inline: 2.5rem;
+    padding-inline: $ph-space-10;
   }
 }
 
@@ -85,7 +85,7 @@
   border-radius: $ph-radius-md;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-raised);
-  padding: 0.5rem 0.75rem;
+  padding: $ph-space-2 $ph-space-3;
   font-size: 0.8125rem;
   font-weight: 600;
   color: ph-rgb(content-secondary);

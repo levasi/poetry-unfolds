@@ -1,4 +1,4 @@
-@use '../tokens' as *;
+@use '../design-system/tokens' as *;
 
 .poem-reader__tags {
   margin-bottom: 1.5rem;
@@ -12,10 +12,10 @@
 }
 
 .poem-reader__tag {
-  border-radius: 9999px;
+  border-radius: $ph-radius-full;
   border: 1px solid ph-rgb(edge);
   background-color: rgb(var(--color-surface-raised) / 0.9);
-  padding: 0.25rem 0.75rem;
+  padding: $ph-space-1 $ph-space-3;
   font-size: 0.75rem;
   color: ph-rgb(content-secondary);
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -58,11 +58,11 @@
   flex-shrink: 0;
   align-items: center;
   align-self: flex-start;
-  padding-top: 0.25rem;
+  padding-top: $ph-space-1;
 
   @media (min-width: 640px) {
     align-self: center;
-    padding-top: 0;
+    padding-top: $ph-space-0;
   }
 }
 
@@ -99,7 +99,7 @@
   height: 3.5rem;
   width: 3.5rem;
   flex-shrink: 0;
-  border-radius: 9999px;
+  border-radius: $ph-radius-full;
   object-fit: cover;
   box-shadow: 0 0 0 2px ph-rgb(edge-subtle);
   transition: box-shadow 0.15s ease;
