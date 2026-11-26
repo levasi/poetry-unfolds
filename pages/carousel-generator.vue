@@ -898,39 +898,42 @@ async function loadFromSavedInstaPost(id: string) {
 async function loadFromSlug(slug: string) {
   savedInstaPostId.value = null
   try {
-    const full = await $fetch<Poem>(`/api/poems/${slug}`)
-    loadedPoemSlug.value = full.slug
-    title.value = full.title
-    author.value = full.author.name
-    authorAvatarFromPoem.value = {
-      slug: full.author.slug,
-      name: full.author.name,
-      imageUrl: full.author.imageUrl,
-    }
-    applyAuthorMetaFromApi(full.author)
-    poemText.value = full.content
-    poemWrittenYear.value =
-      full.writtenPeriod?.trim() ||
-      (full.writtenYear != null ? String(full.writtenYear) : '')
-    loadedPoemSubmittedByUserId.value = full.submittedByUserId ?? null
-    const parsed = parsePoemCarouselSettings(full.carouselFontSettings)
-    if (parsed) {
-      applyPoemCarouselSettings(parsed)
-      poemCarouselOverridesFromDb.value = true
-    } else {
-      poemCarouselOverridesFromDb.value = false
-      if (siteDefaults.value) {
-        applyCarouselSiteDefaultsNonTypography(siteDefaults.value)
-        applyCarouselTypographyFromSiteDefaults(siteDefaults.value)
-      }
-    }
-    currentIndex.value = 0
+    const full = await $fetch<Poem>(`/api/poems/${encodeURIComponent(slug)}`)
+    applyLoadedPoem(full)
   } catch {
     loadedPoemSlug.value = null
     loadedPoemSubmittedByUserId.value = undefined
     poemCarouselOverridesFromDb.value = false
-    if (!poemText.value.trim()) loadSample()
   }
+}
+
+function applyLoadedPoem(full: Poem) {
+  loadedPoemSlug.value = full.slug
+  title.value = full.title
+  author.value = full.author.name
+  authorAvatarFromPoem.value = {
+    slug: full.author.slug,
+    name: full.author.name,
+    imageUrl: full.author.imageUrl,
+  }
+  applyAuthorMetaFromApi(full.author)
+  poemText.value = full.content
+  poemWrittenYear.value =
+    full.writtenPeriod?.trim() ||
+    (full.writtenYear != null ? String(full.writtenYear) : '')
+  loadedPoemSubmittedByUserId.value = full.submittedByUserId ?? null
+  const parsed = parsePoemCarouselSettings(full.carouselFontSettings)
+  if (parsed) {
+    applyPoemCarouselSettings(parsed)
+    poemCarouselOverridesFromDb.value = true
+  } else {
+    poemCarouselOverridesFromDb.value = false
+    if (siteDefaults.value) {
+      applyCarouselSiteDefaultsNonTypography(siteDefaults.value)
+      applyCarouselTypographyFromSiteDefaults(siteDefaults.value)
+    }
+  }
+  currentIndex.value = 0
 }
 
 function manualAuthorDefault() {
@@ -955,6 +958,28 @@ function loadSample() {
   if (siteDefaults.value) applyCarouselSiteDefaults(siteDefaults.value)
 }
 
+// Resolve the initial route before rendering so a direct `?slug=` visit has
+// the poem title, author and written date on its first page load.
+const initialSavedPost = route.query.saved
+const initialPoemSlug = route.query.slug
+if (typeof initialSavedPost === 'string' && initialSavedPost.trim()) {
+  await loadFromSavedInstaPost(initialSavedPost.trim())
+} else if (typeof initialPoemSlug === 'string' && initialPoemSlug.trim()) {
+  const slug = initialPoemSlug.trim()
+  const { data: initialPoem } = await useFetch<Poem>(
+    `/api/poems/${encodeURIComponent(slug)}`,
+    { key: `carousel-generator-poem-${slug}` },
+  )
+  if (initialPoem.value) applyLoadedPoem(initialPoem.value)
+  else await loadFromSlug(slug)
+} else {
+  loadedPoemSlug.value = null
+  loadedPoemSubmittedByUserId.value = undefined
+  poemCarouselOverridesFromDb.value = false
+  if (siteDefaults.value) applyCarouselSiteDefaults(siteDefaults.value)
+  if (!poemText.value.trim() && !skipCarouselSampleLoad.value) loadSample()
+}
+
 watch(
   () => [route.query.saved, route.query.slug] as const,
   async ([saved, slug]) => {
@@ -973,7 +998,7 @@ watch(
     if (siteDefaults.value) applyCarouselSiteDefaults(siteDefaults.value)
     if (!poemText.value.trim() && !skipCarouselSampleLoad.value) loadSample()
   },
-  { immediate: true },
+  { immediate: false },
 )
 
 /** When session loads after SSR, replace placeholder sample author with the signed-in name. */
