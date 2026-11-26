@@ -9,23 +9,23 @@ const props = defineProps<{
   theme: CarouselTheme
 }>()
 
-/** Split brand domains so "poetry" can be accented (poetryunfolds.vercel.app / legacy poetryhub.ro). */
+/** Split Poetry Unfolds domains so “poetry” can be accented. */
 function parseBrandDomain(line: string) {
   const full = line.trim()
-  const m = full.match(/^(poetry)(unfolds\.vercel\.app|unfolds\.com|hub\.ro)$/i)
+  const m = full.match(/^(poetry)(unfolds\.vercel\.app|unfolds\.com)$/i)
   if (!m) return null
   const i = full.toLowerCase().indexOf('poetry')
   if (i < 0) return null
   return {
     before: full.slice(0, i),
     poetry: full.slice(i, i + 'poetry'.length),
-    hub: full.slice(i + 'poetry'.length),
+    unfolds: full.slice(i + 'poetry'.length),
   }
 }
 
 type Row =
   | { kind: 'plain'; text: string }
-  | { kind: 'brand'; before: string; poetry: string; hub: string }
+  | { kind: 'brand'; before: string; poetry: string; unfolds: string }
 
 const rows = computed((): Row[] => {
   const out: Row[] = []
@@ -65,7 +65,7 @@ const poetryClass = computed(() => {
   }
 })
 
-const hubClass = computed(() => {
+const unfoldsClass = computed(() => {
   switch (props.theme) {
     case 'minimal':
       return 'text-[#0f0f0a]'
@@ -145,7 +145,7 @@ const blockClass = computed(() => {
       <p v-else class="carousel-slide-cta__row">
         <span v-if="row.before">{{ row.before }}</span>
         <span :class="poetryClass">{{ row.poetry }}</span>
-        <span :class="hubClass">{{ row.hub }}</span>
+        <span :class="unfoldsClass">{{ row.unfolds }}</span>
       </p>
     </template>
   </div>

@@ -444,7 +444,7 @@ const isDefaultFeed = computed(() => !authorSlug.value && !tagSlug.value)
 
                 <!-- Lucrări / Works: poem grid -->
                 <div v-show="authorTab === 'works'" role="tabpanel">
-                  <div v-if="authorPoemsForCards.length" class="home-poem-masonry" role="list">
+                  <div v-if="authorPoemsForCards.length" class="home-poem-masonry home-poem-masonry--cols-3" role="list">
                     <div v-for="poem in authorPoemsForCards" :key="poem.id" class="home-poem-masonry-wrap"
                       role="listitem">
                       <PoetryCard :poem="poem" layout="masonry" :quick-read-list="authorPoemsForCards" />

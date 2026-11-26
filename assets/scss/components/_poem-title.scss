@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: $m-3;
   }
 
   &--banner {
@@ -61,7 +61,7 @@
 
 .poem-title__action {
   border-radius: $ph-radius-md;
-  padding: $ph-space-2;
+  padding: $p-2;
   color: ph-rgb(content-hint);
   transition: color 0.15s ease, background-color 0.15s ease;
 

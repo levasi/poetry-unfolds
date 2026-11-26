@@ -2,10 +2,10 @@
 
 .write-tools {
   flex-shrink: 0;
-  padding-block: $ph-space-3;
+  padding-block: $p-3;
 
   @media (min-width: $bp-md) {
-    padding-block: $ph-space-4;
+    padding-block: $p-4;
   }
 }
 
@@ -13,7 +13,7 @@
   display: flex;
   width: 100%;
   min-width: 0;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
@@ -22,6 +22,7 @@
 .write-tools__project {
   position: relative;
   min-width: 0;
+  flex-shrink: 1;
 }
 
 .write-tools__trigger {
@@ -33,7 +34,7 @@
   border-radius: $ph-radius-sm;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-raised);
-  padding: $ph-space-2 $ph-space-3;
+  padding: $p-2 $p-3;
   text-align: left;
   box-shadow: var(--shadow-ds-card);
   transition: border-color 0.15s ease;
@@ -125,7 +126,7 @@
   position: absolute;
   left: 0;
   z-index: 50;
-  margin-top: 0.5rem;
+  margin-top: $m-2;
   width: min(100vw - 2rem, 20rem);
   transform-origin: top;
   overflow: hidden;
@@ -147,7 +148,7 @@
   background: linear-gradient(to bottom,
       rgb(var(--color-surface-subtle) / 0.8),
       ph-rgb(surface-raised));
-  padding: $ph-space-3;
+  padding: $p-3;
 }
 
 .write-tools__new-btn {
@@ -157,7 +158,7 @@
   gap: 0.5rem;
   border-radius: $ph-radius-sm;
   background-color: ph-rgb(brand);
-  padding: $ph-space-2-5 $ph-space-3;
+  padding: $ph-space-2-5 $p-3;
   font-size: 0.875rem;
   font-weight: 600;
   color: ph-rgb(brand-foreground);
@@ -188,7 +189,7 @@
   border-radius: $ph-radius-sm;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface);
-  padding: $ph-space-2 $ph-space-3;
+  padding: $p-2 $p-3;
   font-size: 0.8125rem;
   font-weight: 600;
   color: ph-rgb(content-secondary);
@@ -217,7 +218,7 @@
 }
 
 .write-tools__search-section {
-  padding: $ph-space-3 $ph-space-3 $ph-space-0;
+  padding: $p-3 $p-3 $ph-space-0;
 }
 
 .write-tools__search-label {
@@ -249,7 +250,7 @@
   border-radius: $ph-radius-sm;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: rgb(var(--color-surface-subtle) / 0.8);
-  padding: $ph-space-2 $ph-space-3 $ph-space-2 $ph-space-9;
+  padding: $p-2 $p-3 $p-2 $p-9;
   font-size: 1rem;
   color: ph-rgb(content);
   outline: none;
@@ -272,7 +273,7 @@
   flex-direction: column;
   gap: 0.35rem;
   overflow-y: auto;
-  padding: $ph-space-3;
+  padding: $p-3;
   scrollbar-width: thin;
 
   &--dragging {
@@ -283,7 +284,7 @@
 }
 
 .write-tools__section-label {
-  margin: 0.35rem 0.25rem 0.15rem;
+  margin: 0.35rem $m-1 0.15rem;
   border-radius: $ph-radius-md;
   border: 1px dashed transparent;
   padding: 0.35rem 0.4rem;
@@ -382,12 +383,12 @@
   flex-direction: column;
   gap: 0.2rem;
   margin: 0;
-  padding: $ph-space-0 $ph-space-0 $ph-space-0 $ph-space-2;
+  padding: $ph-space-0 $ph-space-0 $ph-space-0 $p-2;
   list-style: none;
 }
 
 .write-tools__folder-empty {
-  padding: $ph-space-1 $ph-space-3;
+  padding: $p-1 $p-3;
   font-size: 0.75rem;
   color: ph-rgb(content-soft);
 }
@@ -417,17 +418,17 @@
   display: flex;
   flex-direction: column;
   gap: 0.125rem;
-  margin: 0.25rem 0.5rem 0.35rem;
+  margin: $m-1 $m-2 0.35rem;
   border-radius: $ph-radius-md;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-overlay);
-  padding: $ph-space-1;
+  padding: $p-1;
   box-shadow: var(--shadow-ds-popover);
 }
 
 .write-tools__move-option {
   border-radius: calc(#{$ph-radius-md} - 2px);
-  padding: $ph-space-1-5 $ph-space-2;
+  padding: $ph-space-1-5 $p-2;
   text-align: left;
   font-size: 0.75rem;
   font-weight: 500;
@@ -451,7 +452,7 @@
   gap: 0.125rem;
   border-radius: $ph-radius-xl;
   border: 1px solid transparent;
-  padding: $ph-space-0-5 $ph-space-1;
+  padding: $ph-space-0-5 $p-1;
   cursor: grab;
   transition: border-color 0.15s ease, background-color 0.15s ease, opacity 0.15s ease;
 
@@ -492,7 +493,7 @@
   align-items: center;
   gap: 0.5rem;
   border-radius: $ph-radius-md;
-  padding: $ph-space-2 $ph-space-1 $ph-space-2 $ph-space-2;
+  padding: $p-2 $p-1 $p-2 $p-2;
   text-align: left;
   font-size: 0.875rem;
   font-weight: 500;
@@ -575,7 +576,7 @@
   border-radius: $ph-radius-xl;
   border: 1px dashed ph-rgb(edge-subtle);
   background-color: rgb(var(--color-surface-subtle) / 0.5);
-  padding: $ph-space-6 $ph-space-3;
+  padding: $p-6 $p-3;
   text-align: center;
 }
 
@@ -586,7 +587,7 @@
 }
 
 .write-tools__empty-hint {
-  margin-top: 0.25rem;
+  margin-top: $m-1;
   font-size: 0.75rem;
   color: ph-rgb(content-muted);
 }
@@ -594,15 +595,14 @@
 .write-tools__actions {
   display: flex;
   flex-shrink: 0;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 0.5rem;
-  width: 100%;
-  justify-content: space-between;
+  width: auto;
+  justify-content: flex-end;
 
   @media (min-width: 640px) {
     gap: 0.75rem;
-    justify-content: flex-end;
   }
 }
 
@@ -615,7 +615,7 @@
   box-sizing: border-box;
   gap: 0.5rem;
   min-height: 2.5rem;
-  padding: $ph-space-2 $ph-space-4;
+  padding: $p-2 $p-4;
   font-size: 0.875rem;
   line-height: 1.25rem;
   box-shadow: var(--shadow-ds-card);
@@ -724,7 +724,7 @@
   border-radius: $ph-radius-sm;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-raised);
-  padding: $ph-space-3;
+  padding: $p-3;
   box-shadow: var(--shadow-ds-popover);
 }
 
@@ -742,7 +742,7 @@
   border-radius: $ph-radius-sm;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface);
-  padding: $ph-space-2 $ph-space-2-5;
+  padding: $p-2 $ph-space-2-5;
   font-size: 0.875rem;
   color: ph-rgb(content);
   outline: none;
@@ -758,7 +758,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-  margin-top: 0.75rem;
+  margin-top: $m-3;
 }
 
 .write-tools__card-font-stepper {
@@ -888,7 +888,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: $ph-space-4;
+  padding: $p-4;
 
   &--alert {
     z-index: 201;
@@ -910,7 +910,7 @@
   border-radius: $ph-radius-xl;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-raised);
-  padding: $ph-space-5;
+  padding: $p-5;
   box-shadow:
     0 25px 50px -12px rgb(0 0 0 / 0.25),
     0 0 0 1px rgb(0 0 0 / 0.05);
@@ -924,7 +924,7 @@
 }
 
 .write-tools__modal-desc {
-  margin-top: 0.5rem;
+  margin-top: $m-2;
   font-size: 0.875rem;
   color: ph-rgb(content-muted);
 }
@@ -935,7 +935,7 @@
 }
 
 .write-tools__modal-label {
-  margin-top: 1rem;
+  margin-top: $m-4;
   display: block;
   font-size: 0.75rem;
   font-weight: 500;
@@ -949,7 +949,7 @@
   width: 100%;
   border-radius: $ph-radius-xl;
   border: 1px solid ph-rgb(edge-subtle);
-  padding: $ph-space-2-5 $ph-space-3;
+  padding: $ph-space-2-5 $p-3;
   font-size: 1rem;
   color: ph-rgb(content);
   outline: none;
@@ -965,7 +965,7 @@
 }
 
 .write-tools__modal-actions {
-  margin-top: 1.25rem;
+  margin-top: $m-5;
   display: flex;
   gap: 0.5rem;
 
@@ -979,7 +979,7 @@
   border-radius: $ph-radius-xl;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-raised);
-  padding: $ph-space-2-5 $ph-space-4;
+  padding: $ph-space-2-5 $p-4;
   font-size: 0.875rem;
   font-weight: 500;
   color: ph-rgb(content-secondary);
@@ -993,7 +993,7 @@
   border-radius: $ph-radius-xl;
   border: 1px solid #dc2626;
   background-color: #dc2626;
-  padding: $ph-space-2-5 $ph-space-4;
+  padding: $ph-space-2-5 $p-4;
   font-size: 0.875rem;
   font-weight: 500;
   color: #fff;

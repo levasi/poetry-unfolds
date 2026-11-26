@@ -17,7 +17,7 @@
 }
 
 .page-shell__main--keyboard-open {
-  padding-bottom: $ph-space-2;
+  padding-bottom: $p-2;
 
   @media (min-width: $bp-md) {
     padding-bottom: $ph-space-14;
@@ -39,14 +39,14 @@
   width: 100%;
   max-width: none;
   min-width: 0;
-  padding-inline: $ph-space-4;
+  padding-inline: $p-4;
 
   @media (min-width: $bp-md) {
-    padding-inline: $ph-space-8;
+    padding-inline: $p-8;
   }
 
   @media (min-width: $bp-lg) {
-    padding-inline: $ph-space-10;
+    padding-inline: $p-10;
   }
 }
 

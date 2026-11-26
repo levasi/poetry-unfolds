@@ -360,24 +360,12 @@ watchEffect((onCleanup) => {
           <div class="poetry-card__footer-row">
             <NuxtLink
               :to="poemHref"
-              class="poetry-card__read-more poetry-card__read-more--grid"
+              class="poetry-card__icon-btn poetry-card__read-more-icon"
+              :aria-label="t('card.readMore')"
+              :title="t('card.readMore')"
               @click.stop
             >
-              {{ t('card.readMore') }}
-              <svg
-                class="poetry-card__read-icon poetry-card__read-icon--md"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
+              <Icon icon="heroicons:arrow-right" class="poetry-card__icon" aria-hidden="true" />
             </NuxtLink>
             <div class="poetry-card__action-row">
               <button

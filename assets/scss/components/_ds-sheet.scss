@@ -47,8 +47,8 @@
 
 .ds-sheet__handle {
   margin-inline: auto;
-  margin-bottom: 0.75rem;
-  margin-top: 0.5rem;
+  margin-bottom: $m-3;
+  margin-top: $m-2;
   height: 0.25rem;
   width: 2.5rem;
   border-radius: $ph-radius-full;
@@ -65,10 +65,10 @@
   justify-content: space-between;
   gap: 0.75rem;
   border-bottom: 1px solid ph-rgb(edge-subtle);
-  padding: $ph-space-3 $ph-space-4;
+  padding: $p-3 $p-4;
 
   @media (min-width: $bp-md) {
-    padding-inline: $ph-space-5;
+    padding-inline: $p-5;
   }
 }
 
@@ -88,18 +88,18 @@
   min-height: 0;
   flex: 1 1 0%;
   overflow-y: auto;
-  padding: $ph-space-4;
+  padding: $p-4;
   // Clear the fixed mobile tab bar (z-index above the sheet).
   padding-bottom: calc($ph-space-22 + env(safe-area-inset-bottom, 0px));
 
   @media (min-width: $bp-md) {
-    padding-inline: $ph-space-5;
-    padding-bottom: $ph-space-5;
+    padding-inline: $p-5;
+    padding-bottom: $p-5;
   }
 }
 
 .ds-empty__fleuron {
-  margin-bottom: 1.5rem;
+  margin-bottom: $m-6;
 }
 
 .ds-empty__title {
@@ -111,14 +111,14 @@
 }
 
 .ds-empty__description {
-  margin-top: 0.5rem;
+  margin-top: $m-2;
   max-width: 24rem;
   font-size: 0.8125rem;
   color: ph-rgb(content-muted);
 }
 
 .ds-empty__actions {
-  margin-top: 1.5rem;
+  margin-top: $m-6;
 }
 
 .ds-fleuron {

@@ -38,7 +38,7 @@
   },
   "write": {
     "seoTitle": "Scrie — dicționar și rime — Poetry Unfolds",
-    "seoDesc": "Caută cuvinte, silabe și rime; scrie versuri cu instrumentul Poetry Unfolds.",
+    "seoDesc": "Caută definiții, desparte cuvintele în silabe, găsește rime și sinonime, apoi scrie și organizează versurile în spațiul tău de creație.",
     "searchBtn": "Caută",
     "diacriticsAria": "Diacritice românești",
     "insertDiacritic": "Inserează {char}",
@@ -593,7 +593,7 @@
     "font": "Font",
     "fontPrev": "Fontul anterior",
     "fontNext": "Fontul următor",
-    "fontSize": "Mărime",
+    "fontSize": "Mărime font",
     "lineHeight": "Înălțime rând",
     "letterSpacing": "Spațiere litere",
     "fontTypewriter": "Mașină de scris",

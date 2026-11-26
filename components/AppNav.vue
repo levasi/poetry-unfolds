@@ -27,7 +27,7 @@ function onClickOutside(e: MouseEvent) {
   }
 }
 
-const displayName = computed(() => user.value?.name || user.value?.email?.split('@')[0] || '')
+const displayName = computed(() => user.value?.name || user.value?.email?.split('@')[0] || t('nav.account'))
 const initials = computed(() => {
   const n = user.value?.name || user.value?.email || '?'
   return n.slice(0, 2).toUpperCase()

@@ -1,13 +1,13 @@
 @use '../design-system/tokens' as *;
 
 .poem-reader__tags {
-  margin-bottom: 1.5rem;
+  margin-bottom: $m-6;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
 
   @media (min-width: $bp-md) {
-    margin-bottom: 2rem;
+    margin-bottom: $m-8;
   }
 }
 
@@ -15,7 +15,7 @@
   border-radius: $ph-radius-full;
   border: 1px solid ph-rgb(edge);
   background-color: rgb(var(--color-surface-raised) / 0.9);
-  padding: $ph-space-1 $ph-space-3;
+  padding: $p-1 $p-3;
   font-size: 0.75rem;
   color: ph-rgb(content-secondary);
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -35,7 +35,7 @@
 }
 
 .poem-reader__title-row {
-  margin-bottom: 0.75rem;
+  margin-bottom: $m-3;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -58,7 +58,7 @@
   flex-shrink: 0;
   align-items: center;
   align-self: flex-start;
-  padding-top: $ph-space-1;
+  padding-top: $p-1;
 
   @media (min-width: 640px) {
     align-self: center;
@@ -67,7 +67,7 @@
 }
 
 .poem-reader__written {
-  margin-top: 0.5rem;
+  margin-top: $m-2;
   font-size: 0.875rem;
   color: ph-rgb(content-muted);
 
@@ -81,8 +81,6 @@
 }
 
 .poem-reader__author {
-  margin-top: 0.5rem;
-  margin-bottom: 2rem;
   display: inline-flex;
   max-width: 100%;
   align-items: center;
@@ -92,6 +90,18 @@
 
   &:hover {
     color: ph-rgb(brand);
+  }
+}
+
+.poem-reader__author-actions {
+  margin-top: $m-2;
+  margin-bottom: $m-8;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  .poem-title__actions {
+    margin-top: $m-2;
   }
 }
 
@@ -123,7 +133,7 @@
 }
 
 .poem-reader__author-banner {
-  margin-top: 0.5rem;
+  margin-top: $m-2;
   display: inline-block;
   font-size: 0.875rem;
   color: ph-rgb(content-muted);
@@ -135,7 +145,7 @@
 }
 
 .poem-reader__ornament {
-  margin-block: 2.5rem;
+  margin-block: $m-10;
   display: flex;
   align-items: center;
   gap: 1rem;

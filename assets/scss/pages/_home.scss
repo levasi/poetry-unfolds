@@ -69,12 +69,12 @@
   display: flex;
   height: 100%;
   flex-direction: column;
-  padding-inline: $ph-space-4;
-  padding-bottom: $ph-space-5;
+  padding-inline: $p-4;
+  padding-bottom: $p-5;
 
   @media (min-width: $bp-md) {
-    padding-inline: $ph-space-8;
-    padding-bottom: $ph-space-6;
+    padding-inline: $p-8;
+    padding-bottom: $p-6;
   }
 
   @media (min-width: $bp-lg) {
@@ -85,7 +85,7 @@
     gap: 3rem;
     padding-inline: $ph-space-0;
     padding-bottom: $ph-space-0;
-    padding-top: $ph-space-10;
+    padding-top: $p-10;
   }
 
   @media (min-width: 1280px) {
@@ -103,7 +103,7 @@
 }
 
 .home-page__fleuron {
-  margin-bottom: 1.5rem;
+  margin-bottom: $m-6;
 
   @media (min-width: $bp-lg) {
     margin-inline: 0;
@@ -111,7 +111,7 @@
 
   &--mobile {
     margin-inline: auto;
-    margin-top: 1.5rem;
+    margin-top: $m-6;
   }
 }
 
@@ -128,13 +128,13 @@
   display: block;
 
   &--brand {
-    margin-top: 0.25rem;
+    margin-top: $m-1;
     color: ph-rgb(brand);
   }
 }
 
 .home-page__subtitle {
-  margin-top: 1.25rem;
+  margin-top: $m-5;
   max-width: 36rem;
   font-size: 1rem;
   line-height: 1.625;
@@ -146,7 +146,7 @@
 }
 
 .home-page__cta-row {
-  margin-top: 2rem;
+  margin-top: $m-8;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -157,7 +157,7 @@
 .home-page__cta {
   min-width: 11rem;
   justify-content: center;
-  padding: 0.4375rem $ph-space-3;
+  padding: 0.4375rem $p-3;
 }
 
 .home-page__cta-mobile {
@@ -167,7 +167,7 @@
   align-items: stretch;
   justify-content: center;
   gap: 0.5rem;
-  padding-top: $ph-space-6;
+  padding-top: $p-6;
 
   @media (min-width: 640px) {
     gap: 0.75rem;
@@ -182,7 +182,7 @@
   min-width: 0;
   flex: 1;
   justify-content: center;
-  padding: 0.4375rem $ph-space-3;
+  padding: 0.4375rem $p-3;
 
   @media (min-width: 640px) {
     min-width: 10rem;
@@ -230,11 +230,11 @@
 }
 
 .home-page__mobile-copy {
-  padding-inline: $ph-space-4;
+  padding-inline: $p-4;
   text-align: center;
 
   @media (min-width: $bp-md) {
-    padding-inline: $ph-space-8;
+    padding-inline: $p-8;
   }
 
   @media (min-width: $bp-lg) {
@@ -243,7 +243,7 @@
 }
 
 .home-page__mobile-title {
-  margin-top: 1.5rem;
+  margin-top: $m-6;
   font-family: $ph-font-serif;
   font-size: clamp(1.5rem, 4vw, 1.875rem);
   font-weight: 600;
@@ -254,7 +254,7 @@
 
 .home-page__mobile-subtitle {
   margin-inline: auto;
-  margin-top: 1.25rem;
+  margin-top: $m-5;
   display: none;
   max-width: 36rem;
   font-size: 1rem;
@@ -273,7 +273,7 @@
 .home-page__masthead-rule {
   display: none;
   margin-inline: auto;
-  margin-top: 2.5rem;
+  margin-top: $m-10;
   max-width: 36rem;
 
   @media (min-width: 640px) {
@@ -291,10 +291,10 @@
 }
 
 .home-page__search {
-  padding-top: $ph-space-8;
+  padding-top: $p-8;
 
   @media (min-width: $bp-md) {
-    padding-top: $ph-space-10;
+    padding-top: $p-10;
   }
 }
 
@@ -304,7 +304,7 @@
 }
 
 .home-page__results {
-  padding-block: $ph-space-10;
+  padding-block: $p-10;
 
   @media (min-width: $bp-md) {
     padding-block: $ph-space-14;
@@ -312,7 +312,7 @@
 }
 
 .home-page__alert {
-  margin-bottom: 1rem;
+  margin-bottom: $m-4;
   font-size: 0.875rem;
   color: ph-rgb(danger);
 }
@@ -321,11 +321,11 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  padding-block: $ph-space-4;
+  padding-block: $p-4;
 }
 
 .home-page__results-meta {
-  margin-bottom: 1rem;
+  margin-bottom: $m-4;
   font-size: 0.875rem;
   color: ph-rgb(content-muted);
 }
@@ -376,7 +376,7 @@
 }
 
 .home-page__section-head {
-  margin-bottom: 2rem;
+  margin-bottom: $m-8;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -390,7 +390,7 @@
 
 .home-page__section-lead {
   display: none;
-  margin-top: 0.5rem;
+  margin-top: $m-2;
   max-width: 36rem;
   font-size: 0.875rem;
   color: ph-rgb(content-muted);
@@ -411,7 +411,7 @@
   display: flex;
   gap: 0.75rem;
   overflow-x: auto;
-  padding-bottom: $ph-space-1;
+  padding-bottom: $p-1;
   scrollbar-width: thin;
 }
 
@@ -426,7 +426,7 @@
   border-radius: $ph-radius-lg;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-raised);
-  padding: $ph-space-3;
+  padding: $p-3;
   text-align: center;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 
@@ -464,7 +464,7 @@
 }
 
 .home-page__tools-title {
-  margin-bottom: 2rem;
+  margin-bottom: $m-8;
   text-align: center;
 }
 
@@ -472,7 +472,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  padding: $ph-space-6;
+  padding: $p-6;
   transition: box-shadow 0.15s ease;
 
   &:hover {
@@ -499,7 +499,7 @@
 }
 
 .home-page__signin-hint {
-  margin-top: 2rem;
+  margin-top: $m-8;
   text-align: center;
   font-size: 0.875rem;
   color: ph-rgb(content-muted);

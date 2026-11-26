@@ -11,7 +11,7 @@
   border-radius: $ph-radius-sm;
   border: 1px solid ph-rgb(edge);
   background-color: ph-rgb(surface-raised);
-  padding: $ph-space-1-5 $ph-space-3;
+  padding: $ph-space-1-5 $p-3;
   font-size: 0.875rem;
   color: ph-rgb(content-secondary);
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -34,6 +34,6 @@
 }
 
 .pagination__ellipsis {
-  padding-inline: $ph-space-2;
+  padding-inline: $p-2;
   color: ph-rgb(content-soft);
 }

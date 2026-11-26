@@ -15,7 +15,7 @@
   border-radius: $ph-radius-lg;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-raised);
-  padding: $ph-space-6;
+  padding: $p-6;
   box-shadow: var(--shadow-ds-card);
   transition: box-shadow 0.15s ease;
 
@@ -24,7 +24,7 @@
   }
 
   @media (min-width: $bp-md) {
-    padding: $ph-space-8;
+    padding: $p-8;
   }
 
   &--danger {
@@ -38,7 +38,7 @@
 }
 
 .account-page__card-head {
-  margin-bottom: 1.5rem;
+  margin-bottom: $m-6;
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
@@ -69,12 +69,12 @@
 }
 
 .account-page__card-desc {
-  margin-top: 0.25rem;
+  margin-top: $m-1;
   font-size: 0.875rem;
   color: ph-rgb(content-secondary);
 
   &--lead {
-    margin-top: 0.5rem;
+    margin-top: $m-2;
     line-height: 1.625;
   }
 }
@@ -95,7 +95,7 @@
   color: ph-rgb(content-secondary);
 
   &--mb2 {
-    margin-bottom: 0.5rem;
+    margin-bottom: $m-2;
   }
 }
 
@@ -104,7 +104,7 @@
   border-radius: $ph-radius-sm;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-subtle);
-  padding: $ph-space-3 $ph-space-4;
+  padding: $p-3 $p-4;
   font-size: 0.875rem;
   color: ph-rgb(content);
   outline: none;
@@ -122,7 +122,7 @@
 
 .account-page__msg {
   border-radius: $ph-radius-sm;
-  padding: $ph-space-2-5 $ph-space-4;
+  padding: $ph-space-2-5 $p-4;
   font-size: 0.875rem;
 
   &--ok {
@@ -136,14 +136,14 @@
   }
 
   &--mt {
-    margin-top: 1rem;
+    margin-top: $m-4;
   }
 }
 
 .account-page__divider {
-  margin-top: 1.5rem;
+  margin-top: $m-6;
   border-top: 1px solid ph-rgb(edge-subtle);
-  padding-top: $ph-space-6;
+  padding-top: $p-6;
 }
 
 .account-page__poet-row {
@@ -164,7 +164,7 @@
 }
 
 .account-page__poet-desc {
-  margin-top: 0.25rem;
+  margin-top: $m-1;
   font-size: 0.875rem;
   line-height: 1.625;
   color: ph-rgb(content-secondary);
@@ -247,7 +247,7 @@
   border-radius: $ph-radius-sm;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-subtle);
-  padding: $ph-space-4 $ph-space-5;
+  padding: $p-4 $p-5;
   color: ph-rgb(content);
 }
 
@@ -268,7 +268,7 @@
   border-radius: $ph-radius-md;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-subtle, 0.5);
-  padding: $ph-space-3 $ph-space-4;
+  padding: $p-3 $p-4;
 }
 
 .account-page__info-dt {
@@ -280,7 +280,7 @@
 }
 
 .account-page__info-dd {
-  margin-top: 0.25rem;
+  margin-top: $m-1;
   font-weight: 500;
   color: ph-rgb(content);
   overflow-wrap: anywhere;
@@ -314,17 +314,17 @@
 }
 
 .account-page__owner-note {
-  margin-top: 0.75rem;
+  margin-top: $m-3;
   font-size: 0.875rem;
   color: ph-rgb(content-muted);
 }
 
 .account-page__delete-btn {
-  margin-top: 1rem;
+  margin-top: $m-4;
   border-radius: $ph-radius-md;
   border: 1px solid ph-rgb(danger, 0.4);
   background-color: ph-rgb(surface-raised);
-  padding: $ph-space-2-5 $ph-space-4;
+  padding: $ph-space-2-5 $p-4;
   font-size: 0.875rem;
   font-weight: 500;
   color: ph-rgb(danger);
@@ -342,7 +342,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: $ph-space-4;
+  padding: $p-4;
 }
 
 .account-page__modal-backdrop {
@@ -360,7 +360,7 @@
   border-radius: $ph-radius-lg;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-raised);
-  padding: $ph-space-6;
+  padding: $p-6;
   box-shadow: var(--shadow-ds-card);
 }
 
@@ -372,24 +372,24 @@
 }
 
 .account-page__modal-desc {
-  margin-top: 0.5rem;
+  margin-top: $m-2;
   font-size: 0.875rem;
   line-height: 1.625;
   color: ph-rgb(content-secondary);
 }
 
 .account-page__modal-field {
-  margin-top: 1rem;
+  margin-top: $m-4;
 }
 
 .account-page__modal-error {
-  margin-top: 0.75rem;
+  margin-top: $m-3;
   font-size: 0.875rem;
   color: ph-rgb(danger);
 }
 
 .account-page__modal-actions {
-  margin-top: 1.5rem;
+  margin-top: $m-6;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
@@ -402,7 +402,7 @@
   justify-content: center;
   border-radius: $ph-radius-md;
   background-color: ph-rgb(danger);
-  padding: $ph-space-2-5 $ph-space-4;
+  padding: $ph-space-2-5 $p-4;
   font-size: 0.875rem;
   font-weight: 600;
   color: #fff;
@@ -420,14 +420,14 @@
 }
 
 .account-page__header {
-  margin-bottom: 2rem;
+  margin-bottom: $m-8;
 
   &--bordered {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     border-bottom: 1px solid ph-rgb(edge-subtle);
-    padding-bottom: $ph-space-8;
+    padding-bottom: $p-8;
 
     @media (min-width: 640px) {
       flex-direction: row;
@@ -459,7 +459,7 @@
 }
 
 .account-page__page-desc {
-  margin-top: 0.5rem;
+  margin-top: $m-2;
   font-size: 0.875rem;
   line-height: 1.625;
   color: ph-rgb(content-muted);
@@ -471,11 +471,11 @@
 }
 
 .account-page__section {
-  margin-bottom: 2rem;
+  margin-bottom: $m-8;
 }
 
 .account-page__section-head {
-  margin-bottom: 0.75rem;
+  margin-bottom: $m-3;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -490,23 +490,23 @@
 }
 
 .account-page__section-desc {
-  margin-top: 0.25rem;
+  margin-top: $m-1;
   font-size: 0.875rem;
   color: ph-rgb(content-muted);
 }
 
 .account-page__alert {
-  margin-bottom: 0.75rem;
+  margin-bottom: $m-3;
   border-radius: $ph-radius-md;
   background-color: ph-rgb(danger, 0.1);
-  padding: $ph-space-2-5 $ph-space-4;
+  padding: $ph-space-2-5 $p-4;
   font-size: 0.875rem;
   color: ph-rgb(danger);
 
   &--plain {
     background: none;
     padding: $ph-space-0;
-    margin-bottom: 1rem;
+    margin-bottom: $m-4;
   }
 }
 
@@ -514,24 +514,24 @@
   border-radius: $ph-radius-lg;
   border: 1px dashed ph-rgb(edge);
   background-color: ph-rgb(surface-subtle, 0.4);
-  padding: $ph-space-10 $ph-space-6;
+  padding: $p-10 $p-6;
   text-align: center;
 
   &--dashed-subtle {
     border-color: ph-rgb(edge-subtle);
     background-color: ph-rgb(surface-subtle, 0.5);
-    padding: $ph-space-8;
+    padding: $p-8;
   }
 
   &--drafts {
     text-align: left;
-    padding-block: $ph-space-10;
+    padding-block: $p-10;
   }
 }
 
 .account-page__empty-icon {
   margin-inline: auto;
-  margin-bottom: 1rem;
+  margin-bottom: $m-4;
   display: flex;
   height: 3.5rem;
   width: 3.5rem;
@@ -548,7 +548,7 @@
 }
 
 .account-page__empty-title {
-  margin-bottom: 0.75rem;
+  margin-bottom: $m-3;
   font-weight: 500;
   color: ph-rgb(content-secondary);
 }
@@ -567,7 +567,7 @@
   border-radius: $ph-radius-lg;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-raised);
-  padding: $ph-space-5;
+  padding: $p-5;
   box-shadow: var(--shadow-ds-card);
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 
@@ -578,7 +578,7 @@
 
   &--insta {
     flex-direction: column;
-    padding: $ph-space-4;
+    padding: $p-4;
 
     @media (min-width: 640px) {
       flex-direction: row;
@@ -634,7 +634,7 @@
 }
 
 .account-page__list-meta {
-  margin-top: 0.5rem;
+  margin-top: $m-2;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -646,14 +646,14 @@
   color: ph-rgb(content-soft);
 
   &--mt {
-    margin-top: 0.25rem;
+    margin-top: $m-1;
   }
 }
 
 .account-page__tag {
   border-radius: $ph-radius-full;
   background-color: ph-rgb(surface-subtle);
-  padding: $ph-space-0-5 $ph-space-2;
+  padding: $ph-space-0-5 $p-2;
   font-size: 0.75rem;
   color: ph-rgb(content-secondary);
 }
@@ -679,7 +679,7 @@
 
 .account-page__list-action {
   border-radius: $ph-radius-md;
-  padding: $ph-space-2 $ph-space-3;
+  padding: $p-2 $p-3;
   text-align: center;
   font-size: 0.75rem;
   font-weight: 500;
@@ -702,13 +702,13 @@
 }
 
 .account-page__pagination {
-  margin-top: 1.25rem;
+  margin-top: $m-5;
 
   &--center {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
-    padding-top: $ph-space-4;
+    padding-top: $p-4;
   }
 }
 
@@ -721,13 +721,13 @@
 
 .account-page__claim {
   margin-inline: auto;
-  margin-top: 2rem;
+  margin-top: $m-8;
   max-width: 28rem;
   text-align: left;
 }
 
 .account-page__claim-label {
-  margin-bottom: 0.5rem;
+  margin-bottom: $m-2;
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -746,7 +746,7 @@
   border-radius: $ph-radius-xl;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-raised);
-  padding: $ph-space-2-5 $ph-space-4;
+  padding: $ph-space-2-5 $p-4;
   font-size: 0.875rem;
   outline: none;
 
@@ -759,7 +759,7 @@
 .account-page__claim-btn {
   border-radius: $ph-radius-xl;
   background-color: ph-rgb(brand);
-  padding: $ph-space-2-5 $ph-space-4;
+  padding: $ph-space-2-5 $p-4;
   font-size: 0.875rem;
   font-weight: 600;
   color: ph-rgb(brand-foreground);
@@ -775,7 +775,7 @@
 }
 
 .account-page__claim-feedback {
-  margin-top: 0.5rem;
+  margin-top: $m-2;
   font-size: 0.875rem;
 
   &--err { color: ph-rgb(danger); }

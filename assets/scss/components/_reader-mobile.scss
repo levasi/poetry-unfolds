@@ -7,7 +7,7 @@
   z-index: 40;
   display: flex;
   justify-content: center;
-  padding: $ph-space-4;
+  padding: $p-4;
   bottom: calc(6.5rem + env(safe-area-inset-bottom, 0px));
 
   @media (min-width: $bp-md) {
@@ -23,7 +23,7 @@
   border-radius: $ph-radius-full;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: rgb(var(--color-surface-overlay) / 0.95);
-  padding: $ph-space-1-5 $ph-space-2;
+  padding: $ph-space-1-5 $p-2;
   box-shadow: var(--shadow-ds-popover);
   backdrop-filter: blur(12px);
 }

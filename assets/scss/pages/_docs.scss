@@ -10,7 +10,7 @@
 }
 
 .docs-prose h1 {
-  margin-bottom: 0.5rem;
+  margin-bottom: $m-2;
   font-family: $ph-font-serif;
   font-size: clamp(1.5rem, 4vw, 1.875rem);
   font-weight: 600;
@@ -19,14 +19,14 @@
 }
 
 .docs-prose h1 + p.lead {
-  margin-bottom: 2.5rem;
+  margin-bottom: $m-10;
   font-size: 1rem;
   line-height: 1.625;
   color: ph-rgb(content-secondary);
 }
 
 .docs-prose h2 {
-  margin-bottom: 1rem;
+  margin-bottom: $m-4;
   margin-top: 3rem;
   scroll-margin-top: 6rem;
   font-family: $ph-font-serif;
@@ -41,8 +41,8 @@
 }
 
 .docs-prose h3 {
-  margin-bottom: 0.75rem;
-  margin-top: 2rem;
+  margin-bottom: $m-3;
+  margin-top: $m-8;
   font-family: $ph-font-sans;
   font-size: 0.875rem;
   font-weight: 600;
@@ -52,7 +52,7 @@
 }
 
 .docs-prose p {
-  margin-bottom: 1rem;
+  margin-bottom: $m-4;
   font-size: 0.875rem;
   line-height: 1.625;
   color: ph-rgb(content-secondary);
@@ -60,8 +60,8 @@
 
 .docs-prose ul,
 .docs-prose ol {
-  margin-bottom: 1rem;
-  padding-left: $ph-space-5;
+  margin-bottom: $m-4;
+  padding-left: $p-5;
   font-size: 0.875rem;
   color: ph-rgb(content-secondary);
 }
@@ -75,7 +75,7 @@
 }
 
 .docs-prose li {
-  margin-bottom: 0.5rem;
+  margin-bottom: $m-2;
   line-height: 1.625;
 }
 
@@ -89,12 +89,12 @@
 }
 
 .docs-prose pre {
-  margin-bottom: 1rem;
+  margin-bottom: $m-4;
   overflow-x: auto;
   border-radius: $ph-radius-lg;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-subtle);
-  padding: $ph-space-4;
+  padding: $p-4;
 }
 
 .docs-prose pre code {
@@ -109,7 +109,7 @@
 }
 
 .docs-prose table {
-  margin-bottom: 1.5rem;
+  margin-bottom: $m-6;
   width: 100%;
   border-collapse: collapse;
   text-align: left;
@@ -118,19 +118,19 @@
 
 .docs-prose th {
   border-bottom: 1px solid ph-rgb(edge-subtle);
-  padding: $ph-space-2 $ph-space-3;
+  padding: $p-2 $p-3;
   font-weight: 600;
   color: ph-rgb(content);
 }
 
 .docs-prose td {
   border-bottom: 1px solid ph-rgb(edge-subtle);
-  padding: $ph-space-2 $ph-space-3;
+  padding: $p-2 $p-3;
   color: ph-rgb(content-secondary);
 }
 
 .docs-card-grid {
-  margin-bottom: 2rem;
+  margin-bottom: $m-8;
   display: grid;
   gap: 1rem;
 
@@ -143,7 +143,7 @@
   border-radius: $ph-radius-lg;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-raised);
-  padding: $ph-space-4;
+  padding: $p-4;
   box-shadow: var(--shadow-ds-card);
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 
@@ -153,7 +153,7 @@
   }
 
   h3 {
-    margin-bottom: 0.25rem;
+    margin-bottom: $m-1;
     margin-top: 0;
     font-family: $ph-font-serif;
     font-size: 1rem;
@@ -171,6 +171,6 @@
 }
 
 .docs-eyebrow {
-  margin-bottom: 0.75rem;
+  margin-bottom: $m-3;
   display: block;
 }

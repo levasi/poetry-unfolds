@@ -110,9 +110,43 @@ function selectAspectRatio(id: CarouselAspectRatioId) {
   nextTick(() => aspectRatioTriggerRef.value?.focus())
 }
 
-useHead({
+const config = useRuntimeConfig()
+const requestUrl = useRequestURL()
+const siteOrigin = computed(() => {
+  const configuredOrigin = String(config.public.appUrl || '')
+  return configuredOrigin && !configuredOrigin.includes('localhost')
+    ? configuredOrigin
+    : requestUrl.origin || configuredOrigin
+})
+const canonicalUrl = computed(() => new URL(route.path, siteOrigin.value).href)
+
+useSeoMeta({
   title: () => t('carousel.seoTitle'),
-  meta: [{ name: 'description', content: () => t('carousel.seoDesc') }],
+  description: () => t('carousel.seoDesc'),
+  robots: 'index, follow',
+  ogType: 'website',
+  ogTitle: () => t('carousel.seoTitle'),
+  ogDescription: () => t('carousel.seoDesc'),
+  ogUrl: () => canonicalUrl.value,
+  twitterCard: 'summary_large_image',
+  twitterTitle: () => t('carousel.seoTitle'),
+  twitterDescription: () => t('carousel.seoDesc'),
+})
+
+useHead({
+  link: [{ rel: 'canonical', href: canonicalUrl }],
+  script: [{
+    type: 'application/ld+json',
+    innerHTML: computed(() => JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: t('carousel.seoTitle'),
+      description: t('carousel.seoDesc'),
+      applicationCategory: 'DesignApplication',
+      operatingSystem: 'Web',
+      url: canonicalUrl.value,
+    })),
+  }],
 })
 
 const title = ref('')

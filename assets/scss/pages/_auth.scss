@@ -1,15 +1,15 @@
 @use '../design-system/tokens' as *;
 
 .auth-page__banner {
-  margin-bottom: 1rem;
+  margin-bottom: $m-4;
 }
 
 .auth-page__google {
-  margin-bottom: 0.5rem;
+  margin-bottom: $m-2;
 }
 
 .auth-page__footer {
-  margin-top: 1.5rem;
+  margin-top: $m-6;
   text-align: center;
   font-size: 0.875rem;
   color: ph-rgb(content-secondary);

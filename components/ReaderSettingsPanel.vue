@@ -130,39 +130,18 @@ watchEffect((onCleanup) => {
         class="reader-settings"
         role="dialog"
         aria-modal="true"
-        :aria-labelledby="id('title')"
+        :aria-label="t('nav.mobileSettings')"
         @click.stop
       >
         <div class="reader-settings__inner">
-          <div class="reader-settings__header">
-            <h2
-              :id="id('title')"
-              class="reader-settings__title"
-            >
-              {{ t('nav.mobileSettings') }}
-            </h2>
-            <button
-              type="button"
-              class="reader-settings__close"
-              :aria-label="t('viewer.closeReadingSettings')"
-              @click="close"
-            >
-              <Icon
-                icon="heroicons:x-mark"
-                class="reader-settings__close-icon"
-                aria-hidden="true"
-              />
-            </button>
-          </div>
-
-          <section class="reader-settings__theme">
-            <p class="reader-settings__label">
-              {{ t('nav.readingTheme') }}
-            </p>
-            <ColorSchemeSwatches variant="compact" />
-          </section>
-
           <div class="reader-settings__grid">
+            <section class="reader-settings__theme">
+              <p class="reader-settings__label">
+                {{ t('nav.readingTheme') }}
+              </p>
+              <ColorSchemeSwatches variant="compact" />
+            </section>
+
             <section class="reader-settings__font-section">
               <p class="reader-settings__label">
                 {{ t('viewer.font') }}
@@ -215,7 +194,7 @@ watchEffect((onCleanup) => {
             </section>
 
             <div class="reader-settings__controls">
-              <section class="reader-settings__control">
+              <section class="reader-settings__setting">
                 <p class="reader-settings__label reader-settings__label--tight">{{ t('viewer.fontSize') }}</p>
                 <div class="reader-settings__stepper">
                   <button
@@ -245,7 +224,7 @@ watchEffect((onCleanup) => {
                 </div>
               </section>
 
-              <section class="reader-settings__control">
+              <section class="reader-settings__setting">
                 <p class="reader-settings__label reader-settings__label--tight">{{ t('viewer.lineHeight') }}</p>
                 <div class="reader-settings__stepper">
                   <button
@@ -275,7 +254,7 @@ watchEffect((onCleanup) => {
                 </div>
               </section>
 
-              <section class="reader-settings__control">
+              <section class="reader-settings__setting">
                 <p class="reader-settings__label reader-settings__label--tight">{{ t('viewer.letterSpacing') }}</p>
                 <div class="reader-settings__stepper">
                   <button

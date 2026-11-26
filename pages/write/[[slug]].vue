@@ -14,10 +14,43 @@ definePageMeta({
 const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
+const config = useRuntimeConfig()
+const requestUrl = useRequestURL()
+const configuredOrigin = String(config.public.appUrl || '')
+const siteOrigin = computed(() =>
+  configuredOrigin && !configuredOrigin.includes('localhost')
+    ? configuredOrigin
+    : requestUrl.origin || configuredOrigin,
+)
+const canonicalUrl = computed(() => new URL('/write', siteOrigin.value).href)
+
+useSeoMeta({
+  title: () => t('write.seoTitle'),
+  description: () => t('write.seoDesc'),
+  robots: 'noindex, nofollow',
+  ogType: 'website',
+  ogTitle: () => t('write.seoTitle'),
+  ogDescription: () => t('write.seoDesc'),
+  ogUrl: () => canonicalUrl.value,
+  twitterCard: 'summary_large_image',
+  twitterTitle: () => t('write.seoTitle'),
+  twitterDescription: () => t('write.seoDesc'),
+})
 
 useHead({
-  title: () => t('write.seoTitle'),
-  meta: [{ name: 'description', content: () => t('write.seoDesc') }],
+  link: [{ rel: 'canonical', href: canonicalUrl }],
+  script: [{
+    type: 'application/ld+json',
+    innerHTML: computed(() => JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: t('write.seoTitle'),
+      description: t('write.seoDesc'),
+      applicationCategory: 'UtilitiesApplication',
+      operatingSystem: 'Web',
+      url: canonicalUrl.value,
+    })),
+  }],
 })
 
 const lyrics = useWriteLyricsStore()

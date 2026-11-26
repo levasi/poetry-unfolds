@@ -7,7 +7,7 @@
   border-radius: $ph-radius-md;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-raised);
-  padding: $ph-space-5;
+  padding: $p-5;
   box-shadow: var(--shadow-ds-card);
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 
@@ -64,7 +64,7 @@
 }
 
 .author-card__bio {
-  margin-top: 0.5rem;
+  margin-top: $m-2;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -75,7 +75,7 @@
 }
 
 .author-card__count {
-  margin-top: 0.5rem;
+  margin-top: $m-2;
   font-size: 0.75rem;
   color: ph-rgb(content-muted);
 }

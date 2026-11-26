@@ -9,20 +9,20 @@
 }
 
 .admin-page__header {
-  margin-bottom: 1.5rem;
+  margin-bottom: $m-6;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
 
   &--form {
-    margin-bottom: 1.5rem;
+    margin-bottom: $m-6;
     justify-content: flex-start;
     gap: 1rem;
   }
 
   &--dashboard {
-    margin-bottom: 2rem;
+    margin-bottom: $m-8;
   }
 }
 
@@ -47,7 +47,7 @@
 }
 
 .admin-page__eyebrow {
-  margin-bottom: 0.5rem;
+  margin-bottom: $m-2;
   color: ph-rgb(content-soft);
 }
 
@@ -56,7 +56,7 @@
   color: ph-rgb(content-secondary);
 
   &--muted {
-    margin-top: 1.5rem;
+    margin-top: $m-6;
     font-size: 0.875rem;
     color: ph-rgb(content-muted);
   }
@@ -77,15 +77,15 @@
 }
 
 .admin-page__search {
-  margin-bottom: 1rem;
+  margin-bottom: $m-4;
   width: 100%;
 }
 
 .admin-page__toast {
-  margin-bottom: 1rem;
+  margin-bottom: $m-4;
   border-radius: $ph-radius-sm;
   border: 1px solid;
-  padding: $ph-space-2-5 $ph-space-4;
+  padding: $ph-space-2-5 $p-4;
   font-size: 0.875rem;
 
   &--ok {
@@ -120,7 +120,7 @@
 }
 
 .admin-page__th {
-  padding: $ph-space-3 $ph-space-4;
+  padding: $p-3 $p-4;
   text-align: left;
   font-size: 0.75rem;
   font-weight: 600;
@@ -162,7 +162,7 @@
 }
 
 .admin-page__td {
-  padding: $ph-space-3 $ph-space-4;
+  padding: $p-3 $p-4;
   color: ph-rgb(content-muted);
 
   &--main {
@@ -236,7 +236,7 @@
 .admin-page__tag {
   border-radius: $ph-radius-full;
   background-color: ph-rgb(surface-subtle);
-  padding: $ph-space-0-5 $ph-space-2;
+  padding: $ph-space-0-5 $p-2;
   font-size: 0.75rem;
   color: ph-rgb(content-muted);
 }
@@ -249,7 +249,7 @@
 
 .admin-page__action {
   border-radius: $ph-radius-2xs;
-  padding: $ph-space-1 $ph-space-2;
+  padding: $p-1 $p-2;
   font-size: 0.75rem;
   color: ph-rgb(content-muted);
 
@@ -274,18 +274,18 @@
 }
 
 .admin-page__empty {
-  padding-block: $ph-space-10;
+  padding-block: $p-10;
   text-align: center;
   font-size: 0.875rem;
   color: ph-rgb(content-muted);
 }
 
 .admin-page__pagination {
-  margin-top: 1.5rem;
+  margin-top: $m-6;
 }
 
 .admin-page__stats {
-  margin-bottom: 2.5rem;
+  margin-bottom: $m-10;
   display: grid;
   gap: 1rem;
 
@@ -295,7 +295,7 @@
 }
 
 .admin-page__stat {
-  padding: $ph-space-6;
+  padding: $p-6;
 }
 
 .admin-page__stat-label {
@@ -307,7 +307,7 @@
 }
 
 .admin-page__stat-value {
-  margin-top: 0.5rem;
+  margin-top: $m-2;
   font-family: $ph-font-serif;
   font-size: 2.25rem;
   font-weight: 600;
@@ -332,7 +332,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: $ph-space-5;
+  padding: $p-5;
 }
 
 .admin-page__link-icon {
@@ -362,12 +362,12 @@
 }
 
 .admin-page__panel {
-  margin-top: 2.5rem;
-  padding: $ph-space-6;
+  margin-top: $m-10;
+  padding: $p-6;
 }
 
 .admin-page__panel-head {
-  margin-bottom: 1rem;
+  margin-bottom: $m-4;
   display: flex;
   align-items: flex-start;
   gap: 1rem;
@@ -390,11 +390,11 @@
 }
 
 .admin-page__result {
-  margin-bottom: 1rem;
+  margin-bottom: $m-4;
   border-radius: $ph-radius-md;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-subtle);
-  padding: $ph-space-3 $ph-space-4;
+  padding: $p-3 $p-4;
   font-size: 0.875rem;
   color: ph-rgb(content-secondary);
 }
@@ -405,7 +405,7 @@
 }
 
 .admin-page__danger-text {
-  margin-left: 0.5rem;
+  margin-left: $m-2;
   color: ph-rgb(danger);
 }
 
@@ -433,7 +433,7 @@
   border-radius: $ph-radius-sm;
   border: 1px solid rgb(254 202 202);
   background-color: rgb(254 242 242);
-  padding: $ph-space-3;
+  padding: $p-3;
   font-size: 0.875rem;
   color: rgb(185 28 28);
 }
@@ -447,13 +447,13 @@
 .admin-page__form-actions {
   display: flex;
   gap: 0.75rem;
-  padding-top: $ph-space-2;
+  padding-top: $p-2;
 }
 
 .admin-page__btn-brand {
   border-radius: $ph-radius-sm;
   background-color: ph-rgb(brand);
-  padding: $ph-space-2-5 $ph-space-5;
+  padding: $ph-space-2-5 $p-5;
   font-size: 0.875rem;
   font-weight: 500;
   color: #fff;
@@ -472,7 +472,7 @@
   border-radius: $ph-radius-sm;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-raised);
-  padding: $ph-space-2-5 $ph-space-5;
+  padding: $ph-space-2-5 $p-5;
   font-size: 0.875rem;
   color: ph-rgb(content-muted);
 
@@ -483,11 +483,11 @@
 }
 
 .admin-page__section {
-  margin-bottom: 2rem;
+  margin-bottom: $m-8;
   border-radius: $ph-radius-xl;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-raised);
-  padding: $ph-space-6;
+  padding: $p-6;
   box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
 
   &--last {
@@ -496,7 +496,7 @@
 }
 
 .admin-page__section-title {
-  margin-bottom: 0.25rem;
+  margin-bottom: $m-1;
   font-family: $ph-font-serif;
   font-size: 1.125rem;
   font-weight: 700;
@@ -504,13 +504,13 @@
 }
 
 .admin-page__section-desc {
-  margin-bottom: 1rem;
+  margin-bottom: $m-4;
   font-size: 0.75rem;
   color: ph-rgb(content-muted);
 }
 
 .admin-page__inline-field {
-  margin-bottom: 1rem;
+  margin-bottom: $m-4;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -526,7 +526,7 @@
   border-radius: $ph-radius-sm;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-subtle);
-  padding: $ph-space-1-5 $ph-space-3;
+  padding: $ph-space-1-5 $p-3;
   font-size: 0.875rem;
   color: ph-rgb(content);
   outline: none;
@@ -540,7 +540,7 @@
 .admin-page__btn-emerald {
   border-radius: $ph-radius-sm;
   background-color: rgb(5 150 105);
-  padding: $ph-space-2-5 $ph-space-5;
+  padding: $ph-space-2-5 $p-5;
   font-size: 0.875rem;
   font-weight: 500;
   color: #fff;
@@ -552,7 +552,7 @@
 .admin-page__btn-blue {
   border-radius: $ph-radius-sm;
   background-color: rgb(37 99 235);
-  padding: $ph-space-2-5 $ph-space-5;
+  padding: $ph-space-2-5 $p-5;
   font-size: 0.875rem;
   font-weight: 500;
   color: #fff;
@@ -564,7 +564,7 @@
 .admin-page__btn-violet {
   border-radius: $ph-radius-sm;
   background-color: rgb(124 58 237);
-  padding: $ph-space-2-5 $ph-space-5;
+  padding: $ph-space-2-5 $p-5;
   font-size: 0.875rem;
   font-weight: 500;
   color: #fff;
@@ -574,9 +574,9 @@
 }
 
 .admin-page__result-box {
-  margin-top: 1rem;
+  margin-top: $m-4;
   border-radius: $ph-radius-sm;
-  padding: $ph-space-3;
+  padding: $p-3;
   font-size: 0.875rem;
 
   &--ok {
@@ -593,12 +593,12 @@
 }
 
 .admin-page__json {
-  margin-bottom: 1rem;
+  margin-bottom: $m-4;
   width: 100%;
   border-radius: $ph-radius-sm;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-subtle);
-  padding: $ph-space-2-5 $ph-space-3;
+  padding: $ph-space-2-5 $p-3;
   font-family: $ph-font-mono;
   font-size: 0.75rem;
   color: ph-rgb(content);
@@ -611,7 +611,7 @@
 }
 
 .admin-page__chip-row {
-  margin-bottom: 1.5rem;
+  margin-bottom: $m-6;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -620,7 +620,7 @@
 .admin-page__chip {
   border-radius: $ph-radius-full;
   border: 1px solid ph-rgb(edge-subtle);
-  padding: $ph-space-1-5 $ph-space-4;
+  padding: $ph-space-1-5 $p-4;
   font-size: 0.875rem;
   transition: border-color 0.15s ease, background-color 0.15s ease;
 
@@ -632,7 +632,7 @@
 }
 
 .admin-page__range-row {
-  margin-bottom: 1.5rem;
+  margin-bottom: $m-6;
   display: flex;
   max-width: 28rem;
   align-items: center;
@@ -657,13 +657,13 @@
 }
 
 .admin-page__select {
-  margin-bottom: 1.5rem;
+  margin-bottom: $m-6;
   width: 100%;
   max-width: 28rem;
   border-radius: $ph-radius-md;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-raised);
-  padding: $ph-space-2 $ph-space-3;
+  padding: $p-2 $p-3;
   font-size: 0.875rem;
   color: ph-rgb(content);
   outline: none;
@@ -674,13 +674,13 @@
 }
 
 .admin-page__text-input {
-  margin-bottom: 0.5rem;
+  margin-bottom: $m-2;
   width: 100%;
   max-width: 32rem;
   border-radius: $ph-radius-md;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-raised);
-  padding: $ph-space-2 $ph-space-3;
+  padding: $p-2 $p-3;
   font-size: 0.875rem;
   color: ph-rgb(content);
   outline: none;
@@ -690,7 +690,7 @@
   }
 
   &--cta {
-    margin-bottom: 1rem;
+    margin-bottom: $m-4;
     background-color: ph-rgb(surface-page);
     font-family: $ph-font-sans;
 
@@ -702,14 +702,14 @@
 }
 
 .admin-page__hint {
-  margin-bottom: 1.5rem;
+  margin-bottom: $m-6;
   max-width: 36rem;
   font-size: 0.75rem;
   color: ph-rgb(content-muted);
 }
 
 .admin-page__warn {
-  margin-bottom: 0.75rem;
+  margin-bottom: $m-3;
   max-width: 36rem;
   font-size: 0.875rem;
   color: rgb(146 64 14);
@@ -717,14 +717,14 @@
 
 .admin-page__divider {
   border-top: 1px solid ph-rgb(edge-subtle);
-  padding-top: $ph-space-8;
+  padding-top: $p-8;
 
   &--actions {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 0.75rem;
-    padding-top: $ph-space-6;
+    padding-top: $p-6;
   }
 }
 
@@ -736,7 +736,7 @@
 .admin-page__owner-note {
   font-size: 0.625rem;
   color: ph-rgb(content-soft);
-  margin-top: 0.25rem;
+  margin-top: $m-1;
 }
 
 .admin-page__email-mobile {
@@ -751,7 +751,7 @@
 .admin-page__new-btn {
   border-radius: $ph-radius-sm;
   background-color: ph-rgb(brand);
-  padding: $ph-space-2 $ph-space-4;
+  padding: $p-2 $p-4;
   font-size: 0.875rem;
   font-weight: 500;
   color: #fff;
@@ -781,7 +781,7 @@
   border-radius: $ph-radius-sm;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-subtle);
-  padding: $ph-space-2-5 $ph-space-3;
+  padding: $ph-space-2-5 $p-3;
   font-size: 0.875rem;
   color: ph-rgb(content);
   outline: none;
@@ -815,7 +815,7 @@
 }
 
 .admin-page__checkbox {
-  margin-top: 0.25rem;
+  margin-top: $m-1;
   height: 1rem;
   width: 1rem;
   border-radius: $ph-radius-2xs;
@@ -824,17 +824,17 @@
 }
 
 .admin-page__saving {
-  margin-top: 0.75rem;
+  margin-top: $m-3;
   font-size: 0.875rem;
   color: ph-rgb(content-muted);
 }
 
 .admin-page__card-block {
-  margin-top: 2.5rem;
+  margin-top: $m-10;
   border-radius: $ph-radius-lg;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-raised);
-  padding: $ph-space-6;
+  padding: $p-6;
   box-shadow: var(--shadow-ds-card);
 
   &--stack {
@@ -845,23 +845,23 @@
 }
 
 .admin-page__card-title {
-  margin-bottom: 0.5rem;
+  margin-bottom: $m-2;
   font-family: $ph-font-serif;
   font-size: 1.125rem;
   font-weight: 600;
   color: ph-rgb(content);
 
   &--mb4 {
-    margin-bottom: 1rem;
+    margin-bottom: $m-4;
   }
 
   &--mb2 {
-    margin-bottom: 0.5rem;
+    margin-bottom: $m-2;
   }
 }
 
 .admin-page__card-desc {
-  margin-bottom: 1.5rem;
+  margin-bottom: $m-6;
   max-width: 36rem;
   font-size: 0.875rem;
   color: ph-rgb(content-secondary);
@@ -870,7 +870,7 @@
 
 .admin-page__font-select {
   display: block;
-  margin-bottom: 1.5rem;
+  margin-bottom: $m-6;
   max-width: 28rem;
 }
 
@@ -883,7 +883,7 @@
 .admin-page__tag-chip {
   border-radius: $ph-radius-full;
   border: 1px solid ph-rgb(edge-subtle);
-  padding: $ph-space-0-5 $ph-space-3;
+  padding: $ph-space-0-5 $p-3;
   font-size: 0.75rem;
   transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 
@@ -895,7 +895,7 @@
 }
 
 .admin-page__hint-inline {
-  margin-top: 0.25rem;
+  margin-top: $m-1;
   font-size: 0.75rem;
   color: ph-rgb(content-muted);
 }

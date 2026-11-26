@@ -128,6 +128,7 @@ const hasTitleAside = computed(() => !!slots.titleAside)
             :slug="poem.slug"
             :variant="titleVariant"
             :poem-id="poemIdForTitle"
+            :show-actions="variant !== 'pdp'"
             class="poem-title--flush"
           />
         </div>
@@ -142,6 +143,7 @@ const hasTitleAside = computed(() => !!slots.titleAside)
       :slug="poem.slug"
       :variant="titleVariant"
       :poem-id="poemIdForTitle"
+      :show-actions="variant !== 'pdp'"
     />
 
     <p
@@ -152,20 +154,30 @@ const hasTitleAside = computed(() => !!slots.titleAside)
       {{ writtenContextLine }}
     </p>
 
-    <NuxtLink
+    <div
       v-if="showAuthor && author && variant === 'pdp'"
-      :to="`/authors/${author.slug}`"
-      class="poem-reader__author"
+      class="poem-reader__author-actions"
     >
-      <img
-        :src="authorAvatar"
-        alt=""
-        loading="lazy"
-        class="poem-reader__author-avatar"
+      <NuxtLink
+        :to="`/authors/${author.slug}`"
+        class="poem-reader__author"
       >
-      <span class="poem-reader__author-name">&mdash;
-        {{ author.name }}</span>
-    </NuxtLink>
+        <img
+          :src="authorAvatar"
+          alt=""
+          loading="lazy"
+          class="poem-reader__author-avatar"
+        >
+        <span class="poem-reader__author-name">&mdash;
+          {{ author.name }}</span>
+      </NuxtLink>
+      <PoemTitleActions
+        :title="poem.title"
+        :slug="poem.slug"
+        :poem-id="poemIdForTitle"
+        variant="pdp"
+      />
+    </div>
 
     <NuxtLink
       v-else-if="showAuthor && author && variant === 'banner'"

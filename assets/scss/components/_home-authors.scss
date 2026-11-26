@@ -1,12 +1,12 @@
 @use '../design-system/tokens' as *;
 
 .home-authors__header {
-  margin-bottom: 0.75rem;
+  margin-bottom: $m-3;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
-  padding-inline: $ph-space-1;
+  padding-inline: $p-1;
 }
 
 .home-authors__heading {
@@ -17,8 +17,8 @@
   color: ph-rgb(content-soft);
 
   &--shelf {
-    margin-bottom: 0.75rem;
-    padding-inline: $ph-space-1;
+    margin-bottom: $m-3;
+    padding-inline: $p-1;
   }
 }
 
@@ -34,7 +34,7 @@
 
 .home-authors__search {
   position: relative;
-  margin-bottom: 0.75rem;
+  margin-bottom: $m-3;
 }
 
 .home-authors__search-icon {
@@ -52,7 +52,7 @@
   border-radius: $ph-radius-full;
   border: 0;
   background-color: ph-rgb(surface-subtle);
-  padding: $ph-space-2 $ph-space-3 $ph-space-2 $ph-space-9;
+  padding: $p-2 $p-3 $p-2 $p-9;
   font-size: 0.875rem;
   color: ph-rgb(content);
   outline: none;
@@ -71,7 +71,7 @@
 .home-authors__pending {
   display: flex;
   justify-content: center;
-  padding-block: $ph-space-8;
+  padding-block: $p-8;
 }
 
 .home-authors__spinner {
@@ -88,7 +88,7 @@
   display: flex;
   gap: 0.5rem;
   overflow-x: auto;
-  padding-bottom: $ph-space-1;
+  padding-bottom: $p-1;
   scrollbar-width: thin;
 }
 
@@ -101,7 +101,7 @@
   border-radius: $ph-radius-full;
   border: 1px solid ph-rgb(edge-subtle);
   background-color: ph-rgb(surface-raised);
-  padding: $ph-space-1-5 $ph-space-3;
+  padding: $ph-space-1-5 $p-3;
   color: ph-rgb(content-secondary);
   transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 
@@ -172,7 +172,7 @@
 }
 
 .home-authors__empty {
-  padding-block: $ph-space-4;
+  padding-block: $p-4;
   text-align: center;
   font-size: 0.875rem;
   color: ph-rgb(content-muted);

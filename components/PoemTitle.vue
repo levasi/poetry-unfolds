@@ -1,10 +1,4 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue'
-import { useFavorites } from '~/composables/useFavorites'
-
-const { t } = useI18n()
-const { toggle, isFavorite } = useFavorites()
-
 /**
  * Poem title + optional Instagram / carousel shortcut. Use `pdp` on poem detail, `banner` on home hero.
  * Set `instagramSize` to override the default icon scale.
@@ -20,35 +14,13 @@ const props = withDefaults(
     instagramSize?: 'xs' | 'sm' | 'md' | 'lg'
     /** When set, shows favorite toggle (same behavior as PoetryCard). */
     poemId?: string
+    /** Hide inline actions when the reader renders them beside the author instead. */
+    showActions?: boolean
   }>(),
-  { showCarousel: true, instagramSize: 'sm' },
+  { showCarousel: true, instagramSize: 'sm', showActions: true },
 )
 
-const liked = computed(() => (props.poemId ? isFavorite(props.poemId) : false))
-
 const heading = computed(() => (props.variant === 'pdp' ? 'h1' : 'h3'))
-
-const showActions = computed(() => Boolean(props.poemId || props.showCarousel))
-
-const copied = ref(false)
-
-async function sharePoem() {
-  if (!import.meta.client) return
-  const url = window.location.href
-  if (navigator.share) {
-    try {
-      await navigator.share({ title: props.title, url })
-      return
-    } catch {
-      // cancelled — fall through
-    }
-  }
-  await navigator.clipboard.writeText(url)
-  copied.value = true
-  window.setTimeout(() => {
-    copied.value = false
-  }, 2000)
-}
 </script>
 
 <template>
@@ -64,42 +36,14 @@ async function sharePoem() {
     >
       {{ title }}
     </component>
-    <div
+    <PoemTitleActions
       v-if="showActions"
-      class="poem-title__actions"
-    >
-      <button
-        v-if="poemId"
-        type="button"
-        class="poem-title__action"
-        :class="{ 'poem-title__action--liked': liked }"
-        :aria-label="liked ? t('card.favoriteRemove') : t('card.favoriteAdd')"
-        @click.prevent="poemId && toggle(poemId)"
-      >
-        <Icon
-          :icon="liked ? 'heroicons:heart-solid' : 'heroicons:heart'"
-          class="poem-title__action-icon"
-          aria-hidden="true"
-        />
-      </button>
-      <button
-        v-if="poemId"
-        type="button"
-        class="poem-title__action"
-        :aria-label="copied ? t('viewer.linkCopied') : t('viewer.sharePoem')"
-        @click.prevent="sharePoem"
-      >
-        <Icon
-          icon="heroicons:share"
-          class="poem-title__action-icon"
-          aria-hidden="true"
-        />
-      </button>
-      <PoemCarouselIcon
-        v-if="showCarousel"
-        :slug="slug"
-        :size="instagramSize"
-      />
-    </div>
+      :title="title"
+      :slug="slug"
+      :variant="variant"
+      :poem-id="poemId"
+      :show-carousel="showCarousel"
+      :instagram-size="instagramSize"
+    />
   </div>
 </template>
