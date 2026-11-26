@@ -39,9 +39,6 @@ export default defineEventHandler(async (event) => {
     orderBy: { createdAt: 'asc' },
   })
 
-  // Count remaining BEFORE processing so we can tell the caller if there's more
-  const totalRemaining = await prisma.poem.count({ where: whereClause })
-
   let enriched = 0
   const errors: string[] = []
 
